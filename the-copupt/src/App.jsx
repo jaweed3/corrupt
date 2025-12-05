@@ -19,7 +19,42 @@ import {
   LogOut,
   Play,
   Power,
+  Info,
+  Github,
+  Linkedin,
 } from "lucide-react";
+
+// --- DATA PEMBUAT (CREDITS) ---
+const CREATORS = [
+  {
+    id: 1,
+    name: "Nama Pembuat 1",
+    role: "Lead Developer",
+    quote: "Menulis kode, mengatur logika.",
+    color: "bg-blue-900/50 border-blue-700",
+  },
+  {
+    id: 2,
+    name: "Nama Pembuat 2",
+    role: "UI/UX Designer",
+    quote: "Merancang antarmuka yang kelam.",
+    color: "bg-purple-900/50 border-purple-700",
+  },
+  {
+    id: 3,
+    name: "Nama Pembuat 3",
+    role: "Story Writer",
+    quote: "Menyusun skenario politik.",
+    color: "bg-amber-900/50 border-amber-700",
+  },
+  {
+    id: 4,
+    name: "Nama Pembuat 4",
+    role: "Quality Assurance",
+    quote: "Memastikan tidak ada bug lolos.",
+    color: "bg-green-900/50 border-green-700",
+  },
+];
 
 // --- DATABASE CERITA (Sama seperti sebelumnya) ---
 
@@ -399,8 +434,8 @@ const SCENARIOS = [
 // --- COMPONENTS ---
 
 export default function App() {
-  // VIEW STATES: SPLASH, LOBBY, STORY_INTRO, PLAYING, END
-  const [viewState, setViewState] = useState("SPLASH"); // Ubah state awal jadi SPLASH
+  // VIEW STATES: SPLASH, LOBBY, CREDITS, STORY_INTRO, PLAYING, END
+  const [viewState, setViewState] = useState("SPLASH");
   const [selectedScenarioId, setSelectedScenarioId] = useState(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -422,6 +457,11 @@ export default function App() {
 
   const enterLobby = () => {
     setViewState("LOBBY");
+  };
+
+  const goToCredits = () => {
+    setViewState("CREDITS");
+    setIsMenuOpen(false);
   };
 
   const selectScenario = (id) => {
@@ -514,7 +554,9 @@ export default function App() {
             <div
               className="flex items-center gap-2 cursor-pointer hover:opacity-80 transition-opacity"
               onClick={
-                viewState === "LOBBY" ? () => {} : () => setIsMenuOpen(true)
+                viewState === "LOBBY" || viewState === "CREDITS"
+                  ? enterLobby
+                  : () => setIsMenuOpen(true)
               }
             >
               <Briefcase className="text-amber-600" size={24} />
@@ -525,11 +567,20 @@ export default function App() {
 
             {/* Right Action Section */}
             <div className="flex items-center gap-4">
-              {viewState === "LOBBY" ? (
-                <div className="text-xs text-slate-500 font-mono hidden md:block">
-                  BUILD v1.3.0 - ESTAMBOR ARCHIVES
-                </div>
-              ) : (
+              {/* CREDITS BUTTON (Only in Lobby) */}
+              {viewState === "LOBBY" && (
+                <button
+                  onClick={goToCredits}
+                  className="flex items-center gap-2 px-3 py-1.5 hover:bg-slate-800 rounded-full text-slate-400 hover:text-amber-500 transition-colors text-sm"
+                  title="Tentang Pembuat"
+                >
+                  <Info size={18} />
+                  <span className="hidden sm:inline">Kredit</span>
+                </button>
+              )}
+
+              {/* GAME MENU BUTTON (Only in Game) */}
+              {viewState !== "LOBBY" && viewState !== "CREDITS" && (
                 <button
                   onClick={toggleMenu}
                   className="flex items-center gap-2 px-4 py-2 bg-slate-800 hover:bg-slate-700 rounded-full border border-slate-700 transition-colors text-sm font-bold text-slate-300"
@@ -546,7 +597,7 @@ export default function App() {
       )}
 
       {/* --- MENU OVERLAY (Saat di dalam game) --- */}
-      {isMenuOpen && viewState !== "LOBBY" && (
+      {isMenuOpen && viewState !== "LOBBY" && viewState !== "CREDITS" && (
         <div className="fixed inset-0 z-40 bg-slate-900/95 backdrop-blur-sm flex items-center justify-center p-4 animate-in fade-in duration-200">
           <div className="max-w-md w-full bg-slate-800 border-2 border-amber-700 rounded-lg p-8 shadow-2xl relative">
             <button
@@ -566,14 +617,6 @@ export default function App() {
                 className="w-full p-4 bg-amber-800 hover:bg-amber-700 text-white rounded font-bold flex items-center justify-center gap-3 transition-all transform hover:scale-[1.02]"
               >
                 <Play size={20} /> LANJUTKAN
-              </button>
-
-              {/* Placeholder for future settings */}
-              <button
-                className="w-full p-4 bg-slate-700 hover:bg-slate-600 text-slate-300 rounded font-bold flex items-center justify-center gap-3 transition-colors opacity-50 cursor-not-allowed"
-                title="Segera Hadir"
-              >
-                <Settings size={20} /> PENGATURAN
               </button>
 
               <button
@@ -626,6 +669,58 @@ export default function App() {
 
             <div className="absolute bottom-8 text-xs text-slate-700 font-mono">
               SECURE CONNECTION ESTABLISHED...
+            </div>
+          </div>
+        )}
+
+        {/* --- CREDITS VIEW (New) --- */}
+        {viewState === "CREDITS" && (
+          <div className="w-full max-w-4xl flex flex-col gap-8 animate-fade-in py-8">
+            {/* Header Credits */}
+            <div className="text-center space-y-2 mb-8 relative">
+              <button
+                onClick={backToLobby}
+                className="absolute top-0 left-0 text-slate-500 hover:text-slate-300 flex items-center gap-1 text-sm"
+              >
+                <ArrowLeft size={16} /> Kembali
+              </button>
+              <h1 className="text-4xl font-bold tracking-widest text-slate-100 uppercase">
+                Arsitek Sistem
+              </h1>
+              <p className="text-xl text-slate-400 font-light tracking-wide">
+                Tim di Balik Layar
+              </p>
+              <div className="w-24 h-1 bg-amber-700 mx-auto mt-4"></div>
+            </div>
+
+            {/* Grid Creators */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {CREATORS.map((creator) => (
+                <div
+                  key={creator.id}
+                  className={`bg-slate-800 border-2 ${creator.color} p-6 rounded-lg shadow-xl flex items-center gap-4 hover:scale-[1.02] transition-transform`}
+                >
+                  <div className="w-16 h-16 bg-slate-900 rounded-full flex items-center justify-center border-2 border-slate-600 flex-shrink-0">
+                    <Users className="text-slate-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-bold text-slate-200">
+                      {creator.name}
+                    </h3>
+                    <div className="text-amber-500 font-mono text-xs uppercase tracking-wider mb-1">
+                      {creator.role}
+                    </div>
+                    <p className="text-slate-400 text-sm italic">
+                      "{creator.quote}"
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 text-center text-slate-600 text-sm max-w-lg mx-auto">
+              Terima kasih telah memainkan simulasi ini. Kritik dan saran dapat
+              disampaikan melalui saluran komunikasi resmi Estambor.
             </div>
           </div>
         )}
