@@ -10,7 +10,7 @@ export const CREATORS = [
     id: 2,
     name: "Farrel Ghozy Affifudin",
     role: "Frontend Developer",
-    quote: "Estetika hal mahal yang tidak bisa di korupsi.",
+    quote: "Estetika adalah hal mahal yang tidak bisa di korupsi.",
     color: "border-purple-500",
   },
   {
