@@ -1,0 +1,407 @@
+{
+  "story_id": "ketua_partai_yeska",
+  "title": "Yeska: Sang Populist dan Etika",
+  "role_name": "Yeska",
+  "description": "Anda adalah Yeska, Ketua Umum Partai Bhumi Krida (PBK) yang idealis namun ambisius. Anda terkenal karena janji populisme anti-korupsi. Kini, Anda harus menghadapi dilema antara janji dan realitas politik.",
+  "chapters": {
+    "chapter1": {
+      "title": "Dilema Lahan Konservasi",
+      "background": "Untuk mewujudkan janji ketahanan pangan, Anda mengusulkan proyek raksasa pembukaan lahan pertanian di wilayah konservasi ekologis. Proyek ini populis di kalangan petani kecil, tetapi ditentang keras oleh aktivis lingkungan dan fraksi idealis di partainya.",
+      "dilemma": "Haruskah Yeska memaksakan proyek ini demi janji populis dan dukungan petani, atau menghentikannya demi menjaga lingkungan dan etika partai?",
+      "options": {
+        "A": {
+          "text": "Konservasi & Teknologi: Mengalihkan dana besar ke proyek intensifikasi pertanian di lahan yang sudah ada.",
+          "money": "-20000 (Biaya R&D dan infrastruktur teknologi tinggi)",
+          "trust": "+20 (Kepercayaan fraksi idealis dan aktivis, citra progresif)",
+          "risk": "-15 (Kekecewaan sementara dari basis petani tradisional)",
+          "next_chapter": "chapter2_A"
+        },
+        "B": {
+          "text": "Menggunakan pengaruhnya sebagai Ketua Partai untuk mempercepat izin proyek dan meredam protes lingkungan.",
+          "money": "-15000 (Dana meredam protes dan lobi birokrasi)",
+          "trust": "-25 (Citra melanggar etika lingkungan, konflik internal)",
+          "risk": "+20 (Jaminan dukungan petani, risiko skandal lingkungan)",
+          "next_chapter": "chapter2_B"
+        }
+      }
+    },
+    "chapter2_A": {
+      "title": "Kasus Suap Jual Beli Jabatan",
+      "background": "Anda menerima laporan bahwa Wakil Ketua Partai Anda terlibat dalam kasus suap jual beli jabatan di kementerian yang dipimpin PBK, melibatkan dana besar yang mengalir ke kas partai. Janji anti-korupsi Anda diuji.",
+      "dilemma": "Haruskah Yeska melindungi wakil ketua dan dana partai, atau membersihkan partai sesuai janjinya, meskipun itu berarti merusak citra internal PBK?",
+      "options": {
+        "A": {
+          "text": "Reformasi Internal: Menginstruksikan audit independen terhadap seluruh proses rekrutmen jabatan politik dan membuat sistem yang transparan.",
+          "money": "-10000 (Biaya audit dan sistem baru)",
+          "trust": "+30 (Integritas terjaga, pahlawan anti-korupsi)",
+          "risk": "-35 (Perpecahan parah dalam internal partai)",
+          "next_chapter": "chapter3_A"
+        },
+        "B": {
+          "text": "Negosiasi Senyap: Mendorong Wakil Ketua untuk mengundurkan diri secara 'terhormat' dengan alasan kesehatan, dan mengembalikan dana tersebut secara diam-diam ke kas partai.",
+          "money": "0",
+          "trust": "-10 (Mengorbankan etika demi stabilitas, rawan bocor)",
+          "risk": "+10 (Stabilitas partai terjaga sementara)",
+          "next_chapter": "chapter3_B"
+        }
+      }
+    },
+    "chapter2_B": {
+      "title": "Kasus Suap Jual Beli Jabatan",
+      "background": "Anda menerima laporan bahwa Wakil Ketua Partai Anda terlibat dalam kasus suap jual beli jabatan di kementerian yang dipimpin PBK, melibatkan dana besar yang mengalir ke kas partai. Janji anti-korupsi Anda diuji.",
+      "dilemma": "Haruskah Yeska melindungi wakil ketua dan dana partai, atau membersihkan partai sesuai janjinya, meskipun itu berarti merusak citra internal PBK?",
+      "options": {
+        "A": {
+          "text": "Reformasi Internal: Menginstruksikan audit independen terhadap seluruh proses rekrutmen jabatan politik dan membuat sistem yang transparan.",
+          "money": "-15000 (Biaya audit dan sistem baru)",
+          "trust": "+30 (Integritas terjaga, pahlawan anti-korupsi)",
+          "risk": "-30 (Perpecahan parah dalam internal partai)",
+          "next_chapter": "chapter3_A"
+        },
+        "B": {
+          "text": "Negosiasi Senyap: Mendorong Wakil Ketua untuk mengundurkan diri secara 'terhormat' dengan alasan kesehatan, dan mengembalikan dana tersebut secara diam-diam ke kas partai.",
+          "money": "0",
+          "trust": "-15 (Mengorbankan etika demi stabilitas, rawan bocor)",
+          "risk": "+10 (Stabilitas partai terjaga sementara)",
+          "next_chapter": "chapter3_B"
+        }
+      }
+    },
+    "chapter3_A": {
+      "title": "Skema Dana Hibah Abu-abu",
+      "background": "Mendekati pemilu lokal, partai Anda kekurangan dana kampanye. Salah satu kepala daerah PBK menawarkan skema: menyalurkan dana hibah pemda yang besar kepada nirlaba terafiliasi PBK, sebagai dana kampanye terselubung.",
+      "dilemma": "Haruskah Yeska menerima skema dana hibah yang abu-abu ini demi memenangkan pemilu, atau menjauhinya dan menghadapi kekalahan finansial?",
+      "options": {
+        "A": {
+          "text": "Memberi Janji: Menyetujui skema tersebut dan berjanji kepada kepala daerah.",
+          "money": "+30000 (Dana kampanye besar)",
+          "trust": "-20 (Risiko penyalahgunaan dana publik, hipokrisi)",
+          "risk": "+30 (Risiko ditangkap atau skandal besar)",
+          "next_chapter": "chapter4_A"
+        },
+        "B": {
+          "text": "Penggalangan Dana Transparan: Melakukan kampanye penggalangan dana publik (crowdfunding) yang etis dan transparan.",
+          "money": "+15000 (Dana kampanye terbatas)",
+          "trust": "+20 (Integritas finansial, dukungan publik idealis)",
+          "risk": "-15 (Risiko kalah pemilu karena kekurangan dana)",
+          "next_chapter": "chapter4_B"
+        }
+      }
+    },
+    "chapter3_B": {
+      "title": "Skema Dana Hibah Abu-abu",
+      "background": "Mendekati pemilu lokal, partai Anda kekurangan dana kampanye. Salah satu kepala daerah PBK menawarkan skema: menyalurkan dana hibah pemda yang besar kepada nirlaba terafiliasi PBK, sebagai dana kampanye terselubung.",
+      "dilemma": "Haruskah Yeska menerima skema dana hibah yang abu-abu ini demi memenangkan pemilu, atau menjauhinya dan menghadapi kekalahan finansial?",
+      "options": {
+        "A": {
+          "text": "Memberi Janji: Menyetujui skema tersebut dan berjanji kepada kepala daerah.",
+          "money": "+30000 (Dana kampanye besar)",
+          "trust": "-25 (Risiko penyalahgunaan dana publik, hipokrisi)",
+          "risk": "+30 (Risiko ditangkap atau skandal besar)",
+          "next_chapter": "chapter4_A"
+        },
+        "B": {
+          "text": "Penggalangan Dana Transparan: Melakukan kampanye penggalangan dana publik (crowdfunding) yang etis dan transparan.",
+          "money": "+15000 (Dana kampanye terbatas)",
+          "trust": "+20 (Integritas finansial, dukungan publik idealis)",
+          "risk": "+15 (Risiko kalah pemilu karena kekurangan dana)",
+          "next_chapter": "chapter4_B"
+        }
+      }
+    },
+    "chapter4_A": {
+      "title": "Kickback Proyek KTP",
+      "background": "Anda ditawari kickback fantastis dari konsorsium yang memenangkan proyek pengadaan KTP. Imbalannya adalah proyek lancar dan alokasi dana tidak diganggu gugat Parlemen. Ini bisa menjamin kekayaan pribadi dan stabilitas partai.",
+      "dilemma": "Haruskah Yeska menerima kickback, atau melaporkan upaya penyuapan ini?",
+      "options": {
+        "A": {
+          "text": "Operasi Tangkap Tangan: Bekerja sama dengan KPK untuk melakukan Operasi Tangkap Tangan (OTT) terhadap konsorsium tersebut.",
+          "money": "+15000",
+          "trust": "+30 (Pahlawan anti-korupsi nasional)",
+          "risk": "+10 (Balas dendam politik dari konsorsium dan faksi terkait)",
+          "next_chapter": "chapter5_A"
+        },
+        "B": {
+          "text": "Mengamankan masa depan finansialnya, dan memastikan proyek berjalan tanpa hambatan.",
+          "money": "+40000 (Kekayaan Pribadi Besar)",
+          "trust": "-15 (Kehancuran janji populis dan etika)",
+          "risk": "+20 (Risiko terbesar skandal dan penangkapan)",
+          "next_chapter": "chapter5_B"
+        }
+      }
+    },
+    "chapter4_B": {
+      "title": "Kickback Proyek KTP",
+      "background": "Anda ditawari kickback fantastis dari konsorsium yang memenangkan proyek pengadaan KTP. Imbalannya adalah proyek lancar dan alokasi dana tidak diganggu gugat Parlemen. Ini bisa menjamin kekayaan pribadi dan stabilitas partai.",
+      "dilemma": "Haruskah Yeska menerima kickback, atau melaporkan upaya penyuapan ini?",
+      "options": {
+        "A": {
+          "text": "Operasi Tangkap Tangan: Bekerja sama dengan KPK untuk melakukan Operasi Tangkap Tangan (OTT) terhadap konsorsium tersebut.",
+          "money": "+10000",
+          "trust": "+20 (Pahlawan anti-korupsi nasional)",
+          "risk": "+15 (Balas dendam politik dari konsorsium dan faksi terkait)",
+          "next_chapter": "chapter5_A"
+        },
+        "B": {
+          "text": "Mengamankan masa depan finansialnya, dan memastikan proyek berjalan tanpa hambatan.",
+          "money": "+20000 (Kekayaan Pribadi Besar)",
+          "trust": "+10 (Kehancuran janji populis dan etika)",
+          "risk": "+35 (Risiko terbesar skandal dan penangkapan)",
+          "next_chapter": "chapter5_B"
+        }
+      }
+    },
+    "chapter5_A": {
+      "title": "Kaderisasi: Loyalitas vs. Kompetensi",
+      "background": "Untuk mengamankan masa depan partai, Anda ingin mengubah mekanisme kaderisasi. Anda mengusulkan loyalitas ideologis (terhadap filosofi pendiri dan diri Anda) menjadi kriteria utama untuk posisi penting, mengabaikan kompetensi teknis.",
+      "dilemma": "Haruskah Yeska memprioritaskan keseragaman ideologis demi stabilitas internal, atau memilih kader yang kompeten namun mungkin kurang loyal secara pribadi?",
+      "options": {
+        "A": {
+          "text": "Keseimbangan: Menciptakan mekanisme penilaian ganda yang menimbang 50% loyalitas ideologis dan 50% kompetensi teknis/elektabilitas.",
+          "money": "+15000",
+          "trust": "+10 (Dukungan moderat dari semua faksi)",
+          "risk": "-10 (Perlambatan pengambilan keputusan)",
+          "next_chapter": "chapter6_A"
+        },
+        "B": {
+          "text": "The Purge: Secara terbuka menyingkirkan faksi-faksi senior yang memiliki basis kekuatan dan kompetensi tinggi.",
+          "money": "-20000 (Biaya politik pembersihan)",
+          "trust": "+20 (Citra otoriter, kehilangan kader terbaik)",
+          "risk": "+20 (Risiko perpecahan besar dan pembentukan partai baru)",
+          "next_chapter": "chapter6_B"
+        }
+      }
+    },
+    "chapter5_B": {
+      "title": "Kaderisasi: Loyalitas vs. Kompetensi",
+      "background": "Untuk mengamankan masa depan partai, Anda ingin mengubah mekanisme kaderisasi. Anda mengusulkan loyalitas ideologis (terhadap filosofi pendiri dan diri Anda) menjadi kriteria utama untuk posisi penting, mengabaikan kompetensi teknis.",
+      "dilemma": "Haruskah Yeska memprioritaskan keseragaman ideologis demi stabilitas internal, atau memilih kader yang kompeten namun mungkin kurang loyal secara pribadi?",
+      "options": {
+        "A": {
+          "text": "Keseimbangan: Menciptakan mekanisme penilaian ganda yang menimbang 50% loyalitas ideologis dan 50% kompetensi teknis/elektabilitas.",
+          "money": "+15000",
+          "trust": "+10 (Dukungan moderat dari semua faksi)",
+          "risk": "+5 (Perlambatan pengambilan keputusan)",
+          "next_chapter": "chapter6_A"
+        },
+        "B": {
+          "text": "The Purge: Secara terbuka menyingkirkan faksi-faksi senior yang memiliki basis kekuatan dan kompetensi tinggi.",
+          "money": "-15000 (Biaya politik pembersihan)",
+          "trust": "+20 (Citra otoriter, kehilangan kader terbaik)",
+          "risk": "+20 (Risiko perpecahan besar dan pembentukan partai baru)",
+          "next_chapter": "chapter6_B"
+        }
+      }
+    },
+    "chapter6_A": {
+      "title": "Godaan Populisme Radikal",
+      "background": "Melihat popularitas Anda merosot, Anda dihadapkan pada godaan untuk menggunakan populisme yang lebih radikal. Anda bisa mengubah dasar partai, meninggalkan sentrisme dan merangkul retorika ekstremis demi dukungan besar instan, meskipun itu memecah belah bangsa.",
+      "dilemma": "Haruskah Yeska mengubah PBK menjadi gerakan populis radikal demi merebut kekuasaan instan, atau mempertahankan ideologi sentris yang sudah dibangun lama?",
+      "options": {
+        "A": {
+          "text": "Mengadopsi Radikalisme: Mengubah platform partai menjadi populis-ekstremis.",
+          "money": "+20000 (Dukungan dana dari kelompok radikal)",
+          "trust": "+10 (Kehancuran citra sentris, konflik sosial)",
+          "risk": "+30 (Keberhasilan politik instan, risiko perang sipil)",
+          "next_chapter": "chapter7_A"
+        },
+        "B": {
+          "text": "Konsolidasi Sentris: Mengadakan Konferensi Besar Partai untuk memperkuat ideologi sentris-demokratis dan mengeluarkan pernyataan tegas menentang ekstremisme dalam bentuk apa pun.",
+          "money": "+10000 (Biaya konferensi dan konsolidasi)",
+          "trust": "+20 (Stabilitas ideologi, dukungan kelompok moderat)",
+          "risk": "-10 (Popularitas merosot, risiko kalah pemilu)",
+          "next_chapter": "chapter7_B"
+        }
+      }
+    },
+    "chapter6_B": {
+      "title": "Godaan Populisme Radikal",
+      "background": "Melihat popularitas Anda merosot, Anda dihadapkan pada godaan untuk menggunakan populisme yang lebih radikal. Anda bisa mengubah dasar partai, meninggalkan sentrisme dan merangkul retorika ekstremis demi dukungan besar instan, meskipun itu memecah belah bangsa.",
+      "dilemma": "Haruskah Yeska mengubah PBK menjadi gerakan populis radikal demi merebut kekuasaan instan, atau mempertahankan ideologi sentris yang sudah dibangun lama?",
+      "options": {
+        "A": {
+          "text": "Mengadopsi Radikalisme: Mengubah platform partai menjadi populis-ekstremis.",
+          "money": "+20000 (Dukungan dana dari kelompok radikal)",
+          "trust": "+10 (Kehancuran citra sentris, konflik sosial)",
+          "risk": "+15(Keberhasilan politik instan, risiko perang sipil)",
+          "next_chapter": "chapter7_A"
+        },
+        "B": {
+          "text": "Konsolidasi Sentris: Mengadakan Konferensi Besar Partai untuk memperkuat ideologi sentris-demokratis dan mengeluarkan pernyataan tegas menentang ekstremisme dalam bentuk apa pun.",
+          "money": "-15000 (Biaya konferensi dan konsolidasi)",
+          "trust": "+20 (Stabilitas ideologi, dukungan kelompok moderat)",
+          "risk": "-10 (Popularitas merosot, risiko kalah pemilu)",
+          "next_chapter": "chapter7_B"
+        }
+      }
+    },
+    "chapter7_A": {
+      "title": "Suap Rekomendasi Impor Daging",
+      "background": "Demi mendanai kampanye pemilihan presiden, Anda didesak menyetujui kesepakatan rahasia: suap rekomendasi impor daging kepada Kementerian Pertanian (dipimpin kader PBK). Imbalannya: dana kampanye tak terbatas.",
+      "dilemma": "Haruskah Yeska menyetujui suap yang memastikan kemenangan politiknya, meskipun itu berarti mengorbankan integritas kementerian dan stabilitas harga pangan?",
+      "options": {
+        "A": {
+          "text": "Menggandeng Parlemen: Meminta Komisi Pertanian di Parlemen (dipimpin fraksi PBK) untuk mengawasi ketat proses impor.",
+          "money": "-10000 (Biaya pengawasan ketat)",
+          "trust": "+15 (Transparansi proses, mengurangi risiko)",
+          "risk": "-10 (Hilangnya dana kampanye tak terbatas)",
+          "next_chapter": "chapter8_A"
+        },
+        "B": {
+          "text": "Menggunakan kekuasaan partai untuk memaksa Menteri Pertanian mengeluarkan rekomendasi impor.",
+          "money": "+40000 (Dana Kampanye Maksimal)",
+          "trust": "-30 (Skandal Impor Daging, Korupsi)",
+          "risk": "+35 (Risiko terbesar pemakzulan dan krisis pangan)",
+          "next_chapter": "chapter8_B"
+        }
+      }
+    },
+    "chapter7_B": {
+      "title": "Suap Rekomendasi Impor Daging",
+      "background": "Demi mendanai kampanye pemilihan presiden, Anda didesak menyetujui kesepakatan rahasia: suap rekomendasi impor daging kepada Kementerian Pertanian (dipimpin kader PBK). Imbalannya: dana kampanye tak terbatas.",
+      "dilemma": "Haruskah Yeska menyetujui suap yang memastikan kemenangan politiknya, meskipun itu berarti mengorbankan integritas kementerian dan stabilitas harga pangan?",
+      "options": {
+        "A": {
+          "text": "Menggandeng Parlemen: Meminta Komisi Pertanian di Parlemen (dipimpin fraksi PBK) untuk mengawasi ketat proses impor.",
+          "money": "-10000 (Biaya pengawasan ketat)",
+          "trust": "+15 (Transparansi proses, mengurangi risiko)",
+          "risk": "-1 (Hilangnya dana kampanye tak terbatas)",
+          "next_chapter": "chapter8_A"
+        },
+        "B": {
+          "text": "Menggunakan kekuasaan partai untuk memaksa Menteri Pertanian mengeluarkan rekomendasi impor.",
+          "money": "+40000 (Dana Kampanye Maksimal)",
+          "trust": "-30 (Skandal Impor Daging, Korupsi)",
+          "risk": "+35 (Risiko terbesar pemakzulan dan krisis pangan)",
+          "next_chapter": "chapter8_B"
+        }
+      }
+    },
+    "chapter8_A": {
+      "title": "Pergeseran Ideologi: Rajendraism",
+      "background": "Partai Anda dikritik terlalu konservatif. Anda berencana menggeser ideologi PBK menjadi sentrisme pragmatis (Rajendraism), mirip model Angela Merkel. Ini memerlukan pengabaian beberapa prinsip tradisional partai demi memenangkan basis pemilih yang lebih luas di tengah.",
+      "dilemma": "Haruskah Yeska berani mengubah ideologi partai demi memenangkan basis pemilih yang lebih luas, atau mempertahankan identitas aslinya?",
+      "options": {
+        "A": {
+          "text": "Dialog Inklusif: Mengadakan diskusi publik besar-besaran dan menyelenggarakan forum internal untuk mendapatkan masukan dari semua anggota.",
+          "money": "-10000 (Biaya forum dan publikasi)",
+          "trust": "+15 (Legitimasi ideologi baru, minim perpecahan)",
+          "risk": "-10 (Proses panjang, rentan sabotase)",
+          "next_chapter": "chapter9_A"
+        },
+        "B": {
+          "text": "Deklarasi Sentralistik: Melakukan deklarasi unilateral untuk mengubah platform partai.",
+          "money": "+15000 (Dana kampanye dari kelompok pendukung baru)",
+          "trust": "-20 (Citra otoriter, perlawanan faksi tradisional)",
+          "risk": "+20 (Kecepatan perubahan, risiko pembelotan besar)",
+          "next_chapter": "chapter9_B"
+        }
+      }
+    },
+    "chapter8_B": {
+      "title": "Pergeseran Ideologi: Rajendraism",
+      "background": "Partai Anda dikritik terlalu konservatif. Anda berencana menggeser ideologi PBK menjadi sentrisme pragmatis (Rajendraism), mirip model Angela Merkel. Ini memerlukan pengabaian beberapa prinsip tradisional partai demi memenangkan basis pemilih yang lebih luas di tengah.",
+      "dilemma": "Haruskah Yeska berani mengubah ideologi partai demi memenangkan basis pemilih yang lebih luas, atau mempertahankan identitas aslinya?",
+      "options": {
+        "A": {
+          "text": "Dialog Inklusif: Mengadakan diskusi publik besar-besaran dan menyelenggarakan forum internal untuk mendapatkan masukan dari semua anggota.",
+          "money": "-10000 (Biaya forum dan publikasi)",
+          "trust": "+15 (Legitimasi ideologi baru, minim perpecahan)",
+          "risk": "-10 (Proses panjang, rentan sabotase)",
+          "next_chapter": "chapter9_A"
+        },
+        "B": {
+          "text": "Deklarasi Sentralistik: Melakukan deklarasi unilateral untuk mengubah platform partai.",
+          "money": "+15000 (Dana kampanye dari kelompok pendukung baru)",
+          "trust": "-20 (Citra otoriter, perlawanan faksi tradisional)",
+          "risk": "+20 (Kecepatan perubahan, risiko pembelotan besar)",
+          "next_chapter": "chapter9_B"
+        }
+      }
+    },
+    "chapter9_A": {
+      "title": "Otoritarianisme Partai",
+      "background": "Setelah memenangkan pemilu, Yeska semakin otoriter. Anda menggunakan PBK (yang awalnya sentris) sebagai alat untuk mendukung kebijakan kontroversial, mengabaikan kerangka hukum dan demokrasi. Anda yakin kebijakan tersebut benar, namun melawan sistem.",
+      "dilemma": "Haruskah Yeska terus menggunakan kekuatan partai untuk memuluskan kebijakan kontroversial, atau menghormati kerangka hukum dan demokrasi?",
+      "options": {
+        "A": {
+          "text": "Menerbitkan Dekret: Menggunakan kekuatan eksekutif dan otoritas partai untuk menerbitkan dekret yang mengabaikan Parlemen atau Mahkamah Konstitusi, dengan dalih “kebutuhan mendesak”.",
+          "money": "+15000 (Dana kampanye dari kelompok pendukung baru)",
+          "trust": "-30 (Citra Diktator, krisis konstitusional)",
+          "risk": "+30 (Efektivitas kebijakan instan, risiko kudeta/pemakzulan)",
+          "next_chapter": "chapter10_A"
+        },
+        "B": {
+          "text": "Pemeriksaan Hukum: Membentuk komite di Parlemen (dipimpin kader PBK) untuk memeriksa legalitas setiap kebijakan kontroversialnya.",
+          "money": "-10000 (Biaya komite dan lobi)",
+          "trust": "+10 (Dukungan demokratis, legitimasi hukum)",
+          "risk": "-10 (Perlambatan kebijakan, risiko ditolak MK)",
+          "next_chapter": "chapter10_B"
+        }
+      }
+    },
+    "chapter9_B": {
+      "title": "Otoritarianisme Partai",
+      "background": "Setelah memenangkan pemilu, Yeska semakin otoriter. Anda menggunakan PBK (yang awalnya sentris) sebagai alat untuk mendukung kebijakan kontroversial, mengabaikan kerangka hukum dan demokrasi. Anda yakin kebijakan tersebut benar, namun melawan sistem.",
+      "dilemma": "Haruskah Yeska terus menggunakan kekuatan partai untuk memuluskan kebijakan kontroversial, atau menghormati kerangka hukum dan demokrasi?",
+      "options": {
+        "A": {
+          "text": "Menerbitkan Dekret: Menggunakan kekuatan eksekutif dan otoritas partai untuk menerbitkan dekret yang mengabaikan Parlemen atau Mahkamah Konstitusi, dengan dalih “kebutuhan mendesak”.",
+          "money": "+15000 (Dana kampanye dari kelompok pendukung baru)",
+          "trust": "-30 (Citra Diktator, krisis konstitusional)",
+          "risk": "+30 (Efektivitas kebijakan instan, risiko kudeta/pemakzulan)",
+          "next_chapter": "chapter10_A"
+        },
+        "B": {
+          "text": "Pemeriksaan Hukum: Membentuk komite di Parlemen (dipimpin kader PBK) untuk memeriksa legalitas setiap kebijakan kontroversialnya.",
+          "money": "-10000 (Biaya komite dan lobi)",
+          "trust": "+10 (Dukungan demokratis, legitimasi hukum)",
+          "risk": "-10 (Perlambatan kebijakan, risiko ditolak MK)",
+          "next_chapter": "chapter10_B"
+        }
+      }
+    },
+    "chapter10_A": {
+      "title": "Dilema Terakhir: Perubahan Konstitusi",
+      "background": "Pemerintahan Yeska mencapai puncak kekuasaan. Menggunakan popularitas kuat, Yeska mengusulkan amandemen konstitusi untuk mengubah masa jabatan Presiden dan memperkuat Eksekutif, secara efektif mengubah tujuan partai dan institusi negara.",
+      "dilemma": "Haruskah Yeska menggunakan populismenya untuk melanggengkan kekuasaan dan mengubah sistem negara secara mendasar, atau mundur dan membiarkan proses demokratis berjalan normal?",
+      "options": {
+        "A": {
+          "text": "Mendorong Amandemen: Menggerakkan semua sumber daya partai untuk meloloskan amandemen konstitusi yang melanggengkan masa jabatannya, dengan dalih “stabilitas negara”.",
+          "money": "-20000 (Biaya politik lobi dan konsolidasi)",
+          "trust": "-25 (Kehancuran demokrasi, tirani populis)",
+          "risk": "+15 (Kekuasaan Absolut, risiko Revolusi)",
+          "next_chapter": "FINISH_A"
+        },
+        "B": {
+          "text": "Mendukung Batasan: Menggunakan platform populisnya untuk secara terbuka mendukung batasan masa jabatan dan proses pemilihan yang adil.",
+          "money": "+20000 (Dana kampanye dari kelompok pendukung baru)",
+          "trust": "+20 (Peninggalan Demokratis, Hero of the Republic)",
+          "risk": "-15 (Kehilangan kekuasaan, ancaman dari faksi oposisi)",
+          "next_chapter": "FINISH_B"
+        }
+      }
+    },
+    "chapter10_B": {
+      "title": "Dilema Terakhir: Perubahan Konstitusi",
+      "background": "Pemerintahan Yeska mencapai puncak kekuasaan. Menggunakan popularitas kuat, Yeska mengusulkan amandemen konstitusi untuk mengubah masa jabatan Presiden dan memperkuat Eksekutif, secara efektif mengubah tujuan partai dan institusi negara.",
+      "dilemma": "Haruskah Yeska menggunakan populismenya untuk melanggengkan kekuasaan dan mengubah sistem negara secara mendasar, atau mundur dan membiarkan proses demokratis berjalan normal?",
+      "options": {
+        "A": {
+          "text": "Mendorong Amandemen: Menggerakkan semua sumber daya partai untuk meloloskan amandemen konstitusi yang melanggengkan masa jabatannya, dengan dalih “stabilitas negara”.",
+          "money": "-20000 (Biaya politik lobi dan konsolidasi)",
+          "trust": "-25 (Kehancuran demokrasi, tirani populis)",
+          "risk": "+15 (Kekuasaan Absolut, risiko Revolusi)",
+          "next_chapter": "FINISH_A"
+        },
+        "B": {
+          "text": "Mendukung Batasan: Menggunakan platform populisnya untuk secara terbuka mendukung batasan masa jabatan dan proses pemilihan yang adil.",
+          "money": "+20000 (Dana kampanye dari kelompok pendukung baru)",
+          "trust": "+20 (Peninggalan Demokratis, Hero of the Republic)",
+          "risk": "-15 (Kehilangan kekuasaan, ancaman dari faksi oposisi)",
+          "next_chapter": "FINISH_B"
+        }
+      }
+    }
+  }
+}

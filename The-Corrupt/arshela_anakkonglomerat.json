@@ -1,0 +1,365 @@
+{
+  "story_id": "unik_tanpa_spasi",
+  "title": "Arshela: Pewaris Takhta Politik",
+  "role_name": "Arshela",
+  "description": "Anda adalah Arshela, putri dari Perdana Menteri di negara Ligedi. Sejak kecil hidup Anda dikelilingi pejabat dan kekuasaan. Kini, saatnya Anda mengawali karir politik di tengah keraguan publik.",
+  "chapters": {
+    "chapter1": {
+      "title": "Awal Karir",
+      "background": "Masa sekolah telah usai. Setelah berdiskusi dengan keluarga, potensi dan kemampuan Anda diarahkan ke dunia politik, seperti anggota keluarga Anda yang lain. Anda harus memilih cara terbaik untuk memulai karir Anda.",
+      "dilemma": "Bagaimana cara Arshela mengawali karirnya dalam dunia politik?",
+      "options": {
+        "A": {
+          "text": "Menggunakan jalan hubungan kekeluargaan",
+          "money": "-45000 (Pengeluaran taktis untuk memuluskan jalan)",
+          "trust": "-20 (Citra dinasti dan nepotisme)",
+          "risk": "+15 (Jalan cepat namun rentan kritik)",
+          "next_chapter": "chapter2_A"
+        },
+        "B": {
+          "text": "Membuat personal branding sebagai figur Masyarakat",
+          "money": "-15000 (Biaya kampanye dan publikasi)",
+          "trust": "+15 (Citra mandiri dan dekat rakyat)",
+          "risk": "+25 (Jalan lambat dan tantangan berat, rawan kegagalan publik)",
+          "next_chapter": "chapter2_B"
+        }
+      }
+    },
+    "chapter2_A": {
+      "title": "Pembuktian Diri: Jalur Cepat",
+      "background": "Mengawali karir melalui jalur keluarga ternyata tidak semudah yang dibayangkan. Masyarakat meragukan kompetensi Anda sebagai anggota dewan karena Anda adalah anak pejabat. Anda harus segera membuktikan diri.",
+      "dilemma": "Bagaimana caranya agar Arshela dapat membuktikan dirinya adalah seorang anggota dewan yang kompeten?",
+      "options": {
+        "A": {
+          "text": "Mempercepat Citra dengan meminta kepada anggota pejabat yang masih memiliki ikatan untuk memberinya tugas yang mudah ia tangani",
+          "money": "-10000 (Imbal jasa politik)",
+          "trust": "+15 (Peningkatan citra cepat, meski rapuh)",
+          "risk": "+25 (Risiko 'gimmick' terbongkar)",
+          "next_chapter": "chapter3_A"
+        },
+        "B": {
+          "text": "Membangun Kompetensi dan Legitimasi",
+          "money": "0",
+          "trust": "+25 (Kepercayaan publik jangka panjang)",
+          "risk": "-10 (Jalur lambat namun kokoh)",
+          "next_chapter": "chapter3_B"
+        }
+      }
+    },
+    "chapter2_B": {
+      "title": "Pembuktian Diri: Jalur Mandiri",
+      "background": "Meniti karir melalui jalur independen penuh tantangan. Publik meragukan Anda, dan masalah-masalah politik membuat kepala Anda berputar. Anda harus membuktikan bahwa Anda pantas berada di posisi ini, bukan hanya karena nama keluarga.",
+      "dilemma": "Bagaimana caranya agar Arshela dapat membuktikan dirinya adalah seorang anggota dewan yang kompeten?",
+      "options": {
+        "A": {
+          "text": "Mempercepat Citra dengan meminta kepada anggota pejabat yang masih memiliki ikatan untuk memberinya tugas yang mudah ia tangani",
+          "money": "-10000 (Imbal jasa politik)",
+          "trust": "+10 (Peningkatan citra cepat, meski rapuh)",
+          "risk": "+25 (Risiko 'gimmick' terbongkar)",
+          "next_chapter": "chapter3_A"
+        },
+        "B": {
+          "text": "Membangun Kompetensi dan Legitimasi",
+          "money": "+30000",
+          "trust": "+25 (Kepercayaan publik jangka panjang)",
+          "risk": "-15 (Jalur lambat namun kokoh)",
+          "next_chapter": "chapter3_B"
+        }
+      }
+    },
+    "chapter3_A": {
+      "title": "Dilema Konsultan",
+      "background": "Arshela telah menumpuk prestasi dan penghargaan berkat citra yang dibangun. Proyek besar dan diskusi pun diserahkan kepadanya. Ia sering diundang menjadi konsultan perusahaan besar. Karena kebijakan negara, ia harus menyelesaikan masa kontrak dengan perusahaan sebelumnya sebelum menerima tawaran baru. Kini, tawaran nominal yang jauh lebih besar datang dari perusahaan lain yang sedang terdesak waktu, menuntut Anda melanggar komitmen yang ada.",
+      "dilemma": "Bagaimana Arshela harus menanggapi tawaran ini?",
+      "options": {
+        "A": {
+          "text": "Menjaga Komitmen dan Integritas",
+          "money": "+15000 (Keuntungan dari perusahaan awal)",
+          "trust": "+25 (Integritas terjaga, citra etis)",
+          "risk": "-10 (Kehilangan peluang finansial besar)",
+          "next_chapter": "chapter4_A"
+        },
+        "B": {
+          "text": "Karena mampu mengerjakan keduanya, maka menerima keduanya",
+          "money": "+30000 (Keuntungan finansial maksimal)",
+          "trust": "-25 (Pelanggaran komitmen, konflik kepentingan)",
+          "risk": "+25 (Risiko skandal dan tuduhan korupsi)",
+          "next_chapter": "chapter4_B"
+        }
+      }
+    },
+    "chapter3_B": {
+      "title": "Dilema Konsultan",
+      "background": "Arshela telah menumpuk prestasi dan penghargaan berkat kompetensi yang dibangun. Proyek besar dan diskusi pun diserahkan kepadanya. Ia sering diundang menjadi konsultan perusahaan besar. Karena kebijakan negara, ia harus menyelesaikan masa kontrak dengan perusahaan sebelumnya sebelum menerima tawaran baru. Kini, tawaran nominal yang jauh lebih besar datang dari perusahaan lain yang sedang terdesak waktu, menuntut Anda melanggar komitmen yang ada.",
+      "dilemma": "Bagaimana Arshela harus menanggapi tawaran ini?",
+      "options": {
+        "A": {
+          "text": "Menjaga Komitmen dan Integritas",
+          "money": "+15000 (Keuntungan dari perusahaan awal)",
+          "trust": "+25 (Integritas terjaga, citra etis)",
+          "risk": "-10 (Kehilangan peluang finansial besar)",
+          "next_chapter": "chapter4_A"
+        },
+        "B": {
+          "text": "Karena mampu mengerjakan keduanya, maka menerima keduanya",
+          "money": "+30000 (Keuntungan finansial maksimal)",
+          "trust": "-25 (Pelanggaran komitmen, konflik kepentingan)",
+          "risk": "+20 (Risiko skandal dan tuduhan korupsi)",
+          "next_chapter": "chapter4_B"
+        }
+      }
+    },
+    "chapter4_A": {
+      "title": "Tuduhan Kudeta",
+      "background": "Arshela berhasil menyelesaikan urusan dengan kedua perusahaan (atau salah satunya). Namun, hubungan dan relasi yang Anda miliki menimbulkan kecurigaan. Tuduhan melakukan kudeta dilontarkan kepada Arshela karena banyaknya relasi strategis yang ia miliki. Anda harus bertindak cepat.",
+      "dilemma": "Apa yang harus Arshela lakukan menghadapi tuduhan kudeta?",
+      "options": {
+        "A": {
+          "text": "Konfrontasi, Manipulasi, dan Reaksi Berlebihan",
+          "money": "-15000 (Biaya legal dan propaganda)",
+          "trust": "-20 (Peningkatan ketidakpercayaan dan konflik)",
+          "risk": "+30 (Risiko pemakzulan dan penahanan)",
+          "next_chapter": "chapter5_A"
+        },
+        "B": {
+          "text": "Transparansi, Kepatuhan Hukum, dan Diplomasi",
+          "money": "0",
+          "trust": "+20 (Meredam kecurigaan, mendapatkan dukungan publik)",
+          "risk": "-20 (Proses panjang, namun aman)",
+          "next_chapter": "chapter5_B"
+        }
+      }
+    },
+    "chapter4_B": {
+      "title": "Tuduhan Kudeta",
+      "background": "Arshela berhasil menyelesaikan urusan dengan kedua perusahaan (atau salah satunya). Namun, hubungan dan relasi yang Anda miliki menimbulkan kecurigaan. Tuduhan melakukan kudeta dilontarkan kepada Arshela karena banyaknya relasi strategis yang ia miliki. Anda harus bertindak cepat.",
+      "dilemma": "Apa yang harus Arshela lakukan menghadapi tuduhan kudeta?",
+      "options": {
+        "A": {
+          "text": "Konfrontasi, Manipulasi, dan Reaksi Berlebihan",
+          "money": "-100000 (Biaya legal dan propaganda)",
+          "trust": "-25 (Peningkatan ketidakpercayaan dan konflik)",
+          "risk": "+30 (Risiko pemakzulan dan penahanan)",
+          "next_chapter": "chapter5_A"
+        },
+        "B": {
+          "text": "Transparansi, Kepatuhan Hukum, dan Diplomasi",
+          "money": "0",
+          "trust": "+25 (Meredam kecurigaan, mendapatkan dukungan publik)",
+          "risk": "-20 (Proses panjang, namun aman)",
+          "next_chapter": "chapter5_B"
+        }
+      }
+    },
+    "chapter5_A": {
+      "title": "Tuduhan Pembunuhan Pangeran",
+      "background": "Posisi Arshela cukup aman berkat jaringan keluarga dan kedekatannya dengan Kerajaan. Namun, kedekatan ini memicu perselisihan di antara anggota keluarga Kerajaan. Pangeran Litvineko tiba-tiba terbunuh akibat keracunan saat berada di luar negeri. Arshela menjadi tersangka utama karena diketahui sedang berselisih dengan Pangeran. Nyawa dan karir Anda dipertaruhkan.",
+      "dilemma": "Apa yang harus Arshela lakukan untuk lolos dari tuduhan?",
+      "options": {
+        "A": {
+          "text": "Manipulasi, Pelarian, dan Merusak Bukti",
+          "money": "-20000 (Biaya pelarian dan pembersihan)",
+          "trust": "-30 (Menghancurkan sisa-sisa kepercayaan)",
+          "risk": "+45 (Risiko tertinggi hukuman mati/penjara seumur hidup)",
+          "next_chapter": "chapter6_A"
+        },
+        "B": {
+          "text": "Kepatuhan Hukum, Bukti, dan Penyelidikan Cepat",
+          "money": "-10000 (Biaya pengacara dan penyelidik swasta)",
+          "trust": "+15 (Integritas hukum, meskipun rentan)",
+          "risk": "+15 (Mengandalkan sistem yang bisa jadi dipengaruhi lawan politik)",
+          "next_chapter": "chapter6_B"
+        }
+      }
+    },
+    "chapter5_B": {
+      "title": "Tuduhan Pembunuhan Pangeran",
+      "background": "Posisi Arshela cukup aman berkat jaringan keluarga dan kedekatannya dengan Kerajaan. Namun, kedekatan ini memicu perselisihan di antara anggota keluarga Kerajaan. Pangeran Litvineko tiba-tiba terbunuh akibat keracunan saat berada di luar negeri. Arshela menjadi tersangka utama karena diketahui sedang berselisih dengan Pangeran. Nyawa dan karir Anda dipertaruhkan.",
+      "dilemma": "Apa yang harus Arshela lakukan untuk lolos dari tuduhan?",
+      "options": {
+        "A": {
+          "text": "Manipulasi, Pelarian, dan Merusak Bukti",
+          "money": "-20000 (Biaya pelarian dan pembersihan)",
+          "trust": "-30 (Menghancurkan sisa-sisa kepercayaan)",
+          "risk": "+40 (Risiko tertinggi hukuman mati/penjara seumur hidup)",
+          "next_chapter": "chapter6_A"
+        },
+        "B": {
+          "text": "Kepatuhan Hukum, Bukti, dan Penyelidikan Cepat",
+          "money": "-10000 (Biaya pengacara dan penyelidik swasta)",
+          "trust": "+15 (Integritas hukum, meskipun rentan)",
+          "risk": "+10 (Mengandalkan sistem yang bisa jadi dipengaruhi lawan politik)",
+          "next_chapter": "chapter6_B"
+        }
+      }
+    },
+    "chapter6_A": {
+      "title": "Krisis Utang Negara",
+      "background": "Arshela terselamatkan dari tuduhan pembunuhan. Kini, negerinya terlilit utang besar di tengah ramainya investor asing menimbun harta di bank-bank Ligedi. Kedekatan Anda dengan investor dan politikus negara lain harus dimanfaatkan. Anda harus membuat keputusan krusial untuk menyelamatkan negara.",
+      "dilemma": "Solusi apa yang akan dipilih Arshela selaku pejabat setempat untuk mengatasi krisis utang?",
+      "options": {
+        "A": {
+          "text": "Reformasi Fiskal dan Regulasi Berhati-hati",
+          "money": "+15000 (Peningkatan pendapatan negara)",
+          "trust": "+25 (Kepercayaan publik dan investor)",
+          "risk": "-20 (Penolakan dari oligarki lokal)",
+          "next_chapter": "chapter7_A"
+        },
+        "B": {
+          "text": "Tindakan Ekstrem dan Pelanggaran Kepercayaan",
+          "money": "+25000 (Likuidasi cepat, keuntungan sesaat)",
+          "trust": "-30 (Krisis kepercayaan investor dan sekutu)",
+          "risk": "+30 (Kekacauan ekonomi, risiko perang dagang)",
+          "next_chapter": "chapter7_B"
+        }
+      }
+    },
+    "chapter6_B": {
+      "title": "Krisis Utang Negara",
+      "background": "Arshela terselamatkan dari tuduhan pembunuhan. Kini, negerinya terlilit utang besar di tengah ramainya investor asing menimbun harta di bank-bank Ligedi. Kedekatan Anda dengan investor dan politikus negara lain harus dimanfaatkan. Anda harus membuat keputusan krusial untuk menyelamatkan negara.",
+      "dilemma": "Solusi apa yang akan dipilih Arshela selaku pejabat setempat untuk mengatasi krisis utang?",
+      "options": {
+        "A": {
+          "text": "Reformasi Fiskal dan Regulasi Berhati-hati",
+          "money": "+15000 (Peningkatan pendapatan negara)",
+          "trust": "+25 (Kepercayaan publik dan investor)",
+          "risk": "-25 (Penolakan dari oligarki lokal)",
+          "next_chapter": "chapter7_A"
+        },
+        "B": {
+          "text": "Tindakan Ekstrem dan Pelanggaran Kepercayaan",
+          "money": "+30000 (Likuidasi cepat, keuntungan sesaat)",
+          "trust": "-35 (Krisis kepercayaan investor dan sekutu)",
+          "risk": "+30 (Kekacauan ekonomi, risiko perang dagang)",
+          "next_chapter": "chapter7_B"
+        }
+      }
+    },
+    "chapter7_A": {
+      "title": "Kejatuhan dan Kebangkitan",
+      "background": "Tuduhan melakukan kerjasama dengan pihak asing yang merugikan negara (walaupun tidak terbukti secara hukum) tidak dapat dihindari. Anda dipaksa turun dari jabatan dan kini hanya seorang pegawai pemerintah rendahan. Karir Anda terjun drastis. Anda harus segera bangkit.",
+      "dilemma": "Apa yang harus Arshela lakukan untuk kembali ke posisi semula?",
+      "options": {
+        "A": {
+          "text": "Mempercepat Kekuasaan dengan Risiko (Misal: black campaign, negosiasi terlarang)",
+          "money": "-20000 (Biaya politik gelap)",
+          "trust": "-15 (Citra merusak diri sendiri)",
+          "risk": "+20 (Risiko ditangkap dan dihukum, atau sukses total)",
+          "next_chapter": "chapter8_A"
+        },
+        "B": {
+          "text": "Membangun Ulang Kredibilitas dari Bawah",
+          "money": "0",
+          "trust": "+20 (Kepercayaan publik secara perlahan)",
+          "risk": "-20 (Proses yang sangat lambat dan melelahkan)",
+          "next_chapter": "chapter8_B"
+        }
+      }
+    },
+    "chapter7_B": {
+      "title": "Kejatuhan dan Kebangkitan",
+      "background": "Tuduhan melakukan kerjasama dengan pihak asing yang merugikan negara (walaupun tidak terbukti secara hukum) tidak dapat dihindari. Anda dipaksa turun dari jabatan dan kini hanya seorang pegawai pemerintah rendahan. Karir Anda terjun drastis. Anda harus segera bangkit.",
+      "dilemma": "Apa yang harus Arshela lakukan untuk kembali ke posisi semula?",
+      "options": {
+        "A": {
+          "text": "Mempercepat Kekuasaan dengan Risiko (Misal: black campaign, negosiasi terlarang)",
+          "money": "-20000 (Biaya politik gelap)",
+          "trust": "-10 (Citra merusak diri sendiri)",
+          "risk": "+30 (Risiko ditangkap dan dihukum, atau sukses total)",
+          "next_chapter": "chapter8_A"
+        },
+        "B": {
+          "text": "Membangun Ulang Kredibilitas dari Bawah",
+          "money": "0",
+          "trust": "+20 (Kepercayaan publik secara perlahan)",
+          "risk": "-20 (Proses yang sangat lambat dan melelahkan)",
+          "next_chapter": "chapter8_B"
+        }
+      }
+    },
+    "chapter8_A": {
+      "title": "Proyek Subprime Mortgage",
+      "background": "Arshela perlahan-lahan kembali ke posisi yang lebih baik dan dipercaya memegang proyek subprime mortgage. Proyek ini menawarkan komisi 5% bagi setiap anggota yang berhasil menarik investor, namun memiliki risiko sangat tinggi. Jika gagal, merugikan semua pihak. Jika berhasil, negara menanggung kerugian tidak terhindarkan.",
+      "dilemma": "Apa yang harus dilakukan Arshela terkait proyek berisiko tinggi ini?",
+      "options": {
+        "A": {
+          "text": "Mitigasi Risiko dan Transparansi",
+          "money": "-10000 (Kehilangan komisi besar)",
+          "trust": "+25 (Peningkatan trust di tengah bahaya)",
+          "risk": "-20 (Risiko proyek gagal terkelola)",
+          "next_chapter": "chapter9_A"
+        },
+        "B": {
+          "text": "Mengejar Komisi dan Risiko Bencana",
+          "money": "+30000 (Komisi besar)",
+          "trust": "-25 (Memicu krisis finansial di masa depan)",
+          "risk": "+30 (Risiko bencana ekonomi nasional)",
+          "next_chapter": "chapter9_B"
+        }
+      }
+    },
+    "chapter8_B": {
+      "title": "Proyek Subprime Mortgage",
+      "background": "Arshela perlahan-lahan kembali ke posisi yang lebih baik dan dipercaya memegang proyek subprime mortgage. Proyek ini menawarkan komisi 5% bagi setiap anggota yang berhasil menarik investor, namun memiliki risiko sangat tinggi. Jika gagal, merugikan semua pihak. Jika berhasil, negara menanggung kerugian tidak terhindarkan.",
+      "dilemma": "Apa yang harus dilakukan Arshela terkait proyek berisiko tinggi ini?",
+      "options": {
+        "A": {
+          "text": "Mitigasi Risiko dan Transparansi",
+          "money": "-100000 (Kehilangan komisi besar)",
+          "trust": "+25 (Peningkatan trust di tengah bahaya)",
+          "risk": "-20 (Risiko proyek gagal terkelola)",
+          "next_chapter": "chapter9_A"
+        },
+        "B": {
+          "text": "Mengejar Komisi dan Risiko Bencana",
+          "money": "+30000 (Komisi besar)",
+          "trust": "-25 (Memicu krisis finansial di masa depan)",
+          "risk": "+25 (Risiko bencana ekonomi nasional)",
+          "next_chapter": "chapter9_B"
+        }
+      }
+    },
+    "chapter9_A": {
+      "title": "Skandal Perdana Menteri",
+      "background": "Jaringan Arshela sangat luas. Bukti korupsi Perdana Menteri (ayah Anda) diberikan kepadanya. Masyarakat menunjuk Anda untuk memimpin kampanye besar-besaran anti-korupsi. Laporan korupsi tersebut memicu unjuk rasa meluas yang berisiko memicu penangkapan warga oleh aparat.",
+      "dilemma": "Bagaimana Arshela harus bertindak menghadapi situasi yang melibatkan ayahnya dan keselamatan warga?",
+      "options": {
+        "A": {
+          "text": "Memimpin Kampanye Balik (Distraction) dan melindungi ayah",
+          "money": "-30000 (Biaya kampanye hitam dan pengalihan isu)",
+          "trust": "-30 (Kehilangan semua kredibilitas)",
+          "risk": "+40 (Risiko tertinggi skandal dinasti politik dan penangkapan)",
+          "next_chapter": "FINISH_A"
+        },
+        "B": {
+          "text": "Mediasi dan Penghentian Kekerasan, lalu menyerahkan bukti",
+          "money": "0",
+          "trust": "+30 (Pahlawan rakyat dan integritas tertinggi)",
+          "risk": "-30 (Kehilangan dukungan keluarga dan koneksi pejabat)",
+          "next_chapter": "FINISH_B"
+        }
+      }
+    },
+    "chapter9_B": {
+      "title": "Skandal Perdana Menteri",
+      "background": "Jaringan Arshela sangat luas. Bukti korupsi Perdana Menteri (ayah Anda) diberikan kepadanya. Masyarakat menunjuk Anda untuk memimpin kampanye besar-besaran anti-korupsi. Laporan korupsi tersebut memicu unjuk rasa meluas yang berisiko memicu penangkapan warga oleh aparat.",
+      "dilemma": "Bagaimana Arshela harus bertindak menghadapi situasi yang melibatkan ayahnya dan keselamatan warga?",
+      "options": {
+        "A": {
+          "text": "Memimpin Kampanye Balik (Distraction) dan melindungi ayah",
+          "money": "-15000 (Biaya kampanye hitam dan pengalihan isu)",
+          "trust": "-15 (Kehilangan semua kredibilitas)",
+          "risk": "+20 (Risiko tertinggi skandal dinasti politik dan penangkapan)",
+          "next_chapter": "FINISH_A"
+        },
+        "B": {
+          "text": "Mediasi dan Penghentian Kekerasan, lalu menyerahkan bukti",
+          "money": "0",
+          "trust": "+20 (Pahlawan rakyat dan integritas tertinggi)",
+          "risk": "-15 (Kehilangan dukungan keluarga dan koneksi pejabat)",
+          "next_chapter": "FINISH_B"
+        }
+      }
+    }
+  }
+}
