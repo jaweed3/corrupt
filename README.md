@@ -145,7 +145,7 @@ Mengirim jawaban user dan mendapatkan dampak (konsekuensi).
 
 ## 📝 Data Schema (Untuk Tim Storyteller)
 
-Format penulisan skenario dalam `JSON` atau Spreadsheet harus mengandung elemen ini:
+Format penulisan skenario dalam `JSON` atau Spreadsheet harus mengandung element ini:
 
 | Field | Tipe | Deskripsi |
 | :--- | :--- | :--- |
