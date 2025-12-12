@@ -3,55 +3,56 @@ import os
 import glob
 from typing import Dict, Optional, List
 
-# Path folder stories
+# Path dinamis ke folder stories
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STORIES_DIR = os.path.join(BASE_DIR, "data", "stories")
 
 class StoryEngine:
     def __init__(self):
-        self.stories = {} # Format: { "hayes": {data...}, "budi": {data...} }
+        self.stories = {} 
         self._load_all_stories()
 
     def _load_all_stories(self):
-        """Scan folder stories dan load semua .json"""
+        # Cek folder ada gak
         if not os.path.exists(STORIES_DIR):
-            os.makedirs(STORIES_DIR) # Bikin folder kalau belum ada
-            print(f"WARNING: Folder {STORIES_DIR} dibuat. Masukkan file JSON ke sana!")
+            os.makedirs(STORIES_DIR)
+            print(f"Warning: Folder {STORIES_DIR} kosong/baru dibuat.")
             return
 
-        # Cari semua file .json
+        # Ambil semua file .json
         json_files = glob.glob(os.path.join(STORIES_DIR, "*.json"))
+        print(f"Loading stories from: {STORIES_DIR}")
         
         for file_path in json_files:
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                    sid = data.get("story_id")
-                    if sid:
-                        self.stories[sid] = data
-                        print(f"Loaded story: {sid}")
-                    else:
-                        print(f"SKIP: File {file_path} tidak punya 'story_id'")
+                    # Pastikan ada story_id, kalau gak ada pake nama file
+                    filename = os.path.basename(file_path).replace(".json", "")
+                    sid = data.get("story_id", filename) 
+                    
+                    self.stories[sid] = data
+                    print(f"✅ Loaded: {sid}")
             except Exception as e:
-                print(f"ERROR Loading {file_path}: {e}")
+                print(f"❌ Error loading {file_path}: {e}")
 
-    def get_all_stories_metadata(self) -> List[Dict]:
-        """Buat menu pilihan karakter"""
+    def get_all_metadata(self) -> List[Dict]:
+        """Buat menu pilih karakter di Frontend"""
         meta = []
         for sid, data in self.stories.items():
             meta.append({
                 "story_id": sid,
-                "title": data.get("title", "No Title"),
-                "role_name": data.get("role_name", "Unknown Role"),
-                "description": data.get("description", "No Description")
+                "title": data.get("title", "Judul Tidak Ada"),
+                "role": data.get("role_name", "Unknown Role"),
+                "desc": data.get("description", "...")
             })
         return meta
 
-    def get_story_data(self, story_id: str) -> Optional[Dict]:
-        return self.stories.get(story_id)
+    def get_story(self, sid: str):
+        return self.stories.get(sid)
 
-    def get_chapter(self, story_id: str, chapter_id: str) -> Optional[Dict]:
-        story = self.stories.get(story_id)
+    def get_chapter(self, sid: str, chapter_id: str):
+        story = self.stories.get(sid)
         if story:
             return story.get("chapters", {}).get(chapter_id)
         return None

@@ -18,63 +18,52 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/stories", response_model=StoryListResponse)
-def get_available_stories():
-    """
-    Endpoint 1: Frontend panggil ini dulu buat nampilin menu "Pilih Karakter"
-    """
-    metadata_list = story_engine.get_all_stories_metadata()
-    return {"stories": metadata_list}
+@app.get("/")
+def root():
+    return {"message": "Corruption Simulator API is Live!"}
 
-@app.post("/start-game", response_model=StartGameResponse)
-def start_game(payload: StartGameRequest):
-    """
-    Endpoint 2: User kirim { "story_id": "hayes" }
-    """
+@app.get("/stories")
+def get_stories():
+    # Ini buat menu frontend
+    return {"stories": story_engine.get_all_metadata()}
+
+@app.post("/start-game")
+def start_game(payload: StartGameRequest): # Pastikan model StartGameRequest ada field 'story_id'
     sid = payload.story_id
-    story_data = story_engine.get_story_data(sid)
+    story = story_engine.get_story(sid)
     
-    if not story_data:
-        raise HTTPException(404, "Story ID tidak ditemukan.")
-
+    if not story:
+        raise HTTPException(404, "Story not found")
+        
     session_id = str(uuid.uuid4())
     
-    # Init Stats
+    # Init Stats (Bisa ambil dari JSON kalau ada field initial_stats, atau hardcode dulu)
     initial_stats = {"money": 10000, "trust": 50, "risk": 0}
     
-    # Ambil Chapter 1 (Default: chapter1)
-    # Pastikan di JSON semua cerita dimulai dari "chapter1"
-    first_chapter_id = "chapter1"
-    chapter_data = story_engine.get_chapter(sid, first_chapter_id)
+    # Default chapter pertama "chapter1"
+    first_chapter = story_engine.get_chapter(sid, "chapter1")
     
-    if not chapter_data:
-        raise HTTPException(500, f"Chapter 1 hilang di cerita {sid}")
-
-    # Simpan Session (PENTING: Simpan story_id juga!)
     sessions_db[session_id] = {
-        "story_id": sid,  # <--- Kita harus ingat user ini main cerita yg mana
+        "story_id": sid,
         "stats": initial_stats,
-        "current_chapter_id": first_chapter_id,
-        "history": []
+        "current_chapter_id": "chapter1"
     }
     
-    # Format Response
-    scenario_display = ScenarioDisplay(
-        id=first_chapter_id,
-        title=chapter_data["title"],
-        description=chapter_data["description"],
-        dilemma=chapter_data.get("dilemma", ""),
-        choices=[
-            ChoiceOption(id="A", description=chapter_data["choices"]["A"]["description"]),
-            ChoiceOption(id="B", description=chapter_data["choices"]["B"]["description"])
-        ]
-    )
-    
-    return StartGameResponse(
-        session_id=session_id,
-        stats=Stats(**initial_stats),
-        current_scenario=scenario_display
-    )
+    # Return format yang diminta Frontend
+    # (Sesuaikan sama ScenarioDisplay model lu)
+    return {
+        "session_id": session_id,
+        "stats": initial_stats,
+        "current_scenario": {
+            "id": "chapter1",
+            "title": first_chapter["title"],
+            "description": first_chapter["description"],
+            "choices": [
+                {"id": "A", "label": first_chapter["choices"]["A"]["description"]},
+                {"id": "B", "label": first_chapter["choices"]["B"]["description"]}
+            ]
+        }
+    }
 
 @app.post("/submit-answer", response_model=SubmitAnswerResponse)
 def submit_answer(payload: SubmitAnswerRequest):
