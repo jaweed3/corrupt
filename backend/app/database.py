@@ -3,7 +3,7 @@ import os
 import glob
 from typing import Dict, Optional, List
 
-# Path dinamis ke folder stories
+# Path ke folder stories
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 STORIES_DIR = os.path.join(BASE_DIR, "data", "stories")
 
@@ -13,36 +13,37 @@ class StoryEngine:
         self._load_all_stories()
 
     def _load_all_stories(self):
-        # Cek folder ada gak
+        """Scan folder stories dan load semua .json"""
         if not os.path.exists(STORIES_DIR):
             os.makedirs(STORIES_DIR)
-            print(f"Warning: Folder {STORIES_DIR} kosong/baru dibuat.")
+            print(f"WARNING: Folder {STORIES_DIR} dibuat. Masukkan file JSON ke sana!")
             return
 
-        # Ambil semua file .json
+        # Cari semua file .json
         json_files = glob.glob(os.path.join(STORIES_DIR, "*.json"))
-        print(f"Loading stories from: {STORIES_DIR}")
+        print(f"🔍 Loading stories from: {STORIES_DIR}")
         
         for file_path in json_files:
             try:
                 with open(file_path, 'r', encoding='utf-8') as f:
                     data = json.load(f)
-                    # Pastikan ada story_id, kalau gak ada pake nama file
-                    filename = os.path.basename(file_path).replace(".json", "")
-                    sid = data.get("story_id", filename) 
-                    
-                    self.stories[sid] = data
-                    print(f"✅ Loaded: {sid}")
+                    # Pastikan ada story_id
+                    sid = data.get("story_id")
+                    if sid:
+                        self.stories[sid] = data
+                        print(f"✅ Loaded Story: {sid}")
+                    else:
+                        print(f"⚠️ SKIP: File {file_path} tidak punya 'story_id'")
             except Exception as e:
-                print(f"❌ Error loading {file_path}: {e}")
+                print(f"❌ ERROR Loading {file_path}: {e}")
 
     def get_all_metadata(self) -> List[Dict]:
-        """Buat menu pilih karakter di Frontend"""
+        """Buat menu pilih karakter"""
         meta = []
         for sid, data in self.stories.items():
             meta.append({
                 "story_id": sid,
-                "title": data.get("title", "Judul Tidak Ada"),
+                "title": data.get("title", "No Title"),
                 "role": data.get("role_name", "Unknown Role"),
                 "desc": data.get("description", "...")
             })
@@ -57,6 +58,6 @@ class StoryEngine:
             return story.get("chapters", {}).get(chapter_id)
         return None
 
-# Singleton
+# Singleton Instance
 story_engine = StoryEngine()
 sessions_db = {}

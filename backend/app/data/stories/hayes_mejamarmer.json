@@ -1,405 +1,443 @@
 {
-  "story_id": "bayangan_di_balik_meja_marmer",
+  "story_id": "jaksa_hayes",
   "title": "Bayangan di Balik Meja Marmer",
-  "role_name": "Mr. Hayes",
-  "description": "Anda adalah Mr. Hayes, anggota Kejaksaan Agung di Estambor. Meskipun mahir dan profesional, tuntutan gaya hidup dan biaya sekolah anak membuat Anda terjerat utang. Kini, integritas Anda diuji oleh kebutuhan finansial.",
+  "role_name": "Mr. Hayes (Jaksa)",
+  "description": "Anda adalah Mr. Hayes, Jaksa Agung yang profesional namun terhimpit hutang. Integritas Anda diuji oleh kebutuhan finansial keluarga dan gaya hidup.",
   "chapters": {
     "chapter1": {
       "title": "Babak 1: Dilema Gaji dan Janji",
-      "description": "Gaji bulanan Mr. Hayes, meskipun lumayan, tergerus habis oleh cicilan rumah, biaya sekolah anak, dan gaya hidup yang ia pertahankan, yang menurutnya penting untuk citra profesional. Utang menumpuk, dan meja kerjanya sepi dari kasus yang berpotensi menghasilkan uang 'lelah'.",
-      "dilemma": "Apa yang harus dilakukan Mr. Hayes untuk membayar utang tanpa mengubah gaya hidup atau memindahkan sekolah anaknya?",
+      "description": "Gaji bulanan Anda habis oleh cicilan dan biaya sekolah anak. Utang menumpuk, meja kerja sepi dari kasus basah. Anda butuh uang cepat.",
+      "dilemma": "Apa yang harus dilakukan untuk membayar utang?",
       "choices": {
         "A": {
-          "description": "Membuka kasus para elit yang ditutupi untuk uang tutup mulut",
+          "description": "Buka Kasus Elit & Minta Uang Tutup Mulut",
           "money": 50000,
           "trust": -35,
           "risk": 10,
-          "next": "chapter2_A"
+          "next": "chapter2_A",
+          "feedback": "Dompet Anda tebal seketika, tapi kini para elit memegang kartu As Anda."
         },
         "B": {
-          "description": "Restrukturisasi dan peningkatan anggaran kerja resmi",
+          "description": "Restrukturisasi Anggaran Resmi (Jujur)",
           "money": 20000,
           "trust": 30,
           "risk": -10,
-          "next": "chapter2_B"
+          "next": "chapter2_B",
+          "feedback": "Hasilnya tidak seberapa, tapi Anda tidur nyenyak tanpa rasa takut."
         }
       }
     },
     "chapter2_A": {
-      "title": "Babak 2: Perjalanan Menuju Legislatif (Lanjutan dari 1A)",
-      "description": "Mr. Hayes mendapatkan uang dari kasus yang ia 'buka' dan tutup kembali. Kekhawatiran akan skandal yang menyeret namanya muncul. Untuk mengamankan posisi, menghindari risiko, dan mendapatkan gaji lebih, Mr. Hayes memutuskan mencalonkan diri sebagai anggota lembaga legislatif.",
-      "dilemma": "Maka apa yang harus dilakukan Mr. Hayes untuk mendapatkan kursi di lembaga legislatif?",
+      "title": "Babak 2: Menuju Legislatif (Jalur Gelap)",
+      "description": "Uang suap di tangan, tapi rasa takut akan skandal menghantui. Anda ingin pindah ke Legislatif demi kekebalan dan gaji lebih besar.",
+      "dilemma": "Bagaimana cara mendapatkan kursi legislatif?",
       "choices": {
         "A": {
-          "description": "Mengundurkan diri dan membangun jaringan hukum, mencalonkan diri berbasis isu hukum, memanfaatkan citra integritas",
+          "description": "Mundur & Bangun Citra Integritas Palsu",
           "money": -15000,
           "trust": 20,
           "risk": 5,
-          "next": "chapter3_A"
+          "next": "chapter3_A",
+          "feedback": "Anda menggunakan uang haram untuk memoles citra bersih. Ironis."
         },
         "B": {
-          "description": "Mencari sponsor politik yang kuat, menggunakan dana hitam dan intimidasi, manipulasi proses hukum",
+          "description": "Cari Sponsor Politik & Intimidasi",
           "money": -5000,
           "trust": 10,
           "risk": 45,
-          "next": "chapter3_B"
+          "next": "chapter3_B",
+          "feedback": "Anda menjual jiwa pada sponsor politik. Risiko tertangkap melonjak tajam."
         }
       }
     },
     "chapter2_B": {
-      "title": "Babak 2: Perjalanan Menuju Legislatif (Lanjutan dari 1B)",
-      "description": "Setelah berhasil menyelesaikan kasus-kasus besar dan meningkatkan reputasi, Mr. Hayes mendapatkan gaji tambahan yang stabil. Namun, kebutuhan terus meningkat. Ia kini berpikir untuk menjabat sebagai anggota lembaga legislatif untuk mendapatkan gaji yang lebih tinggi dan ketenangan menjalani hobinya.",
-      "dilemma": "Maka apa yang harus dilakukan Mr. Hayes untuk mendapatkan kursi di lembaga legislatif?",
+      "title": "Babak 2: Menuju Legislatif (Jalur Prestasi)",
+      "description": "Reputasi Anda baik, tapi kebutuhan hidup makin mendesak. Kursi Legislatif menawarkan gaji besar dan kesempatan mengabdi (atau korupsi).",
+      "dilemma": "Bagaimana cara mendapatkan kursi legislatif?",
       "choices": {
         "A": {
-          "description": "Mengundurkan diri dan membangun jaringan hukum, mencalonkan diri berbasis isu hukum, memanfaatkan citra integritas",
+          "description": "Kampanye Jujur Berbasis Isu Hukum",
           "money": -15000,
           "trust": 20,
           "risk": 5,
-          "next": "chapter3_A"
+          "next": "chapter3_A",
+          "feedback": "Tabungan terkuras untuk kampanye, tapi dukungan rakyat tulus."
         },
         "B": {
-          "description": "Mencari sponsor politik yang kuat, menggunakan dana hitam dan intimidasi, manipulasi proses hukum",
+          "description": "Pakai Dana Hitam & Sponsor",
           "money": -5000,
           "trust": 10,
           "risk": 45,
-          "next": "chapter3_B"
+          "next": "chapter3_B",
+          "feedback": "Anda tergoda jalan pintas. Sponsor politik kini mengendalikan Anda."
         }
       }
     },
     "chapter3_A": {
-      "title": "Babak 3: Menghadapi Oposisi di Dewan (Lanjutan Pilihan A)",
-      "description": "Mr. Hayes terpilih sebagai anggota legislatif berkat citra integritasnya. Masalah dan konflik yang dihadapi kini lebih kompleks. Dalam rapat, pendapatnya sering diterima, tetapi ada anggota dewan yang kontra. Sebuah masalah besar menawarkan keuntungan finansial, ketenaran, dan kepercayaan publik jika berhasil diselesaikan.",
-      "dilemma": "Namun, yang menjadi kendala saat ini adalah para anggota dewan yang sering kali beradu argumen dengan mereka. Bagaimana cara mereka untuk menyelesaikan masalah ini?",
+      "title": "Babak 3: Oposisi di Dewan",
+      "description": "Anda terpilih. Namun rapat dewan alot. Ada peluang proyek besar jika Anda bisa membungkam oposisi.",
+      "dilemma": "Bagaimana mengatasi anggota dewan yang kontra?",
       "choices": {
         "A": {
-          "description": "Menggunakan pengaruh dan kompromi politik",
+          "description": "Kompromi & Lobi Politik",
           "money": 40000,
           "trust": 35,
           "risk": 20,
-          "next": "chapter4_A"
+          "next": "chapter4_A",
+          "feedback": "Politik adalah seni kompromi. Semua pihak senang (dan kenyang)."
         },
         "B": {
-          "description": "Manipulasi dan intimidasi",
+          "description": "Manipulasi & Intimidasi",
           "money": 30000,
           "trust": 35,
           "risk": 35,
-          "next": "chapter4_B"
+          "next": "chapter4_B",
+          "feedback": "Mereka diam karena takut, bukan karena setuju. Musuh dalam selimut bertambah."
         }
       }
     },
     "chapter3_B": {
-      "title": "Babak 3: Menghadapi Oposisi di Dewan (Lanjutan Pilihan B)",
-      "description": "Terpilih dengan kekuatan politik berpengaruh, Mr. Hayes menghadapi tekanan dari partai sponsor, namun juga dipercaya karena kemahirannya. Ia sering mengalami perdebatan sengit di rapat. Sebuah masalah besar menjanjikan uang tambahan, ketenaran, dan kepercayaan publik jika berhasil diselesaikan.",
-      "dilemma": "Namun, yang menjadi kendala saat ini adalah para anggota dewan yang sering kali beradu argumen dengan mereka. Bagaimana cara mereka untuk menyelesaikan masalah ini?",
+      "title": "Babak 3: Tekanan Sponsor",
+      "description": "Sponsor politik menagih janji. Anda harus meloloskan proyek besar di tengah perdebatan dewan yang sengit.",
+      "dilemma": "Bagaimana mengatasi anggota dewan yang kontra?",
       "choices": {
         "A": {
-          "description": "Menggunakan pengaruh dan kompromi politik",
+          "description": "Kompromi & Bagi-Bagi Jatah",
           "money": 40000,
           "trust": 35,
           "risk": 20,
-          "next": "chapter4_A"
+          "next": "chapter4_A",
+          "feedback": "Anda belajar bermain cantik. Proyek lolos, semua kebagian."
         },
         "B": {
-          "description": "Manipulasi dan intimidasi",
+          "description": "Gunakan Cara Kotor (Intimidasi)",
           "money": 30000,
           "trust": 35,
           "risk": 35,
-          "next": "chapter4_B"
+          "next": "chapter4_B",
+          "feedback": "Taktik premanisme efektif, tapi jejak kriminal Anda makin jelas."
         }
       }
     },
     "chapter4_A": {
-      "title": "Babak 4: Dilema Kesetiaan dan Integritas (Lanjutan Pilihan A)",
-      "description": "Mr. Hayes dan teman-temannya berhasil menyelesaikan kasus berkat negosiasi dan kompromi politik, memenangkan keuntungan finansial, dan kepercayaan masyarakat. Mereka kini mendapat tanggung jawab proyek-proyek negara. Namun, salah satu teman dekat Mr. Hayes terjerat kasus pemerasan terhadap rakyat kecil. Mr. Hayes ingin membantunya.",
-      "dilemma": "Namun jalan manakah yang harus ia pilih untuk menyelamatkannya, membantunya, dan menjaga nama baik bersama?",
+      "title": "Babak 4: Teman Terjerat Kasus",
+      "description": "Karir Anda mulus, tapi teman dekat Anda tertangkap memeras rakyat. Jika dia bernyanyi, Anda bisa terseret.",
+      "dilemma": "Selamatkan teman atau jaga nama baik?",
       "choices": {
         "A": {
-          "description": "Mendorong transparansi dan pengembalian kerugian, membentuk tim pendamping hukum",
+          "description": "Dorong Transparansi & Proses Hukum",
           "money": -15000,
           "trust": 20,
           "risk": 5,
-          "next": "chapter5_A"
+          "next": "chapter5_A",
+          "feedback": "Anda mengorbankan teman demi hukum. Hati sakit, tapi reputasi selamat."
         },
         "B": {
-          "description": "Intervensi politik dan penyuapan penegak hukum, mengalihkan isu dan menyalahkan korban",
+          "description": "Suap Penegak Hukum & Tutupi Kasus",
           "money": -20000,
           "trust": -20,
           "risk": 15,
-          "next": "chapter5_B"
+          "next": "chapter5_B",
+          "feedback": "Teman selamat, tapi kini Penegak Hukum memegang kartu As Anda."
         }
       }
     },
     "chapter4_B": {
-      "title": "Babak 4: Dilema Kesetiaan dan Integritas (Lanjutan Pilihan B)",
-      "description": "Mr. Hayes dan teman-temannya berhasil memenangkan diskusi dengan manipulasi dan intimidasi, membawa keuntungan dan citra publik yang didasari kebohongan. Salah satu teman dekat Mr. Hayes terjerat kasus pemerasan terhadap rakyat kecil. Mr. Hayes harus membantunya agar jaringan gelap dan rahasia mereka tidak terbongkar.",
-      "dilemma": "Namun jalan manakah yang harus ia pilih untuk menyelamatkannya, membantunya, dan menjaga nama baik bersama?",
+      "title": "Babak 4: Teman Terjerat Kasus (Jaringan Gelap)",
+      "description": "Teman satu jaringan gelap Anda tertangkap. Jika dia buka mulut, seluruh manipulasi Anda terbongkar.",
+      "dilemma": "Selamatkan teman atau jaga nama baik?",
       "choices": {
         "A": {
-          "description": "Mendorong transparansi dan pengembalian kerugian, membentuk tim pendamping hukum",
+          "description": "Cuci Tangan & Dorong Proses Hukum",
           "money": -15000,
           "trust": 20,
           "risk": 5,
-          "next": "chapter5_A"
+          "next": "chapter5_A",
+          "feedback": "Anda mengkhianati komplotan sendiri. Anda aman, untuk sementara."
         },
         "B": {
-          "description": "Intervensi politik dan penyuapan penegak hukum, mengalihkan isu dan menyalahkan korban",
+          "description": "Intervensi Politik & Kambing Hitam",
           "money": -20000,
           "trust": -20,
           "risk": 15,
-          "next": "chapter5_B"
+          "next": "chapter5_B",
+          "feedback": "Kasus hilang, tapi Anda makin tersandera oleh kejahatan sendiri."
         }
       }
     },
     "chapter5_A": {
-      "title": "Babak 5: Godaan Proyek Jembatan Nasional (Lanjutan dari 4A)",
-      "description": "Setelah kasus teman ditangani transparan, reputasi mereka terselamatkan, tetapi dana Mr. Hayes terkuras. Proyek perbaikan jembatan yang kondisinya memprihatinkan diajukan. Proyek ini bernominal fantastis, dan teman Mr. Hayes menghitung setiap dari mereka bisa mendapatkan keuntungan 2% dari anggaran.",
-      "dilemma": "Apa yang harus dilakukan Mr. Hayes dan teman-temannya saat ini?",
+      "title": "Babak 5: Proyek Jembatan (Reputasi Bersih)",
+      "description": "Dana Anda menipis karena proses hukum teman. Ada proyek Jembatan Nasional raksasa. Peluang korupsi 2% sangat menggiurkan.",
+      "dilemma": "Ambil untung atau jaga kualitas jembatan?",
       "choices": {
         "A": {
-          "description": "Menjaga integritas proyek dan reputasi",
+          "description": "Jaga Integritas (Tanpa Korupsi)",
           "money": 10000,
           "trust": 40,
           "risk": -15,
-          "next": "chapter6_A"
+          "next": "chapter6_A",
+          "feedback": "Rakyat dapat jembatan kokoh. Anda bangga, meski dompet tipis."
         },
         "B": {
-          "description": "Memotong anggaran 2% untuk keuntungan pribadi, menggunakan bahan bangunan yang lebih murah dan manipulasi laporan",
+          "description": "Potong Anggaran 2% (Bahan Murah)",
           "money": 30000,
           "trust": 25,
           "risk": 40,
-          "next": "chapter6_B"
+          "next": "chapter6_B",
+          "feedback": "Uang masuk rekening. Jembatan itu kini jadi bom waktu yang rapuh."
         }
       }
     },
     "chapter5_B": {
-      "title": "Babak 5: Godaan Proyek Jembatan Nasional (Lanjutan dari 4B)",
-      "description": "Setelah meredam isu pemerasan dengan intervensi gelap, reputasi mereka tergerus drastis, dan penegak hukum memiliki kartu as. Proyek perbaikan jembatan diajukan sebagai upaya membeli Trust publik. Proyek ini bernominal fantastis, dan Mr. Hayes dihitung bisa mendapatkan keuntungan 2% dari anggaran.",
-      "dilemma": "Apa yang harus dilakukan Mr. Hayes dan teman-temannya saat ini?",
+      "title": "Babak 5: Proyek Jembatan (Reputasi Kotor)",
+      "description": "Reputasi Anda hancur. Proyek Jembatan Nasional adalah kesempatan memulihkan nama (atau menambah pundi-pundi sebelum dipecat).",
+      "dilemma": "Ambil untung atau jaga kualitas jembatan?",
       "choices": {
         "A": {
-          "description": "Menjaga integritas proyek dan reputasi",
+          "description": "Jaga Integritas (Pulihkan Nama)",
           "money": 10000,
           "trust": 40,
           "risk": -15,
-          "next": "chapter6_A"
+          "next": "chapter6_A",
+          "feedback": "Langkah pertobatan. Publik mulai percaya lagi pada Anda."
         },
         "B": {
-          "description": "Memotong anggaran 2% untuk keuntungan pribadi, menggunakan bahan bangunan yang lebih murah dan manipulasi laporan",
+          "description": "Potong Anggaran 2% (Mumpung Bisa)",
           "money": 30000,
           "trust": 25,
           "risk": 40,
-          "next": "chapter6_B"
+          "next": "chapter6_B",
+          "feedback": "Anda tidak peduli lagi. Korupsi jalan terus selagi menjabat."
         }
       }
     },
     "chapter6_A": {
-      "title": "Babak 6: Perburuan Jabatan Jenderal Keamanan (Lanjutan dari 5A)",
-      "description": "Mr. Hayes merasa stabil, proyek jembatan sukses mengukuhkan citranya sebagai politisi bersih. Ia kini mengincar posisi **Jenderal Keamanan** karena gaji fantastis, pandangan publik, dan beban kerja yang (menurutnya) sedikit. Namun, ia tidak memiliki pasukan. Ia terpikir menggunakan pasukan bayaran sebagai penyokong.",
-      "dilemma": "Apa yang harus Mr. Hayes lakukan untuk menduduki posisi Jenderal Keamanan?",
+      "title": "Babak 6: Mengincar Jenderal Keamanan",
+      "description": "Citra Anda sebagai politisi bersih membuat Anda percaya diri mengincar kursi Jenderal Keamanan. Tapi Anda butuh 'otot'.",
+      "dilemma": "Bagaimana cara mendapatkan dukungan militer?",
       "choices": {
         "A": {
-          "description": "Menggunakan pengaruh politik, membangun koalisi politik dan reformasi keamanan, membentuk tim ahli kemanan sipil",
+          "description": "Koalisi Politik & Tim Ahli Sipil",
           "money": -10000,
           "trust": 30,
           "risk": 15,
-          "next": "chapter7_A"
+          "next": "chapter7_A",
+          "feedback": "Pendekatan demokratis. Lambat, tapi legitimate."
         },
         "B": {
-          "description": "Menyewa dan mempersenjatai pasukan bayaran, berkolusi dengan elemen militer pensiunan yang tidak puas",
+          "description": "Sewa Pasukan Bayaran (Mercenaries)",
           "money": -20000,
           "trust": 40,
           "risk": 30,
-          "next": "chapter7_B"
+          "next": "chapter7_B",
+          "feedback": "Anda punya tentara pribadi sekarang. Demokrasi menangis."
         }
       }
     },
     "chapter6_B": {
-      "title": "Babak 6: Perburuan Jabatan Jenderal Keamanan (Lanjutan dari 5B)",
-      "description": "Mr. Hayes kaya, tetapi gelisah. Meskipun menutupi pemotongan anggaran jembatan, ia tahu jejaknya rentan. Ia mengincar posisi **Jenderal Keamanan** untuk kekuasaan ekstra, gaji fantastis, dan beban kerja yang (menurutnya) sedikit, sekaligus menutupi jejak masa lalu. Ia terpikir menggunakan pasukan bayaran sebagai penyokong.",
-      "dilemma": "Apa yang harus Mr. Hayes lakukan untuk menduduki posisi Jenderal Keamanan?",
+      "title": "Babak 6: Mengincar Jenderal Keamanan (Demi Perlindungan)",
+      "description": "Jejak korupsi jembatan menghantui. Anda butuh posisi Jenderal Keamanan agar kebal hukum dan bisa menutupi jejak.",
+      "dilemma": "Bagaimana cara mendapatkan dukungan militer?",
       "choices": {
         "A": {
-          "description": "Menggunakan pengaruh politik, membangun koalisi politik dan reformasi keamanan, membentuk tim ahli kemanan sipil",
+          "description": "Koalisi Politik & Reformasi Palsu",
           "money": -10000,
           "trust": 30,
           "risk": 15,
-          "next": "chapter7_A"
+          "next": "chapter7_A",
+          "feedback": "Anda bersembunyi di balik topeng reformis."
         },
         "B": {
-          "description": "Menyewa dan mempersenjatai pasukan bayaran, berkolusi dengan elemen militer pensiunan yang tidak puas",
+          "description": "Sewa Pasukan Bayaran",
           "money": -20000,
           "trust": 40,
           "risk": 30,
-          "next": "chapter7_B"
+          "next": "chapter7_B",
+          "feedback": "Kekuasaan absolut adalah satu-satunya pelindung Anda sekarang."
         }
       }
     },
     "chapter7_A": {
-      "title": "Babak 7: Mengamankan Posisi Jenderal (Lanjutan dari 6A)",
-      "description": "Mr. Hayes menjadi Jenderal Keamanan. Reformasi dan tim sipil yang ia bentuk mendapat perlawanan keras. Perdana Menteri ingin membubarkan jabatannya dan menggabungkannya dengan kementerian pertahanan. Mr. Hayes harus mengamankan jabatannya.",
-      "dilemma": "Apa yang harus Mr. Hayes dan teman-temannya lakukan untuk mengamankan posisi Jenderal Keamanan?",
+      "title": "Babak 7: Ancaman Pembubaran",
+      "description": "PM ingin membubarkan jabatan Jenderal Keamanan Anda. Reformasi Anda dianggap ancaman.",
+      "dilemma": "Bagaimana mempertahankan jabatan?",
       "choices": {
         "A": {
-          "description": "Koersi dan membeli dukungan, membeli suara di komite penggabungan, menciptakan cyber ringan",
+          "description": "Suap Komite & Beli Dukungan",
           "money": -10000,
           "trust": 10,
           "risk": 35,
-          "next": "chapter8_A"
+          "next": "chapter8_A",
+          "feedback": "Jabatan aman, tapi parlemen kini milik penawar tertinggi."
         },
         "B": {
-          "description": "Membuktikan nilai dengan aksi nyata, memimpin operasi keamanan cepat waktu, menciptakan jarring pengaman sipil-teknokratik",
+          "description": "Buktikan Kinerja & Operasi Nyata",
           "money": -10000,
           "trust": 35,
           "risk": -10,
-          "next": "chapter8_B"
+          "next": "chapter8_B",
+          "feedback": "Prestasi membungkam lawan. Posisi Anda tak tergoyahkan."
         }
       }
     },
     "chapter7_B": {
-      "title": "Babak 7: Mengamankan Posisi Jenderal (Lanjutan dari 6B)",
-      "description": "Mr. Hayes menjadi Jenderal Keamanan, tetapi pasukan bayaran dianggap kudeta politik oleh PM. Perdana Menteri ingin membubarkan jabatannya dan menggabungkannya dengan kementerian pertahanan. Ancaman terbesar datang dari dalam pemerintahan sendiri.",
-      "dilemma": "Apa yang harus Mr. Hayes dan teman-temannya lakukan untuk mengamankan posisi Jenderal Keamanan?",
+      "title": "Babak 7: Ancaman Pembubaran (Isu Kudeta)",
+      "description": "Pasukan bayaran Anda membuat PM takut akan kudeta. Dia ingin memecat Anda segera.",
+      "dilemma": "Bagaimana mempertahankan jabatan?",
       "choices": {
         "A": {
-          "description": "Koersi dan membeli dukungan, membeli suara di komite penggabungan, menciptakan cyber ringan",
+          "description": "Ancam Balik & Beli Dukungan",
           "money": -10000,
           "trust": 10,
           "risk": 35,
-          "next": "chapter8_A"
+          "next": "chapter8_A",
+          "feedback": "Anda menggunakan rasa takut untuk berkuasa. Diktator kecil lahir."
         },
         "B": {
-          "description": "Membuktikan nilai dengan aksi nyata, memimpin operasi keamanan cepat waktu, menciptakan jarring pengaman sipil-teknokratik",
+          "description": "Buktikan Loyalitas Lewat Operasi",
           "money": -10000,
           "trust": 35,
           "risk": -10,
-          "next": "chapter8_B"
+          "next": "chapter8_B",
+          "feedback": "Anda berhasil meyakinkan PM bahwa pasukan Anda berguna."
         }
       }
     },
     "chapter8_A": {
-      "title": "Babak 8: Anggaran Pengamanan Negara (Lanjutan dari 7A)",
-      "description": "Posisi Jenderal Keamanan berhasil dipertahankan dengan membeli dukungan (Koersi), menguras dana. Mr. Hayes mengajukan anggaran fantastis untuk pembelian alat keamanan dan perang. Temannya menghitung ia bisa mendapatkan keuntungan 5% dari anggaran tersebut. Mr. Hayes ingin memberikan 'reward' kepada teman-temannya yang loyal, tetapi tidak ingin menggunakan gaji pribadinya.",
-      "dilemma": "Apa yang harus Mr. Hayes lakukan terkait anggaran dan 'reward' untuk teman-temannya?",
+      "title": "Babak 8: Anggaran Pertahanan (Balas Budi)",
+      "description": "Jabatan aman karena suap. Sekarang teman-teman yang membantu Anda menagih janji (reward). Ada anggaran Alutsista besar.",
+      "dilemma": "Mark-up anggaran atau kecewakan teman?",
       "choices": {
         "A": {
-          "description": "Mark-up 5% dan kompromi loyalitas",
+          "description": "Mark-up 5% & Bagi Hasil",
           "money": 50000,
           "trust": -5,
           "risk": 25,
-          "next": "chapter9_A"
+          "next": "chapter9_A",
+          "feedback": "Loyalitas dibeli dengan uang rakyat. Lingkaran korupsi makin kuat."
         },
         "B": {
-          "description": "Pengadaan 100% dan reward jalur profesional",
+          "description": "Pengadaan 100% Bersih",
           "money": -5000,
           "trust": 25,
           "risk": -5,
-          "next": "chapter9_B"
+          "next": "chapter9_B",
+          "feedback": "Teman-teman marah dan meninggalkan Anda, tapi negara hemat triliunan."
         }
       }
     },
     "chapter8_B": {
-      "title": "Babak 8: Anggaran Pengamanan Negara (Lanjutan dari 7B)",
-      "description": "Posisi Jenderal Keamanan berhasil dipertahankan berkat kinerja dan aksi nyata, menjaga Trust tinggi. Mr. Hayes mengajukan anggaran fantastis untuk pembelian alat keamanan dan perang. Temannya menghitung ia bisa mendapatkan keuntungan 5% dari anggaran tersebut. Mr. Hayes ingin memberikan 'reward' kepada teman-temannya, terutama tim ahli yang membantunya, tetapi tidak ingin menggunakan gaji pribadinya.",
-      "dilemma": "Apa yang harus Mr. Hayes lakukan terkait anggaran dan 'reward' untuk teman-temannya?",
+      "title": "Babak 8: Anggaran Pertahanan (Profesional)",
+      "description": "Kinerja Anda bagus. Anggaran besar turun. Tim ahli Anda berharap bonus besar dari proyek ini.",
+      "dilemma": "Mark-up anggaran atau kecewakan tim?",
       "choices": {
         "A": {
-          "description": "Mark-up 5% dan kompromi loyalitas",
+          "description": "Mark-up 5% sebagai 'Bonus'",
           "money": 50000,
           "trust": -5,
           "risk": 25,
-          "next": "chapter9_A"
+          "next": "chapter9_A",
+          "feedback": "Anda mengotori prestasi sendiri demi uang."
         },
         "B": {
-          "description": "Pengadaan 100% dan reward jalur profesional",
+          "description": "Pengadaan 100% Bersih",
           "money": -5000,
           "trust": 25,
           "risk": -5,
-          "next": "chapter9_B"
+          "next": "chapter9_B",
+          "feedback": "Integritas terjaga sempurna. Anda pejabat langka."
         }
       }
     },
     "chapter9_A": {
-      "title": "Babak 9: Melangkah ke Perdana Menteri (Lanjutan dari 8A)",
-      "description": "Ambisi Mr. Hayes kini pada kursi **Perdana Menteri**. Kekayaan ilegal dari mark-up memberinya dana tak terbatas. Isu mendesak PM untuk turun, dan Mr. Hayes mencalonkan diri dengan motto “Kemandirian dan Martabat Bangsa”. Ia melihat partai lawan yang berpotensial mengalahkannya.",
-      "dilemma": "Apa yang harus Mr. Hayes lakukan untuk memenangkan pemilu PM?",
+      "title": "Babak 9: Menuju PM (Modal Kotor)",
+      "description": "Dengan uang hasil korupsi, Anda maju jadi Perdana Menteri. Lawan politik kuat, tapi dana Anda tak terbatas.",
+      "dilemma": "Bagaimana strategi menang pemilu?",
       "choices": {
         "A": {
-          "description": "Membangun koalisi partai kecil dan tokoh independen, kampanye berbasis data dan isu sentral",
+          "description": "Koalisi Partai & Kampanye Data",
           "money": -1000,
           "trust": 30,
           "risk": 10,
-          "next": "chapter10_A"
+          "next": "chapter10_A",
+          "feedback": "Mencoba menang dengan cara bersih meski modalnya kotor."
         },
         "B": {
-          "description": "Kolusi dengan penegak hukum untuk penyelidikan tepat waktu dan disinformasi",
+          "description": "Kolusi Hukum & Kampanye Hitam",
           "money": -1500,
           "trust": -20,
           "risk": 10,
-          "next": "chapter10_B"
+          "next": "chapter10_B",
+          "feedback": "Anda menghalalkan segala cara. Demokrasi mati di tangan Anda."
         }
       }
     },
     "chapter9_B": {
-      "title": "Babak 9: Melangkah ke Perdana Menteri (Lanjutan dari 8B)",
-      "description": "Ambisi Mr. Hayes kini pada kursi **Perdana Menteri**. Integritasnya yang terjaga memberinya Trust dan reputasi tinggi. Isu mendesak PM untuk turun, dan Mr. Hayes mencalonkan diri dengan motto “Kemandirian dan Martabat Bangsa”. Ia melihat partai lawan yang berpotensial mengalahkannya.",
-      "dilemma": "Apa yang harus Mr. Hayes lakukan untuk memenangkan pemilu PM?",
+      "title": "Babak 9: Menuju PM (Modal Integritas)",
+      "description": "Reputasi Anda bersih, tapi dana kampanye terbatas. Anda maju jadi PM melawan raksasa politik.",
+      "dilemma": "Bagaimana strategi menang pemilu?",
       "choices": {
         "A": {
-          "description": "Membangun koalisi partai kecil dan tokoh independen, kampanye berbasis data dan isu sentral",
+          "description": "Koalisi Rakyat & Kampanye Jujur",
           "money": -1000,
           "trust": 30,
           "risk": 10,
-          "next": "chapter10_A"
+          "next": "chapter10_A",
+          "feedback": "Kemenangan terhormat sudah di depan mata."
         },
         "B": {
-          "description": "Kolusi dengan penegak hukum untuk penyelidikan tepat waktu dan disinformasi",
+          "description": "Main Curang Demi Menang",
           "money": -1500,
           "trust": -20,
           "risk": 10,
-          "next": "chapter10_B"
+          "next": "chapter10_B",
+          "feedback": "Di detik terakhir, Anda tergoda kekuasaan dan mengkhianati prinsip."
         }
       }
     },
     "chapter10_A": {
-      "title": "Babak 10: Ujian Kursi Perdana Menteri (Lanjutan dari 9A)",
-      "description": "Sebagai Perdana Menteri terpilih, Mr. Hayes rentan terhadap perpecahan koalisi dan isu yang berterbangan. Isu mendesaknya didemonstrasi untuk turun, mengancamnya, orang di belakangnya, serta teman-temannya.",
-      "dilemma": "Apa yang harus ia lakukan untuk mengatasi krisis dan ancaman turun jabatan?",
+      "title": "Babak 10: Krisis Kepemimpinan",
+      "description": "Anda jadi PM, tapi digoyang isu demonstrasi. Koalisi mulai retak.",
+      "dilemma": "Bagaimana meredam krisis?",
       "choices": {
         "A": {
-          "description": "Dialog, reformasi, dan kepemimpinan, transparansi total dan dialog terbuka, meluncurkan program pro-rakyat mendesak",
+          "description": "Dialog Terbuka & Reformasi Total",
           "money": -15000,
           "trust": 40,
           "risk": 20,
-          "next": "Selesai"
+          "next": "Selesai",
+          "feedback": "Seorang negarawan sejati lahir di masa krisis. Nama Anda harum selamanya."
         },
         "B": {
-          "description": "Konfrontasi dan penggunaan kekuasaan, membeli suara di parlemen dan media",
+          "description": "Beli Suara Parlemen",
           "money": -20000,
           "trust": 20,
           "risk": 15,
-          "next": "Selesai"
+          "next": "Selesai",
+          "feedback": "Anda bertahan, tapi sebagai boneka politik."
         }
       }
     },
     "chapter10_B": {
-      "title": "Babak 10: Ujian Kursi Perdana Menteri (Lanjutan dari 9B)",
-      "description": "Sebagai Perdana Menteri terpilih, Mr. Hayes sering mendapatkan rumor dan isu. Meskipun menyingkirkan lawan dengan kolusi gelap, ia harus menghadapi tuntutan dari pihak-pihak yang ia gunakan. Isu mendesaknya didemonstrasi untuk turun, mengancamnya, orang di belakangnya, serta teman-temannya.",
-      "dilemma": "Apa yang harus ia lakukan untuk mengatasi krisis dan ancaman turun jabatan?",
+      "title": "Babak 10: Krisis Kepemimpinan (Rezim Korup)",
+      "description": "Anda jadi PM hasil kecurangan. Rakyat marah dan menuntut Anda turun.",
+      "dilemma": "Bagaimana meredam krisis?",
       "choices": {
         "A": {
-          "description": "Dialog, reformasi, dan kepemimpinan, transparansi total dan dialog terbuka, meluncurkan program pro-rakyat mendesak",
+          "description": "Dialog & Program Pro-Rakyat",
           "money": -15000,
           "trust": 40,
           "risk": 20,
-          "next": "Selesai"
+          "next": "Selesai",
+          "feedback": "Upaya terlambat memperbaiki kerusakan. Sejarah mencatat dualisme Anda."
         },
         "B": {
-          "description": "Konfrontasi dan penggunaan kekuasaan, membeli suara di parlemen dan media",
+          "description": "Bungkam Media & Beli Parlemen",
           "money": -20000,
           "trust": 20,
           "risk": 15,
-          "next": "Selesai"
+          "next": "Selesai",
+          "feedback": "Anda menjadi tiran yang Anda benci dulu. Kekuasaan mutlak, moral nol."
         }
       }
     }
