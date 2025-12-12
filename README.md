@@ -199,22 +199,9 @@ Our engine allows **dynamic storytelling**. Narrative designers create content i
 
 ### 👥 Team
 
-  * **Backend & Logic:** [Your Name]
-  * **Frontend & UI:** [Friend's Name]
-  * **Integration:** [Hybrid Friend's Name]
-  * **Narrative Design:** [Storyteller's Name]
+  * **Backend & Logic:** Fatih Jawwad
+  * **Frontend & UI:** Farrel Ghozy
+  * **Integration:** Syahansyah Naufal
+  * **Narrative Design:** Rifda ?
 
-> *Built for [Devpost Hackathon Name] 2024*
-
-```
-
-### Apa yang Berubah?
-
-1.  **Bahasa Inggris Full:** Sesuai permintaan untuk Devpost.
-2.  **Folder Structure:** Saya sesuaikan dengan nama folder frontend kamu yang ternyata `The-Corrupt`, bukan `frontend`.
-3.  **API Contract Baru:** Saya tambahkan endpoint `GET /stories` yang krusial untuk fitur pilih karakter, dan update request `Start Game` yang sekarang butuh `story_id`.
-4.  **JSON Schema Baru:** Saya update contoh JSON-nya agar sesuai dengan struktur `chapters` (bukan list flat) yang baru saja kita implementasikan.
-5.  **Branding:** Menambahkan tagline yang lebih dramatis di atas.
-
-Langsung ganti file `README.md` utama dengan ini, lalu push ke GitHub! 🚀
-```
+> *Built for Devpost Hackathon 2025*
