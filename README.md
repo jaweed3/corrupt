@@ -1,25 +1,33 @@
-# Project: The Corruptor (Corruption Education Simulator)
+# 🕵️‍♂️ The Corruptor: Corruption Education Simulator
 
-> *"Jangan ajari orang untuk tidak korupsi. Tunjukkan pada mereka betapa mudahnya tergelincir, dan betapa fatal akibatnya."*
+> *"Don't just tell people corruption is bad. Let them feel the weight of the temptation, and the fatality of the consequences."*
 
 ## 📖 About The Project
 
-Web aplikasi ini bukan sekadar ensiklopedia hukum. Ini adalah **Text-Based Simulation Game** yang menempatkan pengguna di kursi pejabat publik. Pengguna dihadapkan pada dilema moral yang realistis, menyeimbangkan **Kekayaan Pribadi**, **Kepercayaan Publik**, dan **Risiko Penjara**.
+**The Corruptor** is not just a digital law encyclopedia. It is a **Data-Driven Text-Based Simulation Game** that puts users in the shoes of public officials facing real-world moral dilemmas.
 
-**Core Philosophy:** Menggunakan gamifikasi dan *psychological decision-making* untuk menanamkan pemahaman tentang *slippery slope* korupsi.
+Unlike traditional educational tools, we use **gamification** and **psychological decision-making** to demonstrate the "slippery slope" of corruption. Players must balance three critical metrics:
+1.  **💰 Personal Wealth**
+2.  **📢 Public Trust**
+3.  **⚖️ Investigation Risk**
+
+### 🎮 Key Features
+* **Multi-Perspective Storytelling:** Play as different characters (e.g., A Prosecutor trapped in debt, a Party Chairman facing political pressure).
+* **Dynamic Consequence Engine:** Every choice impacts your stats immediately and determines your ending (Win, Fired, or Arrested).
+* **Data-Driven Logic:** All narratives are decoupled from the code, powered by a robust JSON Engine.
 
 -----
 
 ## 🛠 Tech Stack
 
-Kami menggunakan pendekatan **Data-Driven Development** untuk mempersiapkan integrasi Machine Learning di masa depan.
+We utilize a **modern, decoupled architecture** to ensure scalability and readiness for future Machine Learning integration.
 
-  * **Backend:** Python (FastAPI)
-      * *Reasoning:* Kecepatan development tinggi, performa async native, dan ekosistem AI/ML (Pandas/Scikit-learn) untuk fitur analisis perilaku user.
-  * **Frontend:** React / Next.js (Tailwind CSS)
-      * *Reasoning:* Interaktivitas UI reaktif untuk feedback state game instan.
-  * **Data Store (MVP):** In-Memory / JSON Store
-      * *Reasoning:* Rapid prototyping. Siap dimigrasikan ke PostgreSQL/Redis.
+* **Backend:** Python (FastAPI)
+    * *Why?* Native async performance, strict data validation (Pydantic), and a rich AI/ML ecosystem (Pandas/Scikit-learn) for future behavioral analysis.
+* **Frontend:** React.js (Vite) + Tailwind CSS
+    * *Why?* Reactive UI for instant feedback and immersive experience.
+* **Data Engine:** JSON-based Dynamic Loader
+    * *Why?* Allows non-technical writers to update stories without touching the codebase.
 
 -----
 
@@ -28,152 +36,172 @@ Kami menggunakan pendekatan **Data-Driven Development** untuk mempersiapkan inte
 ```bash
 /project-root
 │
-├── /backend            # Python FastAPI Service
-│   ├── main.py         # Entry point & Logic
-│   ├── data/           # JSON Storage (Scenarios)
+├── /backend                # Python FastAPI Service
+│   ├── app/
+│   │   ├── main.py         # API Gateway
+│   │   ├── logic.py        # Game Math Engine
+│   │   └── data/stories/   # JSON Story Files (The Narratives)
 │   └── requirements.txt
 │
-├── /frontend           # React Application
-│   ├── src/            # Components & Pages
+├── /The-Corrupt            # Frontend Application (React)
+│   ├── src/
+│   │   ├── services/       # API Integration Layer
+│   │   └── components/     # UI Components
 │   └── package.json
 │
-└── README.md           # You are here
-```
+└── README.md               # Project Documentation
+````
 
 -----
 
-## 🚀 Quick Start (Dev Mode)
+## 🚀 Quick Start (Local Development)
 
 ### 1\. Backend Setup (The Brain)
 
-Pastikan Python 3.9+ terinstall.
+Make sure you have **Python 3.9+** installed.
 
 ```bash
 cd backend
-# Buat virtual environment (Optional tapi disarankan)
+
+# Create virtual environment (Optional)
 python -m venv venv
-# Aktifkan venv (Windows: venv\Scripts\activate | Mac/Linux: source venv/bin/activate)
+# Activate it (Windows: venv\Scripts\activate | Mac/Linux: source venv/bin/activate)
 
 # Install dependencies
-pip install fastapi uvicorn pydantic
+pip install fastapi uvicorn
 
-# Jalankan Server
-uvicorn main:app --reload
+# Run the Server
+uvicorn app.main:app --reload
 ```
 
-*Backend akan berjalan di:* `http://localhost:8000`
-*API Docs (Swagger) otomatis di:* `http://localhost:8000/docs`
+*Backend runs at:* `http://localhost:8000`  
+*API Docs:* `http://localhost:8000/docs`
 
 ### 2\. Frontend Setup (The Face)
 
-Pastikan Node.js terinstall.
+Make sure you have **Node.js** installed.
 
 ```bash
-cd frontend
+cd The-Corrupt
+
+# Install dependencies
 npm install
+
+# Run the App
 npm run dev
 ```
 
+*Frontend runs at:* `http://localhost:5173`
+
 -----
 
-## 🔌 API Contract (Untuk Tim Frontend)
+## 🔌 API Contract (Integration Guide)
 
-Ini adalah kontrak mati komunikasi antara Frontend dan Backend.
+Communication between Frontend and Backend follows this strict contract.
 
-### 1\. Start Game
+### 1\. Get Available Stories
 
-Memulai sesi baru. Reset semua stats.
+Fetches the list of playable characters for the main menu.
+
+  * **Endpoint:** `GET /stories`
+  * **Response:**
+    ```json
+    {
+      "stories": [
+        {
+          "story_id": "jaksa_hayes",
+          "title": "Shadow Behind the Marble Table",
+          "role": "Mr. Hayes (Prosecutor)",
+          "desc": "You are a Prosecutor trapped in debt..."
+        }
+      ]
+    }
+    ```
+
+### 2\. Start Game
+
+Initializes a new session for a specific character.
 
   * **Endpoint:** `POST /start-game`
+  * **Body:** `{"story_id": "jaksa_hayes"}`
   * **Response:**
+    ```json
+    {
+      "session_id": "uuid-string",
+      "stats": { "money": 10000, "trust": 50, "risk": 0 },
+      "current_scenario": {
+        "id": "chapter1",
+        "title": "The Salary Dilemma",
+        "description": "Your salary is gone...",
+        "choices": [...]
+      }
+    }
+    ```
 
-<!-- end list -->
+### 3\. Submit Answer
+
+Sends the player's choice to calculate consequences.
+
+  * **Endpoint:** `POST /submit-answer`
+  * **Body:** `{"session_id": "...", "choice_id": "A"}`
+  * **Response:**
+    ```json
+    {
+      "game_status": "ONGOING",
+      "stats_update": { "money": 60000, "trust": 15, "risk": 10 },
+      "feedback_text": "You are rich, but people are suspicious.",
+      "next_scenario": { ... }
+    }
+    ```
+
+-----
+
+## 📝 Story Engine Schema (JSON)
+
+Our engine allows **dynamic storytelling**. Narrative designers create content in JSON format located in `backend/app/data/stories/`.
+
+**Structure Example:**
 
 ```json
 {
-  "session_id": "uuid-v4-string",
-  "stats": {
-    "money": 100,       // Juta Rupiah
-    "trust": 50,        // Persen (0-100)
-    "risk": 0           // Persen (0-100)
-  },
-  "current_scenario": {
-    "id": "scen_1",
-    "text": "Anda baru dilantik. Ada tawaran proyek fiktif.",
-    "choices": [
-        { "id": "a", "label": "Terima", "impact": "..." },
-        { "id": "b", "label": "Tolak", "impact": "..." }
-    ]
+  "story_id": "unique_id",
+  "title": "Story Title",
+  "role_name": "Character Role",
+  "chapters": {
+    "chapter1": {
+      "title": "Scenario Title",
+      "description": "Narrative text...",
+      "dilemma": "What will you do?",
+      "choices": {
+        "A": {
+          "description": "Take the Bribe",
+          "money": 50000,
+          "trust": -20,
+          "risk": 10,
+          "next": "chapter2_A",
+          "feedback": "Instant wealth, but at what cost?"
+        }
+      }
+    }
   }
 }
 ```
 
-### 2\. Submit Choice
+-----
 
-Mengirim jawaban user dan mendapatkan dampak (konsekuensi).
+## 🔮 Future Roadmap
 
-  * **Endpoint:** `POST /submit-answer`
-  * **Body:**
-
-<!-- end list -->
-
-```json
-{
-  "session_id": "uuid-v4-string",
-  "choice_id": "a"
-}
-```
-
-  * **Response:**
-
-<!-- end list -->
-
-```json
-{
-  "game_status": "ONGOING", // atau "GAME_OVER"
-  "stats_update": {
-    "money": 150,
-    "trust": 40,
-    "risk": 15
-  },
-  "feedback_text": "Uang masuk rekening, tapi KPK mulai memantau.",
-  "next_scenario": { ... } // Object skenario berikutnya (Null jika Game Over)
-}
-```
+1.  **Corruption Profiler (ML):** We are collecting behavioral data to train a classification model that profiles user corruption archetypes (e.g., "The Opportunist" vs "The Mastermind").
+2.  **Global Leaderboard:** Compare your "Integrity Score" with other players globally.
+3.  **Real-time Analytics:** Dashboard to visualize how easily average users succumb to temptation.
 
 -----
 
-## 📝 Data Schema (Untuk Tim Storyteller)
+### 👥 Team
 
-Format penulisan skenario dalam `JSON` atau Spreadsheet harus mengandung element ini:
+  * **Backend & Logic:** Fatih Jawwad
+  * **Frontend & UI:** Farrel Ghozy
+  * **Integration:** Syahansyah Naufal
+  * **Narrative Design:** Rifda ?
 
-| Field | Tipe | Deskripsi |
-| :--- | :--- | :--- |
-| `id` | String | Unik (misal: `level_1_kasus_ktp`) |
-| `text` | String | Narasi kasus (Max 200 karakter) |
-| `choices` | Array | Minimal 2 pilihan (A/B) |
-| `impact` | Object | Dampak matematis ke `money`, `trust`, `risk` |
-
-**Contoh Logic Impact:**
-
-  * **Money:** `+` menambah uang, `-` mengurangi uang.
-  * **Trust:** Jika `0`, Game Over (Lengser).
-  * **Risk:** Jika `100`, Game Over (Ditangkap).
-
------
-
-## 🔮 Future Roadmap (ML Integration)
-
-Fitur yang disiapkan untuk tahap selanjutnya:
-
-1.  **Corruption Profiler:** Mengklasifikasikan gaya bermain user (e.g., "The Mastermind", "The Petty Thief") menggunakan *Rule-based Classification*.
-2.  **Dynamic Difficulty:** Algoritma penyesuaian tingkat kesulitan skenario berdasarkan saldo uang user.
-
------
-
-### Perintah Khusus untuk Tim:
-
-  * **Frontend:** Gunakan *dummy data* jika API belum ready, sesuaikan format dengan kontrak JSON di atas.
-  * **Content:** Fokus pada kualitas cerita dan bobot konsekuensi. Buat pemain merasa bersalah.
-  * **Backend:** Fokus pada kestabilan logika kalkulasi stats.
-
+> *Built for Devpost Hackathon 2025*
