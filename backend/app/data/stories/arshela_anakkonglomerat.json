@@ -1,397 +1,397 @@
 {
-  "story_id": "arshela_pewaris",
-  "title": "Arshela: Pewaris Takhta Politik",
-  "role_name": "Arshela (Putri PM)",
-  "description": "Anda adalah Arshela, putri dari Perdana Menteri. Hidup dikelilingi kekuasaan, kini saatnya Anda membuktikan diri di tengah tuduhan dinasti politik.",
+  "story_id": "arshela_the_heir",
+  "title": "Arshela: The Political Throne Heir",
+  "role_name": "Arshela (PM's Daughter)",
+  "description": "You are Arshela, the Prime Minister's daughter. Having lived surrounded by power, it is now time for you to prove yourself amidst accusations of a political dynasty.",
   "chapters": {
     "chapter1": {
-      "title": "Awal Karir",
-      "description": "Masa sekolah usai. Keluarga menyarankan Anda terjun ke politik. Namun, bayang-bayang nama besar ayah Anda menjadi pedang bermata dua.",
-      "dilemma": "Bagaimana cara Arshela mengawali karirnya?",
+      "title": "Career Start",
+      "description": "School days are over. Your family suggests you enter politics. However, the shadow of your father's great name is a double-edged sword.",
+      "dilemma": "How should Arshela start her career?",
       "choices": {
         "A": {
-          "description": "Jalan Hubungan Keluarga",
+          "description": "The Family Connection Route",
           "money": -45000,
           "trust": -20,
           "risk": 15,
           "next": "chapter2_A",
-          "feedback": "Anda menggunakan jalur cepat. Efektif, tapi publik mencibir nepotisme Anda."
+          "feedback": "You took the fast track. Effective, but the public scoffs at your nepotism."
         },
         "B": {
-          "description": "Personal Branding Mandiri",
+          "description": "Independent Personal Branding",
           "money": -15000,
           "trust": 15,
           "risk": 25,
           "next": "chapter2_B",
-          "feedback": "Jalan yang sunyi dan mahal. Rakyat mulai melirik, tapi risikonya tinggi."
+          "feedback": "A quiet and expensive path. People are starting to notice, but the risk is high."
         }
       }
     },
     "chapter2_A": {
-      "title": "Pembuktian Diri: Jalur Cepat",
-      "description": "Masyarakat meragukan kompetensi Anda. Cap 'Anak Papa' melekat kuat. Anda harus segera membuktikan diri sebelum kehilangan momentum.",
-      "dilemma": "Bagaimana membuktikan kompetensi Anda?",
+      "title": "Proving Herself: The Fast Track",
+      "description": "The public doubts your competence. The 'Daddy's Girl' label sticks hard. You must quickly prove yourself before losing momentum.",
+      "dilemma": "How to prove your competence?",
       "choices": {
         "A": {
-          "description": "Minta Tugas Mudah ke Koneksi Ayah",
+          "description": "Ask for Easy Tasks from Father's Connections",
           "money": -10000,
           "trust": 15,
           "risk": 25,
           "next": "chapter3_A",
-          "feedback": "Tugas selesai dengan mudah. Citra naik, tapi ini hanya gimmick."
+          "feedback": "The task was completed easily. Your image improved, but it's just a gimmick."
         },
         "B": {
-          "description": "Membangun Kompetensi Asli",
+          "description": "Build Genuine Competence",
           "money": 0,
           "trust": 25,
           "risk": -10,
           "next": "chapter3_B",
-          "feedback": "Proses lambat. Anda lelah belajar, tapi fondasi Anda menguat."
+          "feedback": "A slow process. You are tired of studying, but your foundation strengthens."
         }
       }
     },
     "chapter2_B": {
-      "title": "Pembuktian Diri: Jalur Mandiri",
-      "description": "Jalur independen ternyata brutal. Tanpa bantuan ayah, Anda diserang kiri-kanan. Anda harus membuktikan kepantasan Anda.",
-      "dilemma": "Bagaimana membuktikan kompetensi Anda?",
+      "title": "Proving Herself: The Independent Route",
+      "description": "The independent path turns out to be brutal. Without your father's help, you are attacked left and right. You must prove your worth.",
+      "dilemma": "How to prove your competence?",
       "choices": {
         "A": {
-          "description": "Menyerah, Minta Bantuan Koneksi Ayah",
+          "description": "Give Up, Ask for Father's Connections' Help",
           "money": -10000,
           "trust": 10,
           "risk": 25,
           "next": "chapter3_A",
-          "feedback": "Anda akhirnya kompromi. Idealisme luntur demi bertahan hidup."
+          "feedback": "You finally compromised. Idealism fades for survival."
         },
         "B": {
-          "description": "Tetap di Jalur Mandiri & Kompetensi",
+          "description": "Stay on the Independent & Competence Path",
           "money": 30000,
           "trust": 25,
           "risk": -15,
           "next": "chapter3_B",
-          "feedback": "Anda berhasil mendapatkan proyek mandiri. Rakyat mulai respect."
+          "feedback": "You successfully obtained an independent project. The public starts to respect you."
         }
       }
     },
     "chapter3_A": {
-      "title": "Dilema Konsultan",
-      "description": "Anda sering diundang jadi konsultan. Ada tawaran besar dari perusahaan yang mendesak, tapi Anda masih punya kontrak berjalan dengan perusahaan lain. Aturan melarang rangkap jabatan.",
-      "dilemma": "Terima tawaran ganda atau setia pada kontrak?",
+      "title": "Consultant Dilemma",
+      "description": "You are often invited to be a consultant. There is a huge offer from a demanding company, but you still have a running contract with another company. The rules forbid holding multiple positions.",
+      "dilemma": "Accept the dual offer or stay loyal to the contract?",
       "choices": {
         "A": {
-          "description": "Jaga Komitmen (Tolak Tawaran Baru)",
+          "description": "Maintain Commitment (Decline New Offer)",
           "money": 15000,
           "trust": 25,
           "risk": -10,
           "next": "chapter4_A",
-          "feedback": "Anda kehilangan uang besar, tapi tidur nyenyak dengan integritas."
+          "feedback": "You lost a lot of money, but you sleep soundly with integrity."
         },
         "B": {
-          "description": "Ambil Keduanya (Langgar Aturan)",
+          "description": "Take Both (Violate Rules)",
           "money": 30000,
           "trust": -25,
           "risk": 25,
           "next": "chapter4_B",
-          "feedback": "Dompet tebal seketika. Tapi konflik kepentingan ini bom waktu."
+          "feedback": "Your wallet is instantly thick. But this conflict of interest is a time bomb."
         }
       }
     },
     "chapter3_B": {
-      "title": "Dilema Konsultan",
-      "description": "Prestasi Anda memukau. Tawaran konsultan membanjir. Ada tawaran raksasa yang menuntut Anda melanggar kontrak lama karena bentrok waktu.",
-      "dilemma": "Terima tawaran ganda atau setia pada kontrak?",
+      "title": "Consultant Dilemma",
+      "description": "Your achievements are stunning. Consultant offers pour in. There is a giant offer that demands you violate an old contract due to a time clash.",
+      "dilemma": "Accept the dual offer or stay loyal to the contract?",
       "choices": {
         "A": {
-          "description": "Jaga Komitmen (Tolak Tawaran Baru)",
+          "description": "Maintain Commitment (Decline New Offer)",
           "money": 15000,
           "trust": 25,
           "risk": -10,
           "next": "chapter4_A",
-          "feedback": "Integritas Anda menjadi buah bibir positif."
+          "feedback": "Your integrity becomes positive talk."
         },
         "B": {
-          "description": "Ambil Keduanya (Serakah)",
+          "description": "Take Both (Greedy)",
           "money": 30000,
           "trust": -25,
           "risk": 20,
           "next": "chapter4_B",
-          "feedback": "Anda mengambil risiko besar demi uang cepat."
+          "feedback": "You take a big risk for fast money."
         }
       }
     },
     "chapter4_A": {
-      "title": "Tuduhan Kudeta",
-      "description": "Relasi luas Anda malah jadi bumerang. Musuh politik menyebar isu bahwa Anda menggalang kekuatan untuk kudeta.",
-      "dilemma": "Bagaimana merespon tuduhan makar ini?",
+      "title": "Coup D'État Allegations",
+      "description": "Your extensive relations become a boomerang. Political enemies spread rumors that you are mobilizing forces for a coup.",
+      "dilemma": "How to respond to this treason accusation?",
       "choices": {
         "A": {
-          "description": "Konfrontasi & Manipulasi Media",
+          "description": "Confrontation & Media Manipulation",
           "money": -15000,
           "trust": -20,
           "risk": 30,
           "next": "chapter5_A",
-          "feedback": "Anda melawan api dengan api. Situasi makin panas."
+          "feedback": "You fight fire with fire. The situation gets hotter."
         },
         "B": {
-          "description": "Transparansi & Jalur Hukum",
+          "description": "Transparency & Legal Route",
           "money": 0,
           "trust": 20,
           "risk": -20,
           "next": "chapter5_B",
-          "feedback": "Anda membuka semua data. Publik melihat kejujuran Anda."
+          "feedback": "You disclose all data. The public sees your honesty."
         }
       }
     },
     "chapter4_B": {
-      "title": "Tuduhan Kudeta (Posisi Lemah)",
-      "description": "Karena rekam jejak Anda yang main dua kaki sebelumnya, tuduhan kudeta ini terdengar sangat meyakinkan di telinga publik.",
-      "dilemma": "Bagaimana merespon tuduhan makar ini?",
+      "title": "Coup D'État Allegations (Weak Position)",
+      "description": "Because of your previous double-dealing track record, these coup allegations sound very convincing to the public.",
+      "dilemma": "How to respond to this treason accusation?",
       "choices": {
         "A": {
-          "description": "Konfrontasi & Manipulasi Media",
+          "description": "Confrontation & Media Manipulation",
           "money": -10000,
           "trust": -25,
           "risk": 30,
           "next": "chapter5_A",
-          "feedback": "Publik makin yakin Anda bersalah karena reaksi Anda berlebihan."
+          "feedback": "The public is more convinced you are guilty because of your excessive reaction."
         },
         "B": {
-          "description": "Transparansi & Jalur Hukum",
+          "description": "Transparency & Legal Route",
           "money": 0,
           "trust": 25,
           "risk": -20,
           "next": "chapter5_B",
-          "feedback": "Langkah berani. Perlahan kecurigaan mereda."
+          "feedback": "A bold step. Suspicion slowly subsides."
         }
       }
     },
     "chapter5_A": {
-      "title": "Kematian Pangeran",
-      "description": "Pangeran Litvineko tewas diracun. Anda, yang sedang berselisih dengannya, jadi tersangka utama. Situasi sangat gawat.",
-      "dilemma": "Anda terpojok. Apa yang harus dilakukan?",
+      "title": "The Prince's Death",
+      "description": "Prince Litvineko is poisoned to death. You, who were in conflict with him, become the main suspect. The situation is dire.",
+      "dilemma": "You are cornered. What must be done?",
       "choices": {
         "A": {
-          "description": "Lari & Rusak Bukti",
+          "description": "Run & Destroy Evidence",
           "money": -20000,
           "trust": -30,
           "risk": 45,
           "next": "chapter6_A",
-          "feedback": "Tindakan pengecut ini justru mengonfirmasi kesalahan Anda."
+          "feedback": "This cowardly act actually confirms your guilt."
         },
         "B": {
-          "description": "Hadapi Hukum & Sewa Penyelidik",
+          "description": "Face the Law & Hire Investigators",
           "money": -10000,
           "trust": 15,
           "risk": 15,
           "next": "chapter6_B",
-          "feedback": "Anda bertaruh nyawa pada sistem hukum yang belum tentu adil."
+          "feedback": "You risk your life on a legal system that may not be fair."
         }
       }
     },
     "chapter5_B": {
-      "title": "Kematian Pangeran",
-      "description": "Pangeran Litvineko tewas diracun. Meski reputasi Anda baik, posisi Anda sebagai rival politik membuat polisi tetap memeriksa Anda.",
-      "dilemma": "Anda terpojok. Apa yang harus dilakukan?",
+      "title": "The Prince's Death",
+      "description": "Prince Litvineko is poisoned to death. Although your reputation is good, your position as a political rival means the police still investigate you.",
+      "dilemma": "You are cornered. What must be done?",
       "choices": {
         "A": {
-          "description": "Lari & Rusak Bukti",
+          "description": "Run & Destroy Evidence",
           "money": -20000,
           "trust": -30,
           "risk": 40,
           "next": "chapter6_A",
-          "feedback": "Semua reputasi baik Anda hancur seketika."
+          "feedback": "All your good reputation is instantly destroyed."
         },
         "B": {
-          "description": "Kooperatif & Buktikan Alibi",
+          "description": "Cooperate & Prove Alibi",
           "money": -10000,
           "trust": 15,
           "risk": 10,
           "next": "chapter6_B",
-          "feedback": "Ketenangan Anda membuat penyidik ragu menetapkan tersangka."
+          "feedback": "Your composure makes investigators hesitate to name you a suspect."
         }
       }
     },
     "chapter6_A": {
-      "title": "Krisis Utang Negara",
-      "description": "Anda lolos dari tuduhan pembunuhan (entah bagaimana). Sekarang negara bangkrut. Investor asing menekan. Anda punya koneksi ke mereka.",
-      "dilemma": "Jual negara atau selamatkan negara?",
+      "title": "National Debt Crisis",
+      "description": "You escape the murder accusation (somehow). Now the country is bankrupt. Foreign investors pressure you. You have connections to them.",
+      "dilemma": "Sell out the country or save the country?",
       "choices": {
         "A": {
-          "description": "Reformasi Fiskal (Pahit tapi Benar)",
+          "description": "Fiscal Reform (Bitter but Right)",
           "money": 15000,
           "trust": 25,
           "risk": -20,
           "next": "chapter7_A",
-          "feedback": "Oligarki marah, tapi ekonomi mulai stabil."
+          "feedback": "The oligarchy is angry, but the economy starts to stabilize."
         },
         "B": {
-          "description": "Jual Aset Negara (Likuidasi Cepat)",
+          "description": "Sell State Assets (Quick Liquidation)",
           "money": 25000,
           "trust": -30,
           "risk": 30,
           "next": "chapter7_B",
-          "feedback": "Anda dapat komisi besar dari penjualan aset negara."
+          "feedback": "You get a huge commission from selling state assets."
         }
       }
     },
     "chapter6_B": {
-      "title": "Krisis Utang Negara",
-      "description": "Nama Anda bersih. Negara meminta bantuan Anda melobi investor asing untuk mengatasi krisis utang.",
-      "dilemma": "Jual negara atau selamatkan negara?",
+      "title": "National Debt Crisis",
+      "description": "Your name is clean. The state asks for your help to lobby foreign investors to overcome the debt crisis.",
+      "dilemma": "Sell out the country or save the country?",
       "choices": {
         "A": {
-          "description": "Reformasi Fiskal (Pahit tapi Benar)",
+          "description": "Fiscal Reform (Bitter but Right)",
           "money": 15000,
           "trust": 25,
           "risk": -25,
           "next": "chapter7_A",
-          "feedback": "Keputusan negarawan sejati."
+          "feedback": "A true statesman's decision."
         },
         "B": {
-          "description": "Main Mata dengan Investor Asing",
+          "description": "Play Ball with Foreign Investors",
           "money": 30000,
           "trust": -35,
           "risk": 30,
           "next": "chapter7_B",
-          "feedback": "Anda menggadaikan kedaulatan negara demi uang."
+          "feedback": "You mortgage the country's sovereignty for money."
         }
       }
     },
     "chapter7_A": {
-      "title": "Kejatuhan dan Kebangkitan",
-      "description": "Anda difitnah sebagai agen asing. Anda dipaksa turun jabatan. Sekarang anda di titik nol.",
-      "dilemma": "Bagaimana cara naik kembali?",
+      "title": "Downfall and Rise",
+      "description": "You are slandered as a foreign agent. You are forced to step down. Now you are at ground zero.",
+      "dilemma": "How to rise again?",
       "choices": {
         "A": {
-          "description": "Black Campaign & Politik Uang",
+          "description": "Black Campaign & Money Politics",
           "money": -20000,
           "trust": -15,
           "risk": 20,
           "next": "chapter8_A",
-          "feedback": "Anda menghalalkan segala cara. Anda kembali berkuasa, tapi kotor."
+          "feedback": "You resort to any means necessary. You are back in power, but dirty."
         },
         "B": {
-          "description": "Membangun dari Bawah (Jujur)",
+          "description": "Build from the Bottom Up (Honest)",
           "money": 0,
           "trust": 20,
           "risk": -20,
           "next": "chapter8_B",
-          "feedback": "Jalan terjal dan lambat. Tapi hati nurani tenang."
+          "feedback": "A steep and slow path. But your conscience is clear."
         }
       }
     },
     "chapter7_B": {
-      "title": "Kejatuhan dan Kebangkitan",
-      "description": "Kebijakan Anda sebelumnya terbukti merugikan. Anda dipecat. Anda butuh kekuasaan kembali untuk melindungi aset Anda.",
-      "dilemma": "Bagaimana cara naik kembali?",
+      "title": "Downfall and Rise",
+      "description": "Your previous policies proved detrimental. You are fired. You need power back to protect your assets.",
+      "dilemma": "How to rise again?",
       "choices": {
         "A": {
-          "description": "Black Campaign & Politik Uang",
+          "description": "Black Campaign & Money Politics",
           "money": -20000,
           "trust": -10,
           "risk": 30,
           "next": "chapter8_A",
-          "feedback": "Anda kembali ke puncak, membawa serta dosa-dosa lama."
+          "feedback": "You return to the top, bringing old sins with you."
         },
         "B": {
-          "description": "Membangun dari Bawah",
+          "description": "Build from the Bottom Up",
           "money": 0,
           "trust": 20,
           "risk": -20,
           "next": "chapter8_B",
-          "feedback": "Pertobatan politik yang berat."
+          "feedback": "A heavy political repentance."
         }
       }
     },
     "chapter8_A": {
-      "title": "Proyek Subprime Mortgage",
-      "description": "Anda kembali berkuasa. Ada proyek investasi berisiko tinggi (Subprime Mortgage). Komisinya 5% cair di depan.",
-      "dilemma": "Ambil risiko hancurkan ekonomi atau main aman?",
+      "title": "Subprime Mortgage Project",
+      "description": "You are back in power. There is a high-risk investment project (Subprime Mortgage). The commission is 5% upfront.",
+      "dilemma": "Take the risk of destroying the economy or play it safe?",
       "choices": {
         "A": {
-          "description": "Transparansi & Tolak Risiko",
+          "description": "Transparency & Reject Risk",
           "money": -10000,
           "trust": 25,
           "risk": -20,
           "next": "chapter9_A",
-          "feedback": "Anda menolak uang haram. Investor kecewa, rakyat selamat."
+          "feedback": "You refuse dirty money. Investors are disappointed, the people are safe."
         },
         "B": {
-          "description": "Gaspol! Ambil Komisi",
+          "description": "Full Throttle! Take the Commission",
           "money": 30000,
           "trust": -25,
           "risk": 30,
           "next": "chapter9_B",
-          "feedback": "Anda kaya raya. Bom waktu ekonomi siap meledak."
+          "feedback": "You are rich. The economic time bomb is ready to explode."
         }
       }
     },
     "chapter8_B": {
-      "title": "Proyek Subprime Mortgage",
-      "description": "Kredibilitas Anda pulih. Investor menawarkan produk keuangan kompleks yang berisiko tapi menguntungkan pejabat.",
-      "dilemma": "Ambil risiko hancurkan ekonomi atau main aman?",
+      "title": "Subprime Mortgage Project",
+      "description": "Your credibility is restored. Investors offer a complex financial product that is risky but profitable for officials.",
+      "dilemma": "Take the risk of destroying the economy or play it safe?",
       "choices": {
         "A": {
-          "description": "Transparansi & Tolak Risiko",
+          "description": "Transparency & Reject Risk",
           "money": -10000,
           "trust": 25,
           "risk": -20,
           "next": "chapter9_A",
-          "feedback": "Integritas Anda menyelamatkan negara dari krisis."
+          "feedback": "Your integrity saves the country from crisis."
         },
         "B": {
-          "description": "Gaspol! Ambil Komisi",
+          "description": "Full Throttle! Take the Commission",
           "money": 30000,
           "trust": -25,
           "risk": 25,
           "next": "chapter9_B",
-          "feedback": "Keserakahan Anda mengundang bencana."
+          "feedback": "Your greed invites disaster."
         }
       }
     },
     "chapter9_A": {
-      "title": "Skandal Sang Ayah",
-      "description": "Anda menerima bukti bahwa Ayah Anda (Perdana Menteri) adalah dalang korupsi terbesar. Rakyat meminta Anda memimpin revolusi.",
-      "dilemma": "Pilih Ayah atau Rakyat?",
+      "title": "The Father's Scandal",
+      "description": "You receive evidence that your Father (the Prime Minister) is the mastermind of the biggest corruption. The people ask you to lead the revolution.",
+      "dilemma": "Choose Father or the People?",
       "choices": {
         "A": {
-          "description": "Lindungi Ayah & Kampanye Hitam",
+          "description": "Protect Father & Black Campaign",
           "money": -30000,
           "trust": -30,
           "risk": 40,
-          "next": "Selesai",
-          "feedback": "Darah lebih kental dari air. Anda dan ayah Anda selamat, tapi negara hancur."
+          "next": "FINISH",
+          "feedback": "Blood is thicker than water. You and your father are safe, but the country is ruined."
         },
         "B": {
-          "description": "Buka Bukti & Pimpin Reformasi",
+          "description": "Disclose Evidence & Lead Reform",
           "money": 0,
           "trust": 30,
           "risk": -30,
-          "next": "Selesai",
-          "feedback": "Anda mengorbankan ayah sendiri demi keadilan. Sejarah mencatat Anda sebagai pahlawan tragis."
+          "next": "FINISH",
+          "feedback": "You sacrifice your own father for justice. History records you as a tragic hero."
         }
       }
     },
     "chapter9_B": {
-      "title": "Skandal Sang Ayah",
-      "description": "Di tengah kekacauan ekonomi yang Anda buat, terungkap Ayah Anda juga korupsi. Situasi chaos.",
-      "dilemma": "Pilih Ayah atau Rakyat?",
+      "title": "The Father's Scandal",
+      "description": "Amidst the economic chaos you created, it is revealed that your Father is also corrupt. The situation is chaos.",
+      "dilemma": "Choose Father or the People?",
       "choices": {
         "A": {
-          "description": "Lindungi Ayah & Alihkan Isu",
+          "description": "Protect Father & Divert Issue",
           "money": -15000,
           "trust": -15,
           "risk": 20,
-          "next": "Selesai",
-          "feedback": "Dinasti politik Anda bertahan di atas penderitaan rakyat."
+          "next": "FINISH",
+          "feedback": "Your political dynasty survives atop the people's suffering."
         },
         "B": {
-          "description": "Buka Bukti & Cuci Dosa",
+          "description": "Disclose Evidence & Atone for Sins",
           "money": 0,
           "trust": 20,
           "risk": -15,
-          "next": "Selesai",
-          "feedback": "Upaya terakhir menebus dosa. Ayah Anda dipenjara, Anda kehilangan segalanya."
+          "next": "FINISH",
+          "feedback": "A final attempt to atone for sins. Your father is imprisoned, you lose everything."
         }
       }
     }
