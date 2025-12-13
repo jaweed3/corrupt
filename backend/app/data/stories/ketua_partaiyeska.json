@@ -1,443 +1,443 @@
 {
-  "story_id": "yeska_partai",
-  "title": "Yeska: Sang Populist dan Etika",
-  "role_name": "Yeska (Ketua Partai)",
-  "description": "Anda adalah Yeska, Ketua Umum Partai Bhumi Krida (PBK). Dikenal idealis dan anti-korupsi, kini ambisi politik menguji janji-janji manis Anda.",
+  "story_id": "yeska_party",
+  "title": "Yeska: The Populist and Ethics",
+  "role_name": "Yeska (Party Chairman)",
+  "description": "You are Yeska, the Chairman of the Bhumi Krida Party (PBK). Known as an idealist and anti-corruption figure, your political ambition now tests your sweet promises.",
   "chapters": {
     "chapter1": {
-      "title": "Dilema Lahan Konservasi",
-      "description": "Demi janji ketahanan pangan, Anda butuh lahan pertanian baru. Lahan konservasi tersedia, tapi membukanya berarti mengkhianati aktivis lingkungan.",
-      "dilemma": "Buka lahan konservasi atau cari cara lain yang mahal?",
+      "title": "The Conservation Land Dilemma",
+      "description": "For the sake of food security promises, you need new agricultural land. Conservation land is available, but opening it means betraying environmental activists.",
+      "dilemma": "Open conservation land or find an expensive alternative?",
       "choices": {
         "A": {
-          "description": "Teknologi Tinggi (Tanpa Rusak Hutan)",
+          "description": "High Technology (Without Destroying Forest)",
           "money": -20000,
           "trust": 20,
           "risk": -15,
           "next": "chapter2_A",
-          "feedback": "Mahal sekali, tapi aktivis memuji Anda sebagai visioner hijau."
+          "feedback": "Very expensive, but activists praise you as a green visionary."
         },
         "B": {
-          "description": "Paksa Izin Buka Hutan",
+          "description": "Force Permission to Open Forest",
           "money": -15000,
           "trust": -25,
           "risk": 20,
           "next": "chapter2_B",
-          "feedback": "Petani senang dapat tanah, tapi aktivis mulai mencap Anda perusak alam."
+          "feedback": "Farmers are happy to get land, but activists start labeling you as an environmental destroyer."
         }
       }
     },
     "chapter2_A": {
-      "title": "Skandal Jual Beli Jabatan",
-      "description": "Wakil Ketua Partai Anda tertangkap basah jual beli jabatan. Uangnya mengalir ke kas partai. Integritas Anda dipertaruhkan.",
-      "dilemma": "Lindungi teman atau bersihkan partai?",
+      "title": "Job Trading Scandal",
+      "description": "Your Vice Chairman is caught red-handed trading positions for money. The money flowed into the party coffers. Your integrity is at stake.",
+      "dilemma": "Protect your friend or clean up the party?",
       "choices": {
         "A": {
-          "description": "Reformasi Total & Audit Independen",
+          "description": "Total Reform & Independent Audit",
           "money": -10000,
           "trust": 30,
           "risk": -35,
           "next": "chapter3_A",
-          "feedback": "Partai bergejolak, tapi publik melihat Anda sebagai pahlawan bersih-bersih."
+          "feedback": "The party is turbulent, but the public sees you as a cleansing hero."
         },
         "B": {
-          "description": "Minta Mundur Diam-diam (Tutup Kasus)",
+          "description": "Ask for Quiet Resignation (Close Case)",
           "money": 0,
           "trust": -10,
           "risk": 10,
           "next": "chapter3_B",
-          "feedback": "Masalah selesai tanpa ribut, tapi bangkai tersimpan di dalam lemari."
+          "feedback": "The problem is solved quietly, but a skeleton is kept in the closet."
         }
       }
     },
     "chapter2_B": {
-      "title": "Skandal Jual Beli Jabatan (Posisi Tertekan)",
-      "description": "Sudah didemo soal lingkungan, kini Wakil Ketua Partai kena kasus suap jabatan. Partai di ujung tanduk.",
-      "dilemma": "Lindungi teman atau bersihkan partai?",
+      "title": "Job Trading Scandal (Pressured Position)",
+      "description": "Already protested over the environment, now the Vice Chairman is involved in a job bribery case. The party is on the brink.",
+      "dilemma": "Protect your friend or clean up the party?",
       "choices": {
         "A": {
-          "description": "Reformasi Total & Audit Independen",
+          "description": "Total Reform & Independent Audit",
           "money": -15000,
           "trust": 30,
           "risk": -30,
           "next": "chapter3_A",
-          "feedback": "Langkah berani yang mahal. Faksi lama mulai membenci Anda."
+          "feedback": "A brave but costly step. The old faction starts to hate you."
         },
         "B": {
-          "description": "Minta Mundur Diam-diam (Tutup Kasus)",
+          "description": "Ask for Quiet Resignation (Close Case)",
           "money": 0,
           "trust": -15,
           "risk": 10,
           "next": "chapter3_B",
-          "feedback": "Anda memilih kestabilan semu. Publik mulai curiga sandiwara Anda."
+          "feedback": "You choose false stability. The public begins to suspect your play-acting."
         }
       }
     },
     "chapter3_A": {
-      "title": "Dana Kampanye Abu-abu",
-      "description": "Pemilu dekat, kas kosong. Ada tawaran dana hibah Pemda yang diputar lewat yayasan fiktif untuk kampanye.",
-      "dilemma": "Ambil dana abu-abu atau kampanye miskin?",
+      "title": "Grey Campaign Funds",
+      "description": "The election is near, coffers are empty. There is an offer of regional government grant funds laundered through a fictitious foundation for the campaign.",
+      "dilemma": "Take grey funds or run a poor campaign?",
       "choices": {
         "A": {
-          "description": "Ambil Dana Hibah (Risiko Tinggi)",
+          "description": "Take Grant Funds (High Risk)",
           "money": 30000,
           "trust": -20,
           "risk": 30,
           "next": "chapter4_A",
-          "feedback": "Kampanye mewah dimulai. Tapi Anda tahu ini uang rakyat yang dicuri."
+          "feedback": "A luxurious campaign begins. But you know this is stolen public money."
         },
         "B": {
-          "description": "Crowdfunding Jujur (Dana Terbatas)",
+          "description": "Honest Crowdfunding (Limited Funds)",
           "money": 15000,
           "trust": 20,
           "risk": -15,
           "next": "chapter4_B",
-          "feedback": "Kampanye hemat. Spanduk sedikit, tapi dukungan moral melimpah."
+          "feedback": "A thrifty campaign. Few banners, but abundant moral support."
         }
       }
     },
     "chapter3_B": {
-      "title": "Dana Kampanye Abu-abu (Kasus Tertutup)",
-      "description": "Partai butuh uang cepat untuk menutupi jejak skandal lama dan menang pemilu. Ada tawaran dana hibah Pemda lewat jalur belakang.",
-      "dilemma": "Ambil dana abu-abu atau kampanye miskin?",
+      "title": "Grey Campaign Funds (Closed Case)",
+      "description": "The party needs quick cash to cover up old scandals and win the election. There is an offer of regional government grant funds through a backdoor channel.",
+      "dilemma": "Take grey funds or run a poor campaign?",
       "choices": {
         "A": {
-          "description": "Ambil Dana Hibah (Risiko Tinggi)",
+          "description": "Take Grant Funds (High Risk)",
           "money": 30000,
           "trust": -25,
           "risk": 30,
           "next": "chapter4_A",
-          "feedback": "Uang mengalir deras. Kemunafikan Anda makin tebal."
+          "feedback": "Money pours in. Your hypocrisy thickens."
         },
         "B": {
-          "description": "Crowdfunding Jujur (Dana Terbatas)",
+          "description": "Honest Crowdfunding (Limited Funds)",
           "money": 15000,
           "trust": 20,
           "risk": 15,
           "next": "chapter4_B",
-          "feedback": "Anda mencoba jujur di detik terakhir. Risiko kalah pemilu membayangi."
+          "feedback": "You try to be honest at the last minute. The risk of losing the election looms."
         }
       }
     },
     "chapter4_A": {
-      "title": "Kickback Proyek KTP",
-      "description": "Konsorsium KTP menawari kickback raksasa agar proyek lancar di parlemen. Ini tiket menuju kekayaan pribadi abadi.",
-      "dilemma": "Terima suap atau lapor KPK?",
+      "title": "ID Card Project Kickback",
+      "description": "The ID Card consortium offers a giant kickback for the project to run smoothly in Parliament. This is a ticket to eternal personal wealth.",
+      "dilemma": "Accept bribe or report to the KPK (Anti-Corruption Agency)?",
       "choices": {
         "A": {
-          "description": "Jebak Mereka (Operasi Tangkap Tangan)",
+          "description": "Trap Them (Sting Operation)",
           "money": 15000,
           "trust": 30,
           "risk": 10,
           "next": "chapter5_A",
-          "feedback": "Anda jadi pahlawan nasional! Tapi musuh politik Anda kini dendam kesumat."
+          "feedback": "You become a national hero! But your political enemies are now seeking revenge."
         },
         "B": {
-          "description": "Terima Kickback (Kaya Raya)",
+          "description": "Accept Kickback (Get Rich)",
           "money": 40000,
           "trust": -15,
           "risk": 20,
           "next": "chapter5_B",
-          "feedback": "Rekening gendut. Janji manis anti-korupsi tinggal kenangan."
+          "feedback": "Fat bank account. The sweet promises of anti-corruption are just memories."
         }
       }
     },
     "chapter4_B": {
-      "title": "Kickback Proyek KTP (Posisi Bersih)",
-      "description": "Meski dana kampanye pas-pasan, godaan datang dari proyek KTP. Kickback besar menanti jika Anda main mata.",
-      "dilemma": "Terima suap atau lapor KPK?",
+      "title": "ID Card Project Kickback (Clean Position)",
+      "description": "Even with limited campaign funds, temptation comes from the ID Card project. A large kickback awaits if you turn a blind eye.",
+      "dilemma": "Accept bribe or report to the KPK?",
       "choices": {
         "A": {
-          "description": "Jebak Mereka (Operasi Tangkap Tangan)",
+          "description": "Trap Them (Sting Operation)",
           "money": 10000,
           "trust": 20,
           "risk": 15,
           "next": "chapter5_A",
-          "feedback": "Integritas Anda terbukti bukan omong kosong."
+          "feedback": "Your integrity is proven to be not just talk."
         },
         "B": {
-          "description": "Terima Kickback (Kaya Raya)",
+          "description": "Accept Kickback (Get Rich)",
           "money": 20000,
           "trust": 10,
           "risk": 35,
           "next": "chapter5_B",
-          "feedback": "Akhirnya Anda tergoda juga. Uang mengubah segalanya."
+          "feedback": "You finally give in to temptation. Money changes everything."
         }
       }
     },
     "chapter5_A": {
-      "title": "Kaderisasi: Loyalitas vs Kompetensi",
-      "description": "Partai butuh regenerasi. Faksi tua ingin loyalitas buta, faksi muda ingin kompetensi teknis.",
-      "dilemma": "Pilih loyalitas atau kemampuan?",
+      "title": "Cadre Regeneration: Loyalty vs. Competence",
+      "description": "The party needs regeneration. The old faction wants blind loyalty, the young faction wants technical competence.",
+      "dilemma": "Choose loyalty or ability?",
       "choices": {
         "A": {
-          "description": "Jalan Tengah (50:50)",
+          "description": "Middle Ground (50:50)",
           "money": 15000,
           "trust": 10,
           "risk": -10,
           "next": "chapter6_A",
-          "feedback": "Kompromi aman. Partai stabil tapi lambat bergerak."
+          "feedback": "A safe compromise. The party is stable but slow to move."
         },
         "B": {
-          "description": "Pembersihan Total (The Purge)",
+          "description": "Total Purge (The Purge)",
           "money": -20000,
           "trust": 20,
           "risk": 20,
           "next": "chapter6_B",
-          "feedback": "Anda menyingkirkan orang lama. Partai kini milik Anda sepenuhnya, tapi musuh bertambah."
+          "feedback": "You remove the old guard. The party is now entirely yours, but enemies multiply."
         }
       }
     },
     "chapter5_B": {
-      "title": "Kaderisasi: Mengamankan Posisi",
-      "description": "Dengan uang korupsi di tangan, Anda butuh kader yang loyal untuk melindungi rahasia, bukan yang pintar.",
-      "dilemma": "Pilih loyalitas atau kemampuan?",
+      "title": "Cadre Regeneration: Securing Position",
+      "description": "With corruption money in hand, you need loyal cadres to protect secrets, not smart ones.",
+      "dilemma": "Choose loyalty or ability?",
       "choices": {
         "A": {
-          "description": "Jalan Tengah (50:50)",
+          "description": "Middle Ground (50:50)",
           "money": 15000,
           "trust": 10,
           "risk": 5,
           "next": "chapter6_A",
-          "feedback": "Mencoba terlihat demokratis padahal sedang menutupi jejak."
+          "feedback": "Trying to look democratic while covering your tracks."
         },
         "B": {
-          "description": "Pembersihan Total (Singkirkan Kritis)",
+          "description": "Total Purge (Remove Critics)",
           "money": -15000,
           "trust": 20,
           "risk": 20,
           "next": "chapter6_B",
-          "feedback": "Anda membuang semua orang kritis. Partai jadi sarang penjilat."
+          "feedback": "You discard all critical people. The party becomes a nest of flatterers."
         }
       }
     },
     "chapter6_A": {
-      "title": "Godaan Populisme Radikal",
-      "description": "Popularitas stagnan. Konsultan politik menyarankan retorika radikal/ekstremis untuk membakar emosi massa dan menang cepat.",
-      "dilemma": "Tetap sentris atau jadi radikal?",
+      "title": "The Temptation of Radical Populism",
+      "description": "Popularity is stagnant. Political consultants suggest radical/extremist rhetoric to ignite mass emotion and win quickly.",
+      "dilemma": "Remain centrist or become radical?",
       "choices": {
         "A": {
-          "description": "Adopsi Radikalisme",
+          "description": "Adopt Radicalism",
           "money": 20000,
           "trust": 10,
           "risk": 30,
           "next": "chapter7_A",
-          "feedback": "Massa bersorak, negara terbelah. Anda bermain api dengan persatuan bangsa."
+          "feedback": "The masses cheer, the nation is divided. You are playing with the fire of national unity."
         },
         "B": {
-          "description": "Konsolidasi Sentris (Tolak Ekstrem)",
+          "description": "Centrist Consolidation (Reject Extremism)",
           "money": 10000,
           "trust": 20,
           "risk": -10,
           "next": "chapter7_B",
-          "feedback": "Anda negarawan sejati. Kalah populer, tapi menjaga kewarasan publik."
+          "feedback": "You are a true statesman. Less popular, but maintaining public sanity."
         }
       }
     },
     "chapter6_B": {
-      "title": "Godaan Populisme Radikal (Otoriter)",
-      "description": "Anda sudah membersihkan internal partai. Kini godaan untuk menggunakan narasi radikal demi kekuasaan mutlak makin kuat.",
-      "dilemma": "Tetap sentris atau jadi radikal?",
+      "title": "The Temptation of Radical Populism (Authoritarian)",
+      "description": "You have cleaned up the internal party. Now the temptation to use a radical narrative for absolute power is stronger.",
+      "dilemma": "Remain centrist or become radical?",
       "choices": {
         "A": {
-          "description": "Adopsi Radikalisme",
+          "description": "Adopt Radicalism",
           "money": 20000,
           "trust": 10,
           "risk": 15,
           "next": "chapter7_A",
-          "feedback": "Kekuasaan di tangan, tapi negara di ambang konflik sipil."
+          "feedback": "Power is in your hands, but the country is on the brink of civil conflict."
         },
         "B": {
-          "description": "Konsolidasi Sentris (Tolak Ekstrem)",
+          "description": "Centrist Consolidation (Reject Extremism)",
           "money": -15000,
           "trust": 20,
           "risk": -10,
           "next": "chapter7_B",
-          "feedback": "Anda memilih jalan sulit demi stabilitas jangka panjang."
+          "feedback": "You choose the difficult path for long-term stability."
         }
       }
     },
     "chapter7_A": {
-      "title": "Suap Impor Daging",
-      "description": "Butuh dana kampanye Pilpres. Importir daging menawarkan suap jumbo asal kuota impor dibuka lewat Kementerian Pertanian milik partai Anda.",
-      "dilemma": "Terima suap impor atau awasi ketat?",
+      "title": "Meat Import Bribery",
+      "description": "Need Presidential campaign funds. Meat importers offer a jumbo bribe provided the import quota is opened through the Ministry of Agriculture owned by your party.",
+      "dilemma": "Accept import bribe or strictly supervise?",
       "choices": {
         "A": {
-          "description": "Awasi Ketat Lewat Parlemen",
+          "description": "Strictly Supervise Through Parliament",
           "money": -10000,
           "trust": 15,
           "risk": -10,
           "next": "chapter8_A",
-          "feedback": "Anda kehilangan dana besar, tapi harga daging stabil dan rakyat senang."
+          "feedback": "You lose a large fund, but meat prices are stable and the people are happy."
         },
         "B": {
-          "description": "Paksa Menteri Terbitkan Izin (Terima Suap)",
+          "description": "Force Minister to Issue Permit (Accept Bribe)",
           "money": 40000,
           "trust": -30,
           "risk": 35,
           "next": "chapter8_B",
-          "feedback": "Kas partai penuh. Petani lokal menjerit karena daging impor membanjiri pasar."
+          "feedback": "Party coffers are full. Local farmers suffer as imported meat floods the market."
         }
       }
     },
     "chapter7_B": {
-      "title": "Suap Impor Daging (Posisi Moral)",
-      "description": "Meski Anda menjaga etika, godaan uang Pilpres sangat kuat. Importir daging menyodorkan cek kosong di depan mata.",
-      "dilemma": "Terima suap impor atau awasi ketat?",
+      "title": "Meat Import Bribery (Moral Position)",
+      "description": "Even though you maintain ethics, the temptation of Presidential campaign money is very strong. Meat importers put a blank check in front of your eyes.",
+      "dilemma": "Accept import bribe or strictly supervise?",
       "choices": {
         "A": {
-          "description": "Awasi Ketat Lewat Parlemen",
+          "description": "Strictly Supervise Through Parliament",
           "money": -10000,
           "trust": 15,
           "risk": -1,
           "next": "chapter8_A",
-          "feedback": "Integritas Anda konsisten. Anda politisi langka."
+          "feedback": "Your integrity is consistent. You are a rare politician."
         },
         "B": {
-          "description": "Paksa Menteri Terbitkan Izin (Terima Suap)",
+          "description": "Force Minister to Issue Permit (Accept Bribe)",
           "money": 40000,
           "trust": -30,
           "risk": 35,
           "next": "chapter8_B",
-          "feedback": "Runtuh sudah pertahanan moral Anda demi kursi Presiden."
+          "feedback": "Your moral defense collapses for the sake of the Presidential seat."
         }
       }
     },
     "chapter8_A": {
-      "title": "Pergeseran Ideologi: Rajendraism",
-      "description": "Untuk menang Pilpres, Anda perlu suara tengah. Ideologi partai 'Rajendraism' yang pragmatis perlu diterapkan, tapi kader tua menolak.",
-      "dilemma": "Ubah ideologi secara paksa atau dialog?",
+      "title": "Ideological Shift: Rajendraism",
+      "description": "To win the Presidential election, you need the center vote. The party's pragmatic 'Rajendraism' ideology needs to be implemented, but the old cadres refuse.",
+      "dilemma": "Change ideology by force or dialogue?",
       "choices": {
         "A": {
-          "description": "Dialog Inklusif (Musyawarah)",
+          "description": "Inclusive Dialogue (Consensus)",
           "money": -10000,
           "trust": 15,
           "risk": -10,
           "next": "chapter9_A",
-          "feedback": "Perubahan berjalan mulus tanpa sakit hati. Partai solid."
+          "feedback": "The change goes smoothly without resentment. The party is solid."
         },
         "B": {
-          "description": "Deklarasi Sepihak (Otoriter)",
+          "description": "Unilateral Declaration (Authoritarian)",
           "money": 15000,
           "trust": -20,
           "risk": 20,
           "next": "chapter9_B",
-          "feedback": "Anda memaksakan kehendak. Banyak kader senior keluar dan membentuk oposisi."
+          "feedback": "You force your will. Many senior cadres quit and form an opposition."
         }
       }
     },
     "chapter8_B": {
-      "title": "Pergeseran Ideologi: Rajendraism (Demi Kekuasaan)",
-      "description": "Dengan dana haram impor daging, Anda merasa bisa membeli loyalitas. Anda ingin mengubah ideologi partai sesuka hati.",
-      "dilemma": "Ubah ideologi secara paksa atau dialog?",
+      "title": "Ideological Shift: Rajendraism (For Power)",
+      "description": "With illicit meat import funds, you feel you can buy loyalty. You want to change the party's ideology as you wish.",
+      "dilemma": "Change ideology by force or dialogue?",
       "choices": {
         "A": {
-          "description": "Dialog Inklusif (Pencitraan)",
+          "description": "Inclusive Dialogue (Image Building)",
           "money": -10000,
           "trust": 15,
           "risk": -10,
           "next": "chapter9_A",
-          "feedback": "Anda berpura-pura demokratis untuk meredam gejolak."
+          "feedback": "You pretend to be democratic to quell the turmoil."
         },
         "B": {
-          "description": "Deklarasi Sepihak (Otoriter)",
+          "description": "Unilateral Declaration (Authoritarian)",
           "money": 15000,
           "trust": -20,
           "risk": 20,
           "next": "chapter9_B",
-          "feedback": "Partai kini adalah milik pribadi Anda. Demokrasi internal mati."
+          "feedback": "The party is now your personal property. Internal democracy is dead."
         }
       }
     },
     "chapter9_A": {
-      "title": "Kekuasaan Otoriter",
-      "description": "Menang Pilpres membuat Anda merasa di atas hukum. Anda ingin menerbitkan kebijakan kontroversial tanpa persetujuan Parlemen.",
-      "dilemma": "Pakai dekret presiden atau jalur hukum?",
+      "title": "Authoritarian Power",
+      "description": "Winning the Presidential election makes you feel above the law. You want to issue controversial policies without Parliamentary approval.",
+      "dilemma": "Use presidential decree or legal channel?",
       "choices": {
         "A": {
-          "description": "Terbitkan Dekret (Abaikan Parlemen)",
+          "description": "Issue Decree (Ignore Parliament)",
           "money": 15000,
           "trust": -30,
           "risk": 30,
           "next": "chapter10_A",
-          "feedback": "Efektif tapi berbahaya. Anda mulai bertingkah seperti diktator."
+          "feedback": "Effective but dangerous. You start acting like a dictator."
         },
         "B": {
-          "description": "Ikuti Prosedur Hukum",
+          "description": "Follow Legal Procedure",
           "money": -10000,
           "trust": 10,
           "risk": -10,
           "next": "chapter10_B",
-          "feedback": "Lambat tapi pasti. Anda menghormati sistem demokrasi."
+          "feedback": "Slow but sure. You respect the democratic system."
         }
       }
     },
     "chapter9_B": {
-      "title": "Kekuasaan Otoriter (Jejak Kotor)",
-      "description": "Banyak dosa masa lalu yang harus ditutupi. Kekuasaan mutlak lewat Dekret Presiden adalah cara terbaik melindungi diri.",
-      "dilemma": "Pakai dekret presiden atau jalur hukum?",
+      "title": "Authoritarian Power (Dirty Trail)",
+      "description": "Many past sins must be covered up. Absolute power through a Presidential Decree is the best way to protect yourself.",
+      "dilemma": "Use presidential decree or legal channel?",
       "choices": {
         "A": {
-          "description": "Terbitkan Dekret (Abaikan Parlemen)",
+          "description": "Issue Decree (Ignore Parliament)",
           "money": 15000,
           "trust": -30,
           "risk": 30,
           "next": "chapter10_A",
-          "feedback": "Hukum kini ada di bawah telapak kaki Anda."
+          "feedback": "The law is now under your heel."
         },
         "B": {
-          "description": "Ikuti Prosedur Hukum (Berisiko)",
+          "description": "Follow Legal Procedure (Risky)",
           "money": -10000,
           "trust": 10,
           "risk": -10,
           "next": "chapter10_B",
-          "feedback": "Anda mencoba kembali ke jalan benar, meski musuh menunggu di tikungan."
+          "feedback": "You try to return to the right path, even though enemies await around the corner."
         }
       }
     },
     "chapter10_A": {
-      "title": "Amandemen Konstitusi",
-      "description": "Puncak kekuasaan. Anda tergoda untuk mengubah Konstitusi agar bisa menjabat seumur hidup atau memperpanjang masa jabatan.",
-      "dilemma": "Jadi Presiden seumur hidup atau turun tahta?",
+      "title": "Constitutional Amendment",
+      "description": "The peak of power. You are tempted to change the Constitution to serve for life or extend the term of office.",
+      "dilemma": "Become President for life or step down?",
       "choices": {
         "A": {
-          "description": "Dorong Amandemen (Presiden Seumur Hidup)",
+          "description": "Push Amendment (President for Life)",
           "money": -20000,
           "trust": -25,
           "risk": 15,
-          "next": "Selesai",
-          "feedback": "Selamat, Anda telah membunuh demokrasi yang membesarkan Anda. Revolusi rakyat menanti."
+          "next": "FINISH",
+          "feedback": "Congratulations, you have killed the democracy that raised you. A people's revolution awaits."
         },
         "B": {
-          "description": "Hormati Konstitusi (Turun Tahta)",
+          "description": "Respect the Constitution (Step Down)",
           "money": 20000,
           "trust": 20,
           "risk": -15,
-          "next": "Selesai",
-          "feedback": "Anda mundur dengan hormat. Sejarah mencatat Anda sebagai penyelamat demokrasi di detik terakhir."
+          "next": "FINISH",
+          "feedback": "You step down honorably. History records you as the savior of democracy in the final hour."
         }
       }
     },
     "chapter10_B": {
-      "title": "Amandemen Konstitusi (Jalan Demokratis)",
-      "description": "Masa jabatan akan berakhir. Godaan untuk memperpanjang kekuasaan sangat besar, tapi warisan demokrasi juga penting.",
-      "dilemma": "Perpanjang masa jabatan atau turun tahta?",
+      "title": "Constitutional Amendment (Democratic Path)",
+      "description": "The term of office is coming to an end. The temptation to extend power is immense, but the democratic legacy is also important.",
+      "dilemma": "Extend term or step down?",
       "choices": {
         "A": {
-          "description": "Dorong Amandemen (Haus Kekuasaan)",
+          "description": "Push Amendment (Lust for Power)",
           "money": -20000,
           "trust": -25,
           "risk": 15,
-          "next": "Selesai",
-          "feedback": "Keserakahan menghancurkan segalanya. Anda dikenang sebagai pengkhianat reformasi."
+          "next": "FINISH",
+          "feedback": "Greed destroys everything. You are remembered as a reform traitor."
         },
         "B": {
-          "description": "Hormati Konstitusi & Dukung Pemilu",
+          "description": "Respect the Constitution & Support Election",
           "money": 20000,
           "trust": 20,
           "risk": -15,
-          "next": "Selesai",
-          "feedback": "Anda meninggalkan istana dengan kepala tegak. Pahlawan Republik sejati."
+          "next": "FINISH",
+          "feedback": "You leave the palace with your head held high. A true Hero of the Republic."
         }
       }
     }
