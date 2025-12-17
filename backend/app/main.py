@@ -9,10 +9,9 @@ from .logic import calculate_new_stats, check_game_over
 
 app = FastAPI(title="The Corruptor API")
 
-# Setup CORS (Supaya Frontend React bisa akses)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"], # Di production ganti "*" dengan domain frontend kamu
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -24,7 +23,6 @@ def root():
 
 @app.get("/stories", response_model=StoryListResponse)
 def get_available_stories():
-    """Mengambil daftar karakter untuk menu utama"""
     metadata = story_engine.get_all_metadata()
     return {"stories": metadata}
 
@@ -38,42 +36,45 @@ def start_game(payload: StartGameRequest):
     
     session_id = str(uuid.uuid4())
     
-    # Init Stats Awal (Bisa diset default di sini)
-    initial_stats = {"money": 10000, "trust": 50, "risk": 0}
+    # PERBAIKAN 1: Ambil stats awal dari JSON (jika ada), kalau tidak ada pakai default
+    # Pastikan di JSON cerita Anda tambahkan field "initial_stats"
+    default_stats = {"money": 10000, "trust": 50, "risk": 0}
+    initial_stats = story.get("initial_stats", default_stats)
     
-    # Load Chapter 1
-    # (Asumsi JSON selalu mulai dari key "chapter1")
-    first_chapter = story_engine.get_chapter(sid, "chapter1")
+    # PERBAIKAN 2: Cek key chapter pertama, default ke "chapter1" jika tidak diset
+    start_chapter_id = story.get("start_chapter", "chapter1")
+    first_chapter = story_engine.get_chapter(sid, start_chapter_id)
+    
     if not first_chapter:
-        raise HTTPException(500, "Chapter 1 corrupt/hilang.")
+        raise HTTPException(500, f"Chapter awal '{start_chapter_id}' tidak ditemukan di JSON.")
 
     # Simpan Session
     sessions_db[session_id] = {
         "story_id": sid,
         "stats": initial_stats,
-        "current_chapter_id": "chapter1",
+        "current_chapter_id": start_chapter_id,
         "history": []
     }
     
-    # Siapkan Response ke Frontend
+    # PERBAIKAN 3: Choices Dinamis (Bisa A, B, C, dst)
+    choices_list = []
+    for key, val in first_chapter["choices"].items():
+        choices_list.append(ChoiceOption(id=key, description=val["description"]))
+    
     return StartGameResponse(
         session_id=session_id,
         stats=Stats(**initial_stats),
         current_scenario=ScenarioDisplay(
-            id="chapter1",
+            id=start_chapter_id,
             title=first_chapter["title"],
             description=first_chapter["description"],
             dilemma=first_chapter.get("dilemma", "Apa keputusan Anda?"),
-            choices=[
-                ChoiceOption(id="A", description=first_chapter["choices"]["A"]["description"]),
-                ChoiceOption(id="B", description=first_chapter["choices"]["B"]["description"])
-            ]
+            choices=choices_list 
         )
     )
 
 @app.post("/submit-answer", response_model=SubmitAnswerResponse)
 def submit_answer(payload: SubmitAnswerRequest):
-    # 1. Cek Session
     if payload.session_id not in sessions_db:
         raise HTTPException(404, "Session tidak ditemukan / Expired")
     
@@ -81,25 +82,22 @@ def submit_answer(payload: SubmitAnswerRequest):
     story_id = session["story_id"]
     current_chap_id = session["current_chapter_id"]
     
-    # 2. Ambil Data Chapter Sekarang
     chapter_data = story_engine.get_chapter(story_id, current_chap_id)
     
-    # 3. Ambil Pilihan User (A atau B)
+    # Validasi Pilihan
     choice_key = payload.choice_id
     choice_data = chapter_data["choices"].get(choice_key)
     
     if not choice_data:
         raise HTTPException(400, "Pilihan tidak valid")
 
-    # 4. Hitung Stats Baru
+    # Hitung Stats
     new_stats = calculate_new_stats(session["stats"], choice_data)
-    session["stats"] = new_stats # Update DB Memory
+    session["stats"] = new_stats 
     
-    # 5. Cek Game Over / Lanjut
+    # Cek Game Over
     next_chapter_id = choice_data.get("next")
     game_status = check_game_over(new_stats, next_chapter_id)
-    
-    # Ambil feedback text dari JSON
     feedback = choice_data.get("feedback", "Konsekuensi diterima.")
     
     response_payload = {
@@ -109,26 +107,26 @@ def submit_answer(payload: SubmitAnswerRequest):
         "next_scenario": None
     }
     
-    # 6. Jika Game Masih Lanjut, Load Chapter Berikutnya
     if game_status == "ONGOING":
         next_chap_data = story_engine.get_chapter(story_id, next_chapter_id)
         
         if next_chap_data:
             session["current_chapter_id"] = next_chapter_id
             
+            # PERBAIKAN 3: Choices Dinamis di sini juga
+            choices_list = []
+            for key, val in next_chap_data["choices"].items():
+                choices_list.append(ChoiceOption(id=key, description=val["description"]))
+
             response_payload["next_scenario"] = ScenarioDisplay(
                 id=next_chapter_id,
                 title=next_chap_data["title"],
                 description=next_chap_data["description"],
                 dilemma=next_chap_data.get("dilemma", ""),
-                choices=[
-                    ChoiceOption(id="A", description=next_chap_data["choices"]["A"]["description"]),
-                    ChoiceOption(id="B", description=next_chap_data["choices"]["B"]["description"])
-                ]
+                choices=choices_list
             )
         else:
-            # Fallback jika next chapter tidak ditemukan di JSON (Error typo di JSON)
             response_payload["game_status"] = "WIN" 
-            response_payload["feedback_text"] += " (Cerita berakhir - Data chapter habis)"
+            response_payload["feedback_text"] += " (End of Content)"
 
     return SubmitAnswerResponse(**response_payload)
