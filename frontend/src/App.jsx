@@ -1,104 +1,130 @@
-import React, { useState } from "react";
-
-// Import Data
-import { SCENARIOS } from "./data/scenarios";
-import { CREATORS } from "./data/creators";
-
-// Import Components (Layout & Logic)
+import React, { useState, useEffect } from "react";
+// Components
 import Navbar from "./components/Navbar";
 import HUD from "./components/HUD";
 import StoryScreen from "./components/StoryScreen";
 import SystemMenu from "./components/SystemMenu";
-
-// Import Refactored Screens
 import SplashScreen from "./components/SplashScreen";
 import LobbyScreen from "./components/LobbyScreen";
 import CreditsScreen from "./components/CreditsScreen";
 import ScenarioIntroScreen from "./components/ScenarioIntroScreen";
 import EndingScreen from "./components/EndingScreen";
 
+// API Service
+import { getStories, startGame, submitAnswer } from "./api"; // Import fungsi API tadi
+import { CREATORS } from "./data/creators"; // Creators tetap lokal tidak masalah
+
 export default function App() {
+  // --- STATE ---
   const [viewState, setViewState] = useState("SPLASH");
-  const [selectedScenarioId, setSelectedScenarioId] = useState(null);
-  const [currentNodeId, setCurrentNodeId] = useState("start");
-  const [stats, setStats] = useState({ money: 10000, trust: 50, risk: 10 });
-  const [history, setHistory] = useState([]);
-  const [showFeedback, setShowFeedback] = useState(null);
+
+  // Data dari Backend
+  const [storiesList, setStoriesList] = useState([]); // Daftar cerita dari GET /stories
+  const [sessionId, setSessionId] = useState(null); // Token sesi permainan
+  const [activeStoryMeta, setActiveStoryMeta] = useState(null); // Metadata cerita yg dipilih
+
+  // Gameplay State
+  const [currentScenario, setCurrentScenario] = useState(null); // Isi chapter sekarang
+  const [stats, setStats] = useState({ money: 0, trust: 0, risk: 0 });
+  const [history, setHistory] = useState([]); // Log jejak langkah
+  const [showFeedback, setShowFeedback] = useState(null); // Feedback text popup
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const activeScenario = SCENARIOS.find((s) => s.id === selectedScenarioId);
-  const currentNode = activeScenario?.nodes?.[currentNodeId];
+  // --- EFFECTS ---
 
-  // Actions Logic
-  const handleChoice = (choice) => {
-    const newStats = {
-      money: stats.money + (choice.effect.money || 0),
-      trust: Math.min(
-        100,
-        Math.max(0, stats.trust + (choice.effect.trust || 0))
-      ),
-      risk: Math.min(100, Math.max(0, stats.risk + (choice.effect.risk || 0))),
-    };
-    setStats(newStats);
-
-    const changes = [];
-    if (choice.effect.money)
-      changes.push(
-        `$${choice.effect.money > 0 ? "+" : ""}${choice.effect.money}`
-      );
-    if (choice.effect.trust)
-      changes.push(
-        `Trust ${choice.effect.trust > 0 ? "+" : ""}${choice.effect.trust}`
-      );
-    if (choice.effect.risk)
-      changes.push(
-        `Risk ${choice.effect.risk > 0 ? "+" : ""}${choice.effect.risk}`
-      );
-
-    setShowFeedback(changes.join(" | "));
-    setTimeout(() => setShowFeedback(null), 2500);
-
-    if (newStats.risk >= 100) {
-      setViewState("GAMEOVER_RISK");
-      return;
+  // Load daftar cerita saat pertama kali buka LOBBY
+  useEffect(() => {
+    if (viewState === "LOBBY") {
+      fetchStories();
     }
-    if (newStats.money < 0) {
-      setViewState("GAMEOVER_MONEY");
-      return;
-    }
+  }, [viewState]);
 
-    const nextNode = activeScenario.nodes[choice.nextId];
-    if (nextNode?.isEnd) {
-      setCurrentNodeId(choice.nextId);
-      setViewState("VICTORY");
-    } else {
-      setCurrentNodeId(choice.nextId);
+  // --- ACTIONS ---
+
+  const fetchStories = async () => {
+    try {
+      const data = await getStories();
+      setStoriesList(data);
+    } catch (err) {
+      alert("Gagal koneksi ke server Backend!");
     }
-    setHistory([
-      ...history,
-      { title: activeScenario.nodes[currentNodeId].title, choice: choice.text },
-    ]);
   };
 
-  const startGame = () => {
-    setViewState("PLAYING");
-    setCurrentNodeId("start");
-    setStats({ money: 10000, trust: 50, risk: 10 });
-    setHistory([]);
-    setIsMenuOpen(false);
+  const handleSelectScenario = (storyId) => {
+    // Cari metadata cerita berdasarkan ID untuk ditampilkan di Intro
+    const selected = storiesList.find((s) => s.story_id === storyId);
+    setActiveStoryMeta(selected);
+    setViewState("STORY_INTRO");
+  };
+
+  const handleStartGame = async () => {
+    if (!activeStoryMeta) return;
+
+    try {
+      // Panggil API /start-game
+      const data = await startGame(activeStoryMeta.story_id);
+
+      setSessionId(data.session_id);
+      setStats(data.stats);
+      setCurrentScenario(data.current_scenario);
+      setHistory([]); // Reset history
+      setViewState("PLAYING");
+    } catch (err) {
+      alert("Gagal memulai game. Cek backend.");
+    }
+  };
+
+  const handleChoice = async (choiceId) => {
+    if (!sessionId) return;
+
+    try {
+      // Panggil API /submit-answer
+      const data = await submitAnswer(sessionId, choiceId);
+
+      // 1. Update Stats
+      setStats(data.stats_update);
+
+      // 2. Tampilkan Feedback (Pop-up kecil)
+      setShowFeedback(data.feedback_text);
+      setTimeout(() => setShowFeedback(null), 3000);
+
+      // 3. Catat History
+      // Kita perlu cari teks pilihan yang tadi diklik user untuk history
+      const choiceText =
+        currentScenario.choices.find((c) => c.id === choiceId)?.description ||
+        choiceId;
+      setHistory((prev) => [
+        ...prev,
+        { title: currentScenario.title, choice: choiceText },
+      ]);
+
+      // 4. Cek Status Game (Menang/Kalah/Lanjut)
+      if (data.game_status === "ONGOING" && data.next_scenario) {
+        setCurrentScenario(data.next_scenario);
+      } else if (data.game_status === "GAME_OVER_BUSTED") {
+        setViewState("GAMEOVER_RISK");
+      } else if (data.game_status === "GAME_OVER_FIRED") {
+        setViewState("GAMEOVER_MONEY"); // Atau buat screen baru GAME_OVER_TRUST
+      } else if (data.game_status === "WIN") {
+        setViewState("VICTORY");
+      }
+    } catch (err) {
+      alert("Terjadi kesalahan saat mengirim jawaban.");
+    }
   };
 
   const toLobby = () => {
     setIsMenuOpen(false);
+    setSessionId(null);
     setViewState("LOBBY");
-    setSelectedScenarioId(null);
   };
 
+  // --- RENDER ---
   return (
-    <div className="min-h-screen bg-slate-950 text-slate-200 font-serif flex flex-col selection:bg-amber-900 selection:text-white overflow-x-hidden">
+    <div className="min-h-screen bg-slate-950 text-slate-200 font-serif flex flex-col overflow-x-hidden">
       <Navbar
         viewState={viewState}
-        enterLobby={() => setViewState("LOBBY")}
+        enterLobby={toLobby}
         goToCredits={() => setViewState("CREDITS")}
         toggleMenu={setIsMenuOpen}
       />
@@ -110,66 +136,55 @@ export default function App() {
       />
 
       <main className="flex-1 flex flex-col items-center justify-center p-4 w-full max-w-5xl mx-auto relative z-10">
-        {/* VIEW: SPLASH */}
-        {viewState === "SPLASH" && (
-          <SplashScreen onEnterLobby={() => setViewState("LOBBY")} />
-        )}
+        {viewState === "SPLASH" && <SplashScreen onEnterLobby={toLobby} />}
 
-        {/* VIEW: LOBBY */}
         {viewState === "LOBBY" && (
+          // Kirim storiesList dari API ke component Lobby
           <LobbyScreen
-            scenarios={SCENARIOS}
-            onSelectScenario={(id) => {
-              setSelectedScenarioId(id);
-              setViewState("STORY_INTRO");
-            }}
+            scenarios={storiesList}
+            onSelectScenario={handleSelectScenario}
           />
         )}
 
-        {/* VIEW: CREDITS */}
         {viewState === "CREDITS" && (
-          <CreditsScreen
-            creators={CREATORS}
-            onBack={() => setViewState("LOBBY")}
-          />
+          <CreditsScreen creators={CREATORS} onBack={toLobby} />
         )}
 
-        {/* VIEW: STORY INTRO */}
         {viewState === "STORY_INTRO" && (
           <ScenarioIntroScreen
-            scenario={activeScenario}
-            onStart={startGame}
+            scenario={activeStoryMeta}
+            onStart={handleStartGame}
             onBack={toLobby}
           />
         )}
 
-        {/* VIEW: PLAYING */}
-        {viewState === "PLAYING" && currentNode && (
+        {viewState === "PLAYING" && currentScenario && (
           <div className="w-full max-w-4xl flex flex-col gap-6 relative animate-in fade-in">
             <HUD stats={stats} />
+
             {showFeedback && (
               <div className="absolute -top-12 left-0 w-full flex justify-center pointer-events-none z-50">
-                <div className="bg-slate-950/90 border border-amber-500/50 text-amber-400 px-6 py-2 rounded-full shadow-lg font-mono text-xs font-bold animate-bounce tracking-wide backdrop-blur-sm">
+                <div className="bg-slate-950/90 border border-amber-500/50 text-amber-400 px-6 py-2 rounded-full shadow-lg font-mono text-xs font-bold animate-bounce tracking-wide backdrop-blur-sm text-center">
                   {showFeedback}
                 </div>
               </div>
             )}
+
+            {/* Kirim currentScenario dari API ke StoryScreen */}
             <StoryScreen
-              currentNode={currentNode}
+              currentNode={currentScenario}
               handleChoice={handleChoice}
             />
           </div>
         )}
 
-        {/* VIEW: ENDING (Combined) */}
-        {(viewState === "GAMEOVER_RISK" ||
-          viewState === "GAMEOVER_MONEY" ||
-          viewState === "VICTORY") && (
+        {/* Ending Screen menerima data terakhir */}
+        {(viewState.includes("GAMEOVER") || viewState === "VICTORY") && (
           <EndingScreen
             viewState={viewState}
-            currentNode={currentNode}
+            currentNode={currentScenario} // Untuk menampilkan teks ending terakhir
             history={history}
-            onRestart={startGame}
+            onRestart={toLobby} // Redirect ke lobi saja biar aman
             onToLobby={toLobby}
           />
         )}

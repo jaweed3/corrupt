@@ -29,7 +29,8 @@ export default function EndingScreen({
 
         <h2
           className={`text-4xl sm:text-5xl font-black uppercase mb-4 tracking-tighter drop-shadow-lg ${
-            viewState === "VICTORY" ? "text-amber-500" : "text-slate-200"
+            viewState === "VICTORY" &&
+            (currentNode?.description || "Your political journey has ended.")
           }`}
         >
           {viewState === "GAMEOVER_RISK" && "BUSTED!"}

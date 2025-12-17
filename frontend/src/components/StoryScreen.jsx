@@ -1,67 +1,56 @@
+// src/components/StoryScreen.jsx
 import React from "react";
-import { BookOpen } from "lucide-react";
 
-const StoryScreen = ({ currentNode, handleChoice }) => {
-  if (!currentNode) return null;
+export default function StoryScreen({ currentNode, handleChoice }) {
+  // currentNode sekarang berisi data dari API (current_scenario)
+
   return (
-    <div className="bg-slate-900/80 backdrop-blur border border-slate-800 p-6 sm:p-8 rounded-xl shadow-2xl min-h-[400px] flex flex-col justify-between relative transition-all duration-300">
-      <div>
-        <div className="flex items-center gap-3 mb-6 border-b border-slate-800 pb-4">
-          <BookOpen size={20} className="text-amber-600" />
-          <h2 className="text-lg sm:text-xl text-amber-500 font-bold uppercase tracking-widest drop-shadow-sm">
+    <div className="flex flex-col gap-6 animate-in slide-in-from-bottom-4 duration-500">
+      {/* Kartu Cerita Utama */}
+      <div className="bg-slate-900 border border-slate-800 p-6 sm:p-10 rounded-xl shadow-2xl relative overflow-hidden">
+        <div className="relative z-10 space-y-6 text-center">
+          <h2 className="text-2xl font-bold text-amber-500 uppercase tracking-widest drop-shadow-md">
             {currentNode.title}
           </h2>
+
+          <div className="w-16 h-1 bg-slate-800 mx-auto rounded-full"></div>
+
+          <p className="text-lg leading-relaxed text-slate-300 font-light">
+            {currentNode.description}
+          </p>
+
+          {/* Dilemma Question */}
+          <div className="pt-4">
+            <p className="text-amber-600 font-mono text-sm tracking-widest uppercase animate-pulse">
+              {currentNode.dilemma}
+            </p>
+          </div>
         </div>
-        <p className="text-lg leading-relaxed text-slate-300 font-light">
-          {currentNode.text}
-        </p>
       </div>
-      <div className="mt-8 space-y-3">
-        {currentNode.choices.map((choice, idx) => (
+
+      {/* Pilihan / Choices */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {currentNode.choices.map((choice) => (
           <button
-            key={idx}
-            onClick={() => handleChoice(choice)}
-            className="w-full text-left p-5 bg-slate-800/50 hover:bg-slate-800 border-l-4 border-slate-700 hover:border-amber-500 rounded-r-lg transition-all duration-300 group relative overflow-hidden"
+            key={choice.id}
+            onClick={() => handleChoice(choice.id)} // Kirim "A" atau "B" ke handler
+            className="group relative overflow-hidden p-6 rounded-lg border border-slate-700 bg-slate-900/50 hover:bg-slate-800 hover:border-amber-600 transition-all duration-300 text-left shadow-lg hover:shadow-amber-900/20"
           >
-            <div className="relative z-10">
-              <span className="block font-bold text-slate-200 group-hover:text-amber-400 mb-2 text-lg transition-colors">
-                {choice.text}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+
+            <div className="flex items-start gap-4">
+              <span className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-slate-800 text-slate-400 font-bold group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                {choice.id}
               </span>
-              <div className="flex flex-wrap gap-3 text-xs font-mono text-slate-500 group-hover:text-slate-400 transition-colors">
-                <span
-                  className={
-                    choice.effect.money > 0 ? "text-green-400" : "text-red-400"
-                  }
-                >
-                  ${choice.effect.money}
-                </span>{" "}
-                •
-                <span
-                  className={
-                    choice.effect.trust > 0 ? "text-blue-400" : "text-red-400"
-                  }
-                >
-                  Trust {choice.effect.trust > 0 ? "+" : ""}
-                  {choice.effect.trust}
-                </span>{" "}
-                •
-                <span
-                  className={
-                    choice.effect.risk > 0 ? "text-red-400" : "text-green-400"
-                  }
-                >
-                  Risk {choice.effect.risk > 0 ? "+" : ""}
-                  {choice.effect.risk}
-                </span>
+              <div>
+                <p className="text-slate-300 group-hover:text-white font-medium transition-colors">
+                  {choice.description}
+                </p>
               </div>
             </div>
-            {/* Hover Effect */}
-            <div className="absolute inset-0 bg-gradient-to-r from-amber-900/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
           </button>
         ))}
       </div>
     </div>
   );
-};
-
-export default StoryScreen;
+}

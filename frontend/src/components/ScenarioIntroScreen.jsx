@@ -28,7 +28,7 @@ export default function ScenarioIntroScreen({ scenario, onStart, onBack }) {
         </p>
       </div>
       <div className="bg-slate-950/50 p-6 rounded-lg border border-slate-800/50 text-sm leading-relaxed text-slate-300">
-        {scenario.description}
+        {scenario.desc}
       </div>
       <button
         onClick={onStart}
