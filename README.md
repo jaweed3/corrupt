@@ -1,35 +1,37 @@
 # 🕵️‍♂️ The Corruptor: Corruption Education Simulator
 
-> *"Don't just tell people corruption is bad. Let them feel the weight of the temptation, and the fatality of the consequences."*
+> _"Don't just tell people corruption is bad. Let them feel the weight of the temptation, and the fatality of the consequences."_
 
 ## 📖 About The Project
 
 **The Corruptor** is not just a digital law encyclopedia. It is a **Data-Driven Text-Based Simulation Game** that puts users in the shoes of public officials facing real-world moral dilemmas.
 
 Unlike traditional educational tools, we use **gamification** and **psychological decision-making** to demonstrate the "slippery slope" of corruption. Players must balance three critical metrics:
+
 1.  **💰 Personal Wealth**
 2.  **📢 Public Trust**
 3.  **⚖️ Investigation Risk**
 
 ### 🎮 Key Features
-* **Multi-Perspective Storytelling:** Play as different characters (e.g., A Prosecutor trapped in debt, a Party Chairman facing political pressure).
-* **Dynamic Consequence Engine:** Every choice impacts your stats immediately and determines your ending (Win, Fired, or Arrested).
-* **Data-Driven Logic:** All narratives are decoupled from the code, powered by a robust JSON Engine.
 
------
+- **Multi-Perspective Storytelling:** Play as different characters (e.g., A Prosecutor trapped in debt, a Party Chairman facing political pressure).
+- **Dynamic Consequence Engine:** Every choice impacts your stats immediately and determines your ending (Win, Fired, or Arrested).
+- **Data-Driven Logic:** All narratives are decoupled from the code, powered by a robust JSON Engine.
+
+---
 
 ## 🛠 Tech Stack
 
 We utilize a **modern, decoupled architecture** to ensure scalability and readiness for future Machine Learning integration.
 
-* **Backend:** Python (FastAPI)
-    * *Why?* Native async performance, strict data validation (Pydantic), and a rich AI/ML ecosystem (Pandas/Scikit-learn) for future behavioral analysis.
-* **Frontend:** React.js (Vite) + Tailwind CSS
-    * *Why?* Reactive UI for instant feedback and immersive experience.
-* **Data Engine:** JSON-based Dynamic Loader
-    * *Why?* Allows non-technical writers to update stories without touching the codebase.
+- **Backend:** Python (FastAPI)
+  - _Why?_ Native async performance, strict data validation (Pydantic), and a rich AI/ML ecosystem (Pandas/Scikit-learn) for future behavioral analysis.
+- **Frontend:** React.js (Vite) + Tailwind CSS
+  - _Why?_ Reactive UI for instant feedback and immersive experience.
+- **Data Engine:** JSON-based Dynamic Loader
+  - _Why?_ Allows non-technical writers to update stories without touching the codebase.
 
------
+---
 
 ## 📂 Project Structure
 
@@ -50,9 +52,9 @@ We utilize a **modern, decoupled architecture** to ensure scalability and readin
 │   └── package.json
 │
 └── README.md               # Project Documentation
-````
+```
 
------
+---
 
 ## 🚀 Quick Start (Local Development)
 
@@ -74,15 +76,15 @@ pip install fastapi uvicorn
 uvicorn app.main:app --reload
 ```
 
-*Backend runs at:* `http://localhost:8000`  
-*API Docs:* `http://localhost:8000/docs`
+_Backend runs at:_ `http://localhost:8000`  
+_API Docs:_ `http://localhost:8000/docs`
 
 ### 2\. Frontend Setup (The Face)
 
 Make sure you have **Node.js** installed.
 
 ```bash
-cd The-Corrupt
+cd frontend
 
 # Install dependencies
 npm install
@@ -91,9 +93,9 @@ npm install
 npm run dev
 ```
 
-*Frontend runs at:* `http://localhost:5173`
+_Frontend runs at:_ `http://localhost:5173`
 
------
+---
 
 ## 🔌 API Contract (Integration Guide)
 
@@ -103,58 +105,58 @@ Communication between Frontend and Backend follows this strict contract.
 
 Fetches the list of playable characters for the main menu.
 
-  * **Endpoint:** `GET /stories`
-  * **Response:**
-    ```json
-    {
-      "stories": [
-        {
-          "story_id": "jaksa_hayes",
-          "title": "Shadow Behind the Marble Table",
-          "role": "Mr. Hayes (Prosecutor)",
-          "desc": "You are a Prosecutor trapped in debt..."
-        }
-      ]
-    }
-    ```
+- **Endpoint:** `GET /stories`
+- **Response:**
+  ```json
+  {
+    "stories": [
+      {
+        "story_id": "jaksa_hayes",
+        "title": "Shadow Behind the Marble Table",
+        "role": "Mr. Hayes (Prosecutor)",
+        "desc": "You are a Prosecutor trapped in debt..."
+      }
+    ]
+  }
+  ```
 
 ### 2\. Start Game
 
 Initializes a new session for a specific character.
 
-  * **Endpoint:** `POST /start-game`
-  * **Body:** `{"story_id": "jaksa_hayes"}`
-  * **Response:**
-    ```json
-    {
-      "session_id": "uuid-string",
-      "stats": { "money": 10000, "trust": 50, "risk": 0 },
-      "current_scenario": {
-        "id": "chapter1",
-        "title": "The Salary Dilemma",
-        "description": "Your salary is gone...",
-        "choices": [...]
-      }
+- **Endpoint:** `POST /start-game`
+- **Body:** `{"story_id": "jaksa_hayes"}`
+- **Response:**
+  ```json
+  {
+    "session_id": "uuid-string",
+    "stats": { "money": 10000, "trust": 50, "risk": 0 },
+    "current_scenario": {
+      "id": "chapter1",
+      "title": "The Salary Dilemma",
+      "description": "Your salary is gone...",
+      "choices": [...]
     }
-    ```
+  }
+  ```
 
 ### 3\. Submit Answer
 
 Sends the player's choice to calculate consequences.
 
-  * **Endpoint:** `POST /submit-answer`
-  * **Body:** `{"session_id": "...", "choice_id": "A"}`
-  * **Response:**
-    ```json
-    {
-      "game_status": "ONGOING",
-      "stats_update": { "money": 60000, "trust": 15, "risk": 10 },
-      "feedback_text": "You are rich, but people are suspicious.",
-      "next_scenario": { ... }
-    }
-    ```
+- **Endpoint:** `POST /submit-answer`
+- **Body:** `{"session_id": "...", "choice_id": "A"}`
+- **Response:**
+  ```json
+  {
+    "game_status": "ONGOING",
+    "stats_update": { "money": 60000, "trust": 15, "risk": 10 },
+    "feedback_text": "You are rich, but people are suspicious.",
+    "next_scenario": { ... }
+  }
+  ```
 
------
+---
 
 ## 📝 Story Engine Schema (JSON)
 
@@ -187,7 +189,7 @@ Our engine allows **dynamic storytelling**. Narrative designers create content i
 }
 ```
 
------
+---
 
 ## 🔮 Future Roadmap
 
@@ -195,13 +197,13 @@ Our engine allows **dynamic storytelling**. Narrative designers create content i
 2.  **Global Leaderboard:** Compare your "Integrity Score" with other players globally.
 3.  **Real-time Analytics:** Dashboard to visualize how easily average users succumb to temptation.
 
------
+---
 
 ### 👥 Team
 
-  * **Backend & Logic:** Fatih Jawwad
-  * **Frontend & UI:** Farrel Ghozy
-  * **Integration:** Syahansyah Naufal
-  * **Narrative Design:** Rifda ?
+- **Backend & Logic:** Fatih Jawwad
+- **Frontend & UI:** Farrel Ghozy
+- **Integration:** Syahansyah Naufal
+- **Narrative Design:** Rifda ?
 
-> *Built for Devpost Hackathon 2025*
+> _Built for Devpost Hackathon 2025_
