@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  # Service Backend
+  backend:
+    build: ./backend
+    container_name: corruptor_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend:/code # Hot-reload: Codingan berubah, server update sendiri
+    environment:
+      - PORT=8000
+
+  # Service Frontend
+  frontend:
+    build: ./frontend
+    container_name: corruptor_frontend
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules # Biar node_modules container gak ketimpa local
+    environment:
+      - VITE_API_URL=http://backend:8000 # Koneksi internal docker
+    depends_on:
+      - backend
