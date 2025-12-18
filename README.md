@@ -1,4 +1,4 @@
-````markdown
+
 <div align="center">
 
 # 🕵️‍♂️ The Corruptor
@@ -63,7 +63,6 @@ project-root/
 │
 └── README.md               # This Documentation
 ```
-````
 
 ---
 
