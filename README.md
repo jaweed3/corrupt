@@ -1,209 +1,153 @@
-# 🕵️‍♂️ The Corruptor: Corruption Education Simulator
+````markdown
+<div align="center">
+
+# 🕵️‍♂️ The Corruptor
+
+**Corruption Education Simulator**
+
+![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.95+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![React](https://img.shields.io/badge/React-18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-4.0+-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
 > _"Don't just tell people corruption is bad. Let them feel the weight of the temptation, and the fatality of the consequences."_
 
-## 📖 About The Project
+[🚀 View Live Demo](#) · [🐛 Report Bug](#) · [✨ Request Feature](#)
 
-**The Corruptor** is not just a digital law encyclopedia. It is a **Data-Driven Text-Based Simulation Game** that puts users in the shoes of public officials facing real-world moral dilemmas.
-
-Unlike traditional educational tools, we use **gamification** and **psychological decision-making** to demonstrate the "slippery slope" of corruption. Players must balance three critical metrics:
-
-1.  **💰 Personal Wealth**
-2.  **📢 Public Trust**
-3.  **⚖️ Investigation Risk**
-
-### 🎮 Key Features
-
-- **Multi-Perspective Storytelling:** Play as different characters (e.g., A Prosecutor trapped in debt, a Party Chairman facing political pressure).
-- **Dynamic Consequence Engine:** Every choice impacts your stats immediately and determines your ending (Win, Fired, or Arrested).
-- **Data-Driven Logic:** All narratives are decoupled from the code, powered by a robust JSON Engine.
+</div>
 
 ---
 
-## 🛠 Tech Stack
+## 📖 About The Project
 
-We utilize a **modern, decoupled architecture** to ensure scalability and readiness for future Machine Learning integration.
+**The Corruptor** is a **Data-Driven Text-Based Simulation Game** that puts users in the shoes of public officials facing real-world moral dilemmas. Using gamification and psychological decision-making mechanics, it demonstrates the "slippery slope" of corruption.
 
-- **Backend:** Python (FastAPI)
-  - _Why?_ Native async performance, strict data validation (Pydantic), and a rich AI/ML ecosystem (Pandas/Scikit-learn) for future behavioral analysis.
-- **Frontend:** React.js (Vite) + Tailwind CSS
-  - _Why?_ Reactive UI for instant feedback and immersive experience.
-- **Data Engine:** JSON-based Dynamic Loader
-  - _Why?_ Allows non-technical writers to update stories without touching the codebase.
+Players must balance three critical metrics:
+
+1.  **💰 Personal Wealth** (Kekayaan Pribadi)
+2.  **📢 Public Trust** (Kepercayaan Publik)
+3.  **⚖️ Investigation Risk** (Risiko Pidana)
 
 ---
 
 ## 📂 Project Structure
 
+Based on the current development environment:
+
 ```bash
-/project-root
+project-root/
 │
-├── /backend                # Python FastAPI Service
+├── backend/                # Server-side Logic
 │   ├── app/
-│   │   ├── main.py         # API Gateway
-│   │   ├── logic.py        # Game Math Engine
-│   │   └── data/stories/   # JSON Story Files (The Narratives)
-│   └── requirements.txt
+│   │   ├── data/stories/   # JSON Narrative Files (e.g., hayes.json)
+│   │   ├── database.py     # DB Connection Logic
+│   │   ├── logic.py        # Game Calculation Engine
+│   │   ├── main.py         # API Gateway (FastAPI Entry Point)
+│   │   └── models.py       # Pydantic Schemas
+│   ├── venv/               # Python Virtual Environment
+│   ├── requirements.txt    # Python Dependencies
+│   └── README.md
 │
-├── /The-Corrupt            # Frontend Application (React)
+├── frontend/               # Client-side Application
+│   ├── public/             # Static Assets
 │   ├── src/
-│   │   ├── services/       # API Integration Layer
-│   │   └── components/     # UI Components
-│   └── package.json
+│   │   ├── components/     # React UI Components (HUD, StoryScreen, etc.)
+│   │   ├── data/           # API Handlers & Static JS Data
+│   │   ├── App.jsx         # Main Router
+│   │   └── main.jsx        # React Entry Point
+│   ├── index.html          # HTML Root
+│   ├── package.json        # Node Dependencies
+│   ├── vite.config.js      # Bundler Config
+│   └── README.md
 │
-└── README.md               # Project Documentation
+└── README.md               # This Documentation
 ```
+````
 
 ---
 
 ## 🚀 Quick Start (Local Development)
 
-### 1\. Backend Setup (The Brain)
+Follow these instructions to set up the project on your local machine.
 
-Make sure you have **Python 3.9+** installed.
+### 1. Backend Setup (The Brain)
+
+Open a terminal and navigate to the `backend` folder.
 
 ```bash
+# 1. Enter backend directory
 cd backend
 
-# Create virtual environment (Optional)
+# 2. Create virtual environment
 python -m venv venv
-# Activate it (Windows: venv\Scripts\activate | Mac/Linux: source venv/bin/activate)
 
-# Install dependencies
-pip install fastapi uvicorn
+# 3. Activate environment
+# For Windows:
+venv\Scripts\activate
+# For Mac/Linux:
+source venv/bin/activate
 
-# Run the Server
+# 4. Install dependencies
+pip install -r requirements.txt
+
+# 5. Run the Server
+# Note: We run app.main because main.py is inside the 'app' folder
 uvicorn app.main:app --reload
+
 ```
 
-_Backend runs at:_ `http://localhost:8000`  
-_API Docs:_ `http://localhost:8000/docs`
+_Backend will run at:_ `http://localhost:8000`
 
-### 2\. Frontend Setup (The Face)
+### 2. Frontend Setup (The Face)
 
-Make sure you have **Node.js** installed.
+Open a **new terminal** and navigate to the `frontend` folder.
 
 ```bash
+# 1. Enter frontend directory
 cd frontend
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Run the App
+# 3. Configure Environment (Optional but recommended)
+# Create a .env file inside /frontend folder:
+echo "VITE_API_BASE_URL=http://localhost:8000" > .env
+
+# 4. Run the App
 npm run dev
+
 ```
 
-_Frontend runs at:_ `http://localhost:5173`
+_Frontend will run at:_ `http://localhost:5173`
 
 ---
 
-## 🔌 API Contract (Integration Guide)
+## 🔌 API Contract
 
-Communication between Frontend and Backend follows this strict contract.
+The frontend communicates with the backend via these primary endpoints:
 
-### 1\. Get Available Stories
-
-Fetches the list of playable characters for the main menu.
-
-- **Endpoint:** `GET /stories`
-- **Response:**
-  ```json
-  {
-    "stories": [
-      {
-        "story_id": "jaksa_hayes",
-        "title": "Shadow Behind the Marble Table",
-        "role": "Mr. Hayes (Prosecutor)",
-        "desc": "You are a Prosecutor trapped in debt..."
-      }
-    ]
-  }
-  ```
-
-### 2\. Start Game
-
-Initializes a new session for a specific character.
-
-- **Endpoint:** `POST /start-game`
-- **Body:** `{"story_id": "jaksa_hayes"}`
-- **Response:**
-  ```json
-  {
-    "session_id": "uuid-string",
-    "stats": { "money": 10000, "trust": 50, "risk": 0 },
-    "current_scenario": {
-      "id": "chapter1",
-      "title": "The Salary Dilemma",
-      "description": "Your salary is gone...",
-      "choices": [...]
-    }
-  }
-  ```
-
-### 3\. Submit Answer
-
-Sends the player's choice to calculate consequences.
-
-- **Endpoint:** `POST /submit-answer`
-- **Body:** `{"session_id": "...", "choice_id": "A"}`
-- **Response:**
-  ```json
-  {
-    "game_status": "ONGOING",
-    "stats_update": { "money": 60000, "trust": 15, "risk": 10 },
-    "feedback_text": "You are rich, but people are suspicious.",
-    "next_scenario": { ... }
-  }
-  ```
+| Method | Endpoint         | Description                                     |
+| ------ | ---------------- | ----------------------------------------------- |
+| `GET`  | `/stories`       | Fetches list of available characters/scenarios. |
+| `POST` | `/start-game`    | Initializes a new game session.                 |
+| `POST` | `/submit-answer` | Sends player choice & calculates consequences.  |
 
 ---
 
-## 📝 Story Engine Schema (JSON)
+## 👥 The Team
 
-Our engine allows **dynamic storytelling**. Narrative designers create content in JSON format located in `backend/app/data/stories/`.
+Built for **Devpost Hackathon 2025**.
 
-**Structure Example:**
-
-```json
-{
-  "story_id": "unique_id",
-  "title": "Story Title",
-  "role_name": "Character Role",
-  "chapters": {
-    "chapter1": {
-      "title": "Scenario Title",
-      "description": "Narrative text...",
-      "dilemma": "What will you do?",
-      "choices": {
-        "A": {
-          "description": "Take the Bribe",
-          "money": 50000,
-          "trust": -20,
-          "risk": 10,
-          "next": "chapter2_A",
-          "feedback": "Instant wealth, but at what cost?"
-        }
-      }
-    }
-  }
-}
-```
+- **Backend Architecture:** [Fatih Jawwad](https://www.google.com/search?q=https://github.com/jaweed3)
+- **Frontend Engineering:** [Farrel Ghozy](https://www.google.com/search?q=https://github.com/FarrelGhozy)
+- **System Integration:** [Syahansyah Naufal](https://www.google.com/search?q=https://github.com/shahansyah)
+- **Narrative Design:** [Rifda Zahrina](https://www.google.com/search?q=https://github.com/rifdazahrina)
 
 ---
 
-## 🔮 Future Roadmap
-
-1.  **Corruption Profiler (ML):** We are collecting behavioral data to train a classification model that profiles user corruption archetypes (e.g., "The Opportunist" vs "The Mastermind").
-2.  **Global Leaderboard:** Compare your "Integrity Score" with other players globally.
-3.  **Real-time Analytics:** Dashboard to visualize how easily average users succumb to temptation.
-
----
-
-### 👥 Team
-
-- **Backend & Logic:** Fatih Jawwad
-- **Frontend & UI:** Farrel Ghozy
-- **Integration:** Syahansyah Naufal
-- **Narrative Design:** Rifda ?
+<div align="center">
+<small>Open Source Project under MIT License</small>
+</div>
 
 > _Built for Devpost Hackathon 2025_

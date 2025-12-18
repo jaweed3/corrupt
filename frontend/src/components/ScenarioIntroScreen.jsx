@@ -23,9 +23,6 @@ export default function ScenarioIntroScreen({ scenario, onStart, onBack }) {
         <h1 className="text-3xl sm:text-4xl font-bold text-white uppercase tracking-wider mb-2 drop-shadow-lg">
           {scenario.title}
         </h1>
-        <p className="text-amber-600 font-mono text-sm tracking-[0.2em] uppercase">
-          "{scenario.subtitle}"
-        </p>
       </div>
       <div className="bg-slate-950/50 p-6 rounded-lg border border-slate-800/50 text-sm leading-relaxed text-slate-300">
         {scenario.desc}
