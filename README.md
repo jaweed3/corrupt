@@ -1,4 +1,3 @@
-
 <div align="center">
 
 # 🕵️‍♂️ The Corruptor
@@ -75,23 +74,16 @@ Follow these instructions to set up the project on your local machine.
 Open a terminal and navigate to the `backend` folder.
 
 ```bash
-# 1. Enter backend directory
-cd backend
-
-# 2. Create virtual environment
+cd backend #to backend
+# 1. Buat virtual environment (Opsional tapi disarankan)
 python -m venv venv
+# Windows: venv\Scripts\activate
+# Mac/Linux: source venv/bin/activate
 
-# 3. Activate environment
-# For Windows:
-venv\Scripts\activate
-# For Mac/Linux:
-source venv/bin/activate
+# 2. Install Library
+pip install fastapi uvicorn
 
-# 4. Install dependencies
-pip install -r requirements.txt
-
-# 5. Run the Server
-# Note: We run app.main because main.py is inside the 'app' folder
+# 3. Jalankan Server
 uvicorn app.main:app --reload
 
 ```
@@ -109,11 +101,7 @@ cd frontend
 # 2. Install dependencies
 npm install
 
-# 3. Configure Environment (Optional but recommended)
-# Create a .env file inside /frontend folder:
-echo "VITE_API_BASE_URL=http://localhost:8000" > .env
-
-# 4. Run the App
+# 3 Run the App
 npm run dev
 
 ```
