@@ -1,49 +1,45 @@
 // src/api.js
 import axios from "axios";
 
-// Pastikan port sesuai dengan tempat FastAPI berjalan (default 8000)
-const API_BASE_URL = "http://localhost:8000";
+// Base URL diambil dari environment variable (Vite)
+const API_BASE_URL = import.meta.env.VITE_API_URL;
+
+if (!API_BASE_URL) {
+  throw new Error(
+    "VITE_API_URL is not defined. Please set it in your environment variables."
+  );
+}
 
 const api = axios.create({
   baseURL: API_BASE_URL,
   headers: {
     "Content-Type": "application/json",
   },
+  timeout: 15000, // aman untuk network cloud
 });
 
+// =========================
+// API Calls
+// =========================
+
 export const getStories = async () => {
-  try {
-    const response = await api.get("/stories");
-    return response.data.stories; // Mengembalikan array metadata cerita
-  } catch (error) {
-    console.error("Error fetching stories:", error);
-    throw error;
-  }
+  const response = await api.get("/stories");
+  return response.data.stories;
 };
 
 export const startGame = async (storyId) => {
-  try {
-    // Sesuai payload StartGameRequest di backend
-    const response = await api.post("/start-game", { story_id: storyId });
-    return response.data; // { session_id, stats, current_scenario }
-  } catch (error) {
-    console.error("Error starting game:", error);
-    throw error;
-  }
+  const response = await api.post("/start-game", {
+    story_id: storyId,
+  });
+  return response.data;
 };
 
 export const submitAnswer = async (sessionId, choiceId) => {
-  try {
-    // Sesuai payload SubmitAnswerRequest di backend
-    const response = await api.post("/submit-answer", {
-      session_id: sessionId,
-      choice_id: choiceId,
-    });
-    return response.data; // { game_status, stats_update, feedback_text, next_scenario }
-  } catch (error) {
-    console.error("Error submitting answer:", error);
-    throw error;
-  }
+  const response = await api.post("/submit-answer", {
+    session_id: sessionId,
+    choice_id: choiceId,
+  });
+  return response.data;
 };
 
 export default api;
