@@ -1,140 +1,146 @@
-<div align="center">
+# 🕵️‍♂️ The Corruptor: Simulation Edukasi Korupsi
 
-# 🕵️‍♂️ The Corruptor
+[![Docker](https://img.shields.io/badge/Docker-24.0+-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.95+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![Tailwind](https://img.shields.io/badge/Tailwind-3.4+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-**Corruption Education Simulator**
-
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.95+-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![React](https://img.shields.io/badge/React-18-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Vite](https://img.shields.io/badge/Vite-4.0+-646CFF?style=for-the-badge&logo=vite&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-> _"Don't just tell people corruption is bad. Let them feel the weight of the temptation, and the fatality of the consequences."_
-
-[🚀 View Live Demo](#) · [🐛 Report Bug](#) · [✨ Request Feature](#)
-
-</div>
+**The Corruptor** adalah sebuah *Data-Driven Text-Based Simulation Game* yang dirancang untuk mengedukasi masyarakat mengenai bahaya dan mekanisme korupsi melalui pendekatan gamifikasi. Pemain akan berperan sebagai pejabat publik yang dihadapkan pada berbagai dilema moral, di mana setiap pilihan memiliki konsekuensi nyata terhadap integritas dan masa depan mereka.
 
 ---
 
-## 📖 About The Project
+## 📖 Tentang Proyek
 
-**The Corruptor** is a **Data-Driven Text-Based Simulation Game** that puts users in the shoes of public officials facing real-world moral dilemmas. Using gamification and psychological decision-making mechanics, it demonstrates the "slippery slope" of corruption.
+Proyek ini bertujuan untuk menunjukkan fenomena *"Slippery Slope"*—bagaimana kompromi kecil pada integritas dapat berujung pada kehancuran sistemik.
 
-Players must balance three critical metrics:
-
-1.  **💰 Personal Wealth** (Kekayaan Pribadi)
-2.  **📢 Public Trust** (Kepercayaan Publik)
-3.  **⚖️ Investigation Risk** (Risiko Pidana)
+### 📊 Mekanisme Utama (Game Metrics)
+Pemain harus mengelola tiga indikator utama yang saling berkaitan:
+1.  **💰 Dana (Money)**: Representasi kekayaan pribadi atau dana operasional. Bisa bertambah melalui suap, namun meningkatkan risiko.
+2.  **🤝 Kepercayaan (Trust)**: Indikator legitimasi publik dan rekan kerja. Jika mencapai **0**, Anda akan dipecat atau didemo (Game Over).
+3.  **⚠️ Risiko (Risk)**: Akumulasi kecurigaan pihak berwenang (KPK). Jika mencapai **100**, Anda akan ditangkap (Game Over).
 
 ---
 
-## 📂 Project Structure
-
-Based on the current development environment:
+## 📂 Struktur Repositori
 
 ```bash
-project-root/
-│
-├── backend/                # Server-side Logic
+The-Corruptor/
+├── backend/                # Layanan API (Python & FastAPI)
 │   ├── app/
-│   │   ├── data/stories/   # JSON Narrative Files (e.g., hayes.json)
-│   │   ├── database.py     # DB Connection Logic
-│   │   ├── logic.py        # Game Calculation Engine
-│   │   ├── main.py         # API Gateway (FastAPI Entry Point)
-│   │   └── models.py       # Pydantic Schemas
-│   ├── venv/               # Python Virtual Environment
-│   ├── requirements.txt    # Python Dependencies
-│   └── README.md
-│
-├── frontend/               # Client-side Application
-│   ├── public/             # Static Assets
+│   │   ├── data/stories/   # Database Skenario (JSON)
+│   │   ├── database.py     # Engine pemuatan cerita
+│   │   ├── logic.py        # Kalkulator statistik & Game Over
+│   │   ├── main.py         # Entry point FastAPI
+│   │   └── models.py       # Definisi skema data (Pydantic)
+│   ├── Dockerfile          # Konfigurasi Container Backend
+│   └── requirements.txt    # Daftar dependensi Python
+├── frontend/               # Antarmuka Pengguna (React & Vite)
 │   ├── src/
-│   │   ├── components/     # React UI Components (HUD, StoryScreen, etc.)
-│   │   ├── data/           # API Handlers & Static JS Data
-│   │   ├── App.jsx         # Main Router
-│   │   └── main.jsx        # React Entry Point
-│   ├── index.html          # HTML Root
-│   ├── package.json        # Node Dependencies
-│   ├── vite.config.js      # Bundler Config
-│   └── README.md
-│
-└── README.md               # This Documentation
+│   │   ├── components/     # UI Components (HUD, Story, Screens)
+│   │   ├── data/           # Metadata Kreator
+│   │   └── api.js          # Client Axios untuk koneksi ke API
+│   ├── Dockerfile          # Konfigurasi Container Frontend
+│   └── package.json        # Daftar dependensi Node.js
+├── docker-compose.yml      # Orchestrator untuk menjalankan semua layanan
+└── README.md               # Dokumentasi Utama
 ```
 
 ---
 
-## 🚀 Quick Start (Local Development)
+## 🎮 Skenario yang Tersedia
 
-Follow these instructions to set up the project on your local machine.
+Game ini mendukung sistem cerita dinamis berbasis JSON. Saat ini tersedia 3 skenario utama:
+*   **Arshela: Anak Konglomerat**: Navigasi politik sebagai pewaris kekuasaan.
+*   **Hayes: Di Balik Meja Marmer**: Dilema seorang Jaksa yang terhimpit kebutuhan ekonomi.
+*   **Ketua Partai Yeska**: Manajemen dana kampanye dan loyalitas konstituen.
 
-### 1. Backend Setup (The Brain)
+---
 
-Open a terminal and navigate to the `backend` folder.
+## 🐳 Panduan Instalasi: Menggunakan Docker (Dari Nol)
 
+Metode ini sangat direkomendasikan karena Anda tidak perlu menginstal Python atau Node.js secara manual di komputer Anda.
+
+### Prasyarat
+1.  Instal **Docker Desktop** dari [docker.com](https://www.docker.com/products/docker-desktop/).
+2.  Pastikan Docker sudah berjalan di latar belakang.
+
+### Langkah-langkah
+1.  **Clone Repositori:**
+    ```bash
+    git clone https://github.com/username-anda/the-corruptor.git
+    cd the-corruptor
+    ```
+2.  **Jalankan dengan Docker Compose:**
+    ```bash
+    docker-compose up --build
+    ```
+3.  **Akses Aplikasi:**
+    *   **Main Game:** [http://localhost:5173](http://localhost:5173)
+    *   **Backend API:** [http://localhost:8000](http://localhost:8000)
+    *   **Dokumentasi API (Swagger):** [http://localhost:8000/docs](http://localhost:8000/docs)
+
+---
+
+## 🚀 Panduan Instalasi: Tanpa Docker (Dari Nol)
+
+Gunakan metode ini jika Anda ingin melakukan pengembangan (development) secara langsung pada kode.
+
+### Prasyarat
+1.  Instal **Python 3.10+** (Pastikan centang "Add to PATH").
+2.  Instal **Node.js 20+** (Termasuk npm).
+
+### Langkah-langkah
+
+#### 1. Menyiapkan Backend (API)
+Buka terminal baru di folder proyek:
 ```bash
-cd backend #to backend
-# 1. Buat virtual environment (Opsional tapi disarankan)
+cd backend
+
+# Buat Virtual Environment
 python -m venv venv
-# Windows: venv\Scripts\activate
-# Mac/Linux: source venv/bin/activate
 
-# 2. Install Library
-pip install fastapi uvicorn
+# Aktifkan Venv (Windows)
+venv\Scripts\activate
+# Aktifkan Venv (Mac/Linux)
+# source venv/bin/activate
 
-# 3. Jalankan Server
+# Install Dependensi
+pip install -r requirements.txt
+
+# Jalankan Server
 uvicorn app.main:app --reload
-
 ```
+Server backend akan berjalan di `http://localhost:8000`.
 
-_Backend will run at:_ `http://localhost:8000`
-
-### 2. Frontend Setup (The Face)
-
-Open a **new terminal** and navigate to the `frontend` folder.
-
+#### 2. Menyiapkan Frontend (UI)
+Buka terminal **baru** (jangan tutup terminal backend):
 ```bash
-# 1. Enter frontend directory
 cd frontend
 
-# 2. Install dependencies
+# Install Dependensi
 npm install
 
-# 3 Run the App
+# Jalankan Aplikasi Dev
 npm run dev
-
 ```
-
-_Frontend will run at:_ `http://localhost:5173`
-
----
-
-## 🔌 API Contract
-
-The frontend communicates with the backend via these primary endpoints:
-
-| Method | Endpoint         | Description                                     |
-| ------ | ---------------- | ----------------------------------------------- |
-| `GET`  | `/stories`       | Fetches list of available characters/scenarios. |
-| `POST` | `/start-game`    | Initializes a new game session.                 |
-| `POST` | `/submit-answer` | Sends player choice & calculates consequences.  |
+Buka browser Anda ke alamat `http://localhost:5173`.
 
 ---
 
-## 👥 The Team
+## 👥 Tim Pengembang
 
-Built for **Devpost Hackathon 2025**.
-
-- **Backend Architecture:** [Fatih Jawwad](https://www.google.com/search?q=https://github.com/jaweed3)
-- **Frontend Engineering:** [Farrel Ghozy](https://www.google.com/search?q=https://github.com/FarrelGhozy)
-- **System Integration:** [Syahansyah Naufal](https://www.google.com/search?q=https://github.com/shahansyah)
-- **Narrative Design:** [Rifda Zahrina](https://www.google.com/search?q=https://github.com/rifdazahrina)
+Proyek ini dibangun oleh tim kolaboratif:
+*   **Fatih Jawad Al Mumtaz** - Lead Developer & Backend Engineer
+*   **Farrel Ghozy Affifudin** - Frontend Developer
+*   **Rifda** - Narrative Designer
+*   **Syahan Syah** - Full Stack Integrator
 
 ---
 
+## 📜 Lisensi
+Proyek ini dilisensikan di bawah **MIT License**. Gunakan dengan bijak untuk tujuan edukasi.
+
+---
 <div align="center">
-<small>Open Source Project under MIT License</small>
+  <sub>Built with ❤️ for a Better Society.</sub>
 </div>
-
-> _Built for Devpost Hackathon 2025_
