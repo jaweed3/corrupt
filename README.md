@@ -1,3 +1,4 @@
+
 <div align="center">
 
 # 🕵️‍♂️ The Corruptor
@@ -11,32 +12,35 @@
 ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-> _"Don't just tell people corruption is bad. Let them feel the weight of the temptation, and the fatality of the consequences."_
 
-[🚀 View Live Demo](#) · [🐛 Report Bug](#) · [✨ Request Feature](#)
+[![Docker](https://img.shields.io/badge/Docker-24.0+-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.95+-009688?style=for-the-badge&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-19-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![Tailwind](https://img.shields.io/badge/Tailwind-3.4+-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
 
-</div>
+**The Corruptor** adalah sebuah *Data-Driven Text-Based Simulation Game* yang dirancang untuk mengedukasi masyarakat mengenai bahaya dan mekanisme korupsi melalui pendekatan gamifikasi. Pemain akan berperan sebagai pejabat publik yang dihadapkan pada berbagai dilema moral, di mana setiap pilihan memiliki konsekuensi nyata terhadap integritas dan masa depan mereka.
+
+---
+
+## 📖 Tentang Proyek
+
+Proyek ini bertujuan untuk menunjukkan fenomena *"Slippery Slope"*—bagaimana kompromi kecil pada integritas dapat berujung pada kehancuran sistemik.
+
+### 📊 Mekanisme Utama (Game Metrics)
+Pemain harus mengelola tiga indikator utama yang saling berkaitan:
+1.  **💰 Dana (Money)**: Representasi kekayaan pribadi atau dana operasional. Bisa bertambah melalui suap, namun meningkatkan risiko.
+2.  **🤝 Kepercayaan (Trust)**: Indikator legitimasi publik dan rekan kerja. Jika mencapai **0**, Anda akan dipecat atau didemo (Game Over).
+3.  **⚠️ Risiko (Risk)**: Akumulasi kecurigaan pihak berwenang (KPK). Jika mencapai **100**, Anda akan ditangkap (Game Over).
 
 ---
 
-## 📖 About The Project
-
-**The Corruptor** is a **Data-Driven Text-Based Simulation Game** that puts users in the shoes of public officials facing real-world moral dilemmas. Using gamification and psychological decision-making mechanics, it demonstrates the "slippery slope" of corruption.
-
-Players must balance three critical metrics:
-
-1.  **💰 Personal Wealth** (Kekayaan Pribadi)
-2.  **📢 Public Trust** (Kepercayaan Publik)
-3.  **⚖️ Investigation Risk** (Risiko Pidana)
-
----
 
 ## 📂 Project Structure
 
+
 ```bash
-project-root/
-│
-├── backend/                # Server-side Logic
+The-Corruptor/
+├── backend/                # Layanan API (Python & FastAPI)
 │   ├── app/
 │   │   ├── data/stories/   # JSON Narrative Files (e.g., hayes.json)
 │   │   ├── database.py     # DB Connection Logic
@@ -97,7 +101,28 @@ If you prefer running services individually on your machine.
 
 #### 1. Backend Setup (The Brain)
 
-Open a terminal and navigate to the `backend` folder.
+## 🐳 Panduan Instalasi: Menggunakan Docker (Dari Nol)
+
+Metode ini sangat direkomendasikan karena Anda tidak perlu menginstal Python atau Node.js secara manual di komputer Anda.
+
+### Prasyarat
+1.  Instal **Docker Desktop** dari [docker.com](https://www.docker.com/products/docker-desktop/).
+2.  Pastikan Docker sudah berjalan di latar belakang.
+
+### Langkah-langkah
+1.  **Clone Repositori:**
+    ```bash
+    git clone https://github.com/username-anda/the-corruptor.git
+    cd the-corruptor
+    ```
+2.  **Jalankan dengan Docker Compose:**
+    ```bash
+    docker-compose up --build
+    ```
+3.  **Akses Aplikasi:**
+    *   **Main Game:** [http://localhost:5173](http://localhost:5173)
+    *   **Backend API:** [http://localhost:8000](http://localhost:8000)
+    *   **Dokumentasi API (Swagger):** [http://localhost:8000/docs](http://localhost:8000/docs)
 
 ```bash
 cd backend
@@ -113,14 +138,35 @@ pip install -r requirements.txt
 # 3. Run Server
 uvicorn app.main:app --reload
 
+### Prasyarat
+1.  Instal **Python 3.10+** (Pastikan centang "Add to PATH").
+2.  Instal **Node.js 20+** (Termasuk npm).
+
+### Langkah-langkah
+
+#### 1. Menyiapkan Backend (API)
+Buka terminal baru di folder proyek:
+```bash
+cd backend
+
+# Buat Virtual Environment
+python -m venv venv
+
+# Aktifkan Venv (Windows)
+venv\Scripts\activate
+# Aktifkan Venv (Mac/Linux)
+# source venv/bin/activate
+
+# Install Dependensi
+pip install -r requirements.txt
+
+# Jalankan Server
+uvicorn app.main:app --reload
 ```
+Server backend akan berjalan di `http://localhost:8000`.
 
-*Backend will run at:* `http://localhost:8000`
-
-#### 2. Frontend Setup (The Face)
-
-Open a **new terminal** and navigate to the `frontend` folder.
-
+#### 2. Menyiapkan Frontend (UI)
+Buka terminal **baru** (jangan tutup terminal backend):
 ```bash
 cd frontend
 
@@ -129,14 +175,13 @@ npm install
 
 # 2. Run the App
 npm run dev
-
 ```
 
 *Frontend will run at:* `http://localhost:5173`
 
 ---
 
-## 🔌 API Contract
+## 👥 Tim Pengembang
 
 The frontend communicates with the backend via these primary endpoints:
 
@@ -158,9 +203,8 @@ Built for **Devpost Hackathon 2025**.
 * **Narrative Design:** [Rifda Zahrina](https://www.google.com/search?q=https://github.com/rifdazahrina)
 
 ---
-
 <div align="center">
-<small>Open Source Project under MIT License</small>
+  <sub>Built with ❤️ for a Better Society.</sub>
 </div>
 
 > *Built for Devpost Hackathon 2025*
